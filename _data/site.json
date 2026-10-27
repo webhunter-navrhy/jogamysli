@@ -1,0 +1,67 @@
+{
+ "slug": "jogamysli",
+ "nazev": "Jóga mysli – Radana Makariusová",
+ "znacka": "Žijeme s lehkostí",
+ "url": "https://webhunter-navrhy.github.io/jogamysli/",
+ "base": "/jogamysli/",
+ "lang": "cs",
+ "popis": "Jóga mysli PhDr. Radany Makariusové: individuální Akademie jógy mysli, transformační energetické procesy, audiomeditace a retreaty. Praha i online.",
+ "navrh": true,
+ "domena": "joga-mysli.cz",
+ "og_image": "og.jpg",
+ "logo": "",
+ "theme_color": "#fffbf3",
+ "typ": "ProfessionalService",
+ "ico": "61023442",
+ "kontakt": {
+  "email": "radana@makarius.cz",
+  "telefon": "+420 777 223 188",
+  "adresa": {
+   "ulice": "",
+   "psc": "",
+   "mesto": "Praha",
+   "zeme": "CZ"
+  }
+ },
+ "oteviraci_doba": [],
+ "sameas": [
+  "https://obrazy-z-nitra.cz/"
+ ],
+ "cenove_rozpeti": "",
+ "formular": {
+  "endpoint": "",
+  "demo": true,
+  "predmet": "Poptávka z webu Jóga mysli"
+ },
+ "obrazy_url": "https://obrazy-z-nitra.cz/",
+ "nav": [
+  {
+   "text": "Akademie",
+   "href": "akademie-jogy-mysli"
+  },
+  {
+   "text": "Energetické procesy",
+   "href": "transformativni-energeticke-procesy"
+  },
+  {
+   "text": "Meditace",
+   "href": "audiomeditace"
+  },
+  {
+   "text": "Retreaty",
+   "href": "retreaty"
+  },
+  {
+   "text": "Online kurz",
+   "href": "online-kurz"
+  },
+  {
+   "text": "Blog",
+   "href": "blog"
+  },
+  {
+   "text": "O mně",
+   "href": "o-mne"
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{% extends "_base.html" %}
+{% import "_m.html" as m with context %}
+{% set titulek = "Meditace do uší – audiomeditace 10+1 | Radana Makariusová" %}
+{% set popis = "Audiomeditace Radany Makariusové: 11 meditací a mentálních cvičení pro klid, uvolnění a vědomou pozornost. Ukázka Vše je dobré zdarma, balíček 10+1 i jako dárkový voucher." %}
+{% set cesta = "audiomeditace/" %}
+{% set md = data.meditace %}
+{% block obsah %}
+
+{% call m.hlava("Meditace do uší", "Chvíle jen pro vás – relaxační i mentální cvičení pro vnitřní pohodu, klid a lehkost."|nbsp, "obraz-meditace.jpg", "Zlatý obraz Radany Makariusové se třemi propletenými kruhy", "Audiomeditace") %}
+<ul class="body4" style="max-width: 34rem">{% for b in md.prinosy %}<li>{{ b|capitalize }}</li>{% endfor %}</ul>
+<div class="hlava-akce">
+  <a class="tlacitko" href="#ukazka">Poslechnout ukázku zdarma</a>
+  <a class="odkaz" href="{{ md.koupit }}" target="_blank" rel="noopener">Koupit balíček {{ m.ven() }}</a>
+</div>
+{% endcall %}
+
+<section class="sekce pruh" id="ukazka">
+  <div class="wrap">
+    {{ m.prehravac(md.seznam[0], "Vyzkoušejte ukázku zdarma, jestli vám bude vyhovovat hlas, téma, atmosféra.") }}
+  </div>
+</section>
+
+<section class="sekce" aria-labelledby="seznam-h">
+  <div class="wrap">
+    <div class="sekce-hlava">
+      <h2 class="h2" id="seznam-h">Meditace v&nbsp;balíčku</h2>
+      <p>{{ "Ke každé meditaci patří jeden obraz s poselstvím z galerie Obrazy z nitra. Klikněte na obraz a přečtěte si celé poselství."|nbsp }}</p>
+    </div>
+    <ul class="meditace-seznam">
+      {% for x in md.seznam %}{% set o = data.obrazy[x.obraz] %}
+      <li class="r">
+        <a class="m-obraz" href="{{ o.url }}" target="_blank" rel="noopener" aria-label="Obraz {{ o.nazev }} v galerii Obrazy z nitra">{{ m.kruh(o.img, "", "6rem") }}</a>
+        <div>
+          <h3>{{ x.nazev }}</h3>
+          <p>{{ x.popis|nbsp }}</p>
+          <a class="m-obraz-odkaz" href="{{ o.url }}" target="_blank" rel="noopener">Obraz: {{ o.nazev }} {{ m.ven() }}</a>
+        </div>
+        <span class="m-delka">{{ x.delka }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="sekce pruh" style="padding-block: clamp(4rem, 8vw, 6.5rem)" aria-labelledby="balicek-h">
+  <div class="wrap">
+    <div class="balicek r">
+      {{ m.kruh("obraz-meditace.jpg", "", "13rem", "otacet") }}
+      <div>
+        <p class="stitek">Dárkový balíček audiomeditací</p>
+        <h2 class="h2" id="balicek-h">10+1 audiomeditací a&nbsp;průvodní text</h2>
+        <p>{{ "V případě, že budete chtít balíček audiomeditací někomu darovat, můžete si zakoupit dárkový voucher."|nbsp }}</p>
+        <div class="akce">
+          <a class="tlacitko" href="{{ md.koupit }}" target="_blank" rel="noopener">Koupit audiomeditace</a>
+          <a class="odkaz" href="{{ md.voucher }}" target="_blank" rel="noopener">Koupit jako dárkový voucher {{ m.ven() }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ m.faq([data.faq[2]]) }}
+{{ m.formular(["Audiomeditace", "Informativní konzultace zdarma", "Akademie jógy mysli"], "Máte k&nbsp;meditacím otázku?"|safe, "Odeslat") }}
+{% endblock %}
+{% block head %}{{ faq_ld([data.faq[2]]) }}{% endblock %}

@@ -1,0 +1,7 @@
+{% extends "_base.html" %}
+{% set titulek = "Ochrana osobních údajů | Jóga mysli – Radana Makariusová" %}
+{% set cesta = "gdpr/" %}
+{% block obsah %}
+<section class="clanek-hlava"><div class="wrap"><p class="stitek">GDPR</p><h1>{{ data.gdpr.nadpis }}</h1></div></section>
+<section class="sekce" style="padding-top: 0"><div class="wrap"><div class="prose-pravni">{{ data.gdpr.obsah|safe }}</div></div></section>
+{% endblock %}

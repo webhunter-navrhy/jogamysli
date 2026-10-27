@@ -1,0 +1,35 @@
+{
+ "voucher": "https://form.simpleshop.cz/2lNQR/buy/",
+ "body": [
+  "Uvolnění energetických bloků",
+  "Aktivace vnitřní energie",
+  "Podpora toku životní síly",
+  "Otevření prostoru pro nové vhledy"
+ ],
+ "cenik": [
+  [
+   "Energetický transformační proces",
+   "90 minut",
+   "1 999",
+   false
+  ],
+  [
+   "Energetický transformační proces",
+   "120 minut",
+   "2 499",
+   false
+  ],
+  [
+   "Komplexní energetický transformační proces",
+   "3–4 hodiny",
+   "3 900",
+   true
+  ],
+  [
+   "Celodenní energetický workshop",
+   "propojení energetických procesů a úvodu do jógy mysli, 9:30–17:00 s obědem a občerstvením",
+   "9 900",
+   false
+  ]
+ ]
+}

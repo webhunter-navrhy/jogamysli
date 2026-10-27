@@ -1,0 +1,97 @@
+{% extends "_base.html" %}
+{% import "_m.html" as m with context %}
+{% set titulek = "Akademie jógy mysli – individuální doprovázení | Radana Makariusová" %}
+{% set popis = "Akademie jógy mysli: individuální program pro rozvíjení vnitřního klidu, rovnováhy a lehkosti. Roční, půlroční i zkušební program, osobně v Praze nebo online." %}
+{% set cesta = "akademie-jogy-mysli/" %}
+{% set a = data.akademie %}
+{% block obsah %}
+
+{% call m.hlava("Akademie jógy mysli", "Akademie jógy mysli je kurzem pro rozvíjení schopnosti vnitřního klidu, rovnováhy a lehkosti na základě práce s myslí a nitrem."|nbsp, "obraz-akademie.jpg", "Zlatý kruhový obraz Radany Makariusové", "Individuální doprovázení") %}
+<div class="hlava-akce">
+  <a class="tlacitko" href="#programy">Zobrazit možnosti</a>
+  <a class="odkaz" href="#formular" data-zajem="Zkušební program bez závazků">Vyzkoušet bez závazku {{ m.sipka() }}</a>
+</div>
+{% endcall %}
+
+<section class="sekce pruh" aria-labelledby="uceni-h" style="padding-block: clamp(4rem, 8vw, 6.5rem)">
+  <div class="wrap">
+    <h2 class="h2" id="uceni-h" style="max-width: 18ch">V rámci doprovázení se spolu učíme</h2>
+    <ul class="slovesa">
+      {% for u in a.uceni %}<li class="r"><strong>{{ u[0] }}</strong><span>{{ u[1]|nbsp }}</span></li>{% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="sekce">
+  <div class="wrap dvoj">
+    <figure class="foto oblouk r">{{ img("sezeni.jpg", "Radana Makariusová při individuální konzultaci", "(min-width: 860px) 40vw, 90vw") }}</figure>
+    <div class="text">
+      <p class="velky r">{{ "Jedná se o vzdělávací individuální program one to one zaměřený na zvládání osvobozujícího umění vnitřní vědomé pozornosti."|nbsp }}</p>
+      <p class="r">{{ "Cesta jógy mysli je hloubkovou praxí, která vede k postupnému osvobození od pocitů omezení a vnitřního tlaku. Je určena pro všechny, kdo chtějí vykročit na cestu vnitřní transformace, která vede ke klidu a svobodě."|nbsp }}</p>
+      <h3 class="r" style="font-size: clamp(1.7rem, 2.4vw, 2.2rem); margin-top: 2.5rem">Cesta Akademie poskytuje</h3>
+      <div class="ctyri">
+        {% for p in a.poskytuje %}<div class="r"><h4 style="font-size: 1.45rem; margin-bottom: .3rem">{{ p[0] }}</h4><p>{{ p[1]|nbsp }}</p></div>{% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sekce" style="padding-top: 0">
+  <div class="wrap dvoj obracene">
+    <figure class="foto r">{{ img("proces-rozhovor.jpg", "Rozhovor během konzultace jógy mysli", "(min-width: 860px) 40vw, 90vw") }}</figure>
+    <div class="text">
+      <blockquote class="citat r" style="margin-top: 0"><p>Propojujeme tělo i mysl, uvolňujeme napětí a&nbsp;rozvíjíme rovnováhu.</p></blockquote>
+      <p class="r">{{ "V Akademii jógy mysli kombinujeme mentální cvičení, práci s inspirativními texty na jednotlivá témata a uvolňující transformativní masáže. Jejich cílem je pomoci tělu i mysli propojit se a uvolnit případné napětí, neboť mentální transformace začíná u těla. Během každé konzultace společně probíráme otázky a zkušenosti z daného tématu a cvičíme mentální techniky, učíme se vědomému uvolnění a uklidnění mysli."|nbsp }}</p>
+      <p class="r">{{ "Pro ty, kteří si chtějí nejprve vyzkoušet, co Akademie přináší, nabízím i kratší zkušební období."|nbsp }}</p>
+      <a class="odkaz r" href="#formular" data-zajem="Zkušební program bez závazků">Jdu do toho {{ m.sipka() }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="sekce pruh programy" id="programy" aria-labelledby="programy-h">
+  <div class="wrap">
+    <div class="sekce-hlava">
+      <h2 class="h2" id="programy-h">Přehled programů a&nbsp;ceník</h2>
+      <p>{{ "Akademie je nastavena na dlouhodobou spolupráci, aby bylo možné umění vědomé pozornosti vnitřně pojmout a zapracovat."|nbsp }}</p>
+    </div>
+    <div class="prepinac" role="radiogroup" aria-label="Forma setkávání">
+      <input type="radio" name="forma" id="forma-osobne" checked><label for="forma-osobne">Osobně</label>
+      <input type="radio" name="forma" id="forma-online"><label for="forma-online">Online (bez energetických procesů)</label>
+    </div>
+    <div class="programy-grid">
+      {% for p in a.programy %}
+      <article class="program r">
+        <h3>{{ p.nazev }}</h3>
+        <ul class="program-info">
+          <li><b>Setkávání:</b> {{ p.frekvence }}</li>
+          <li class="cena-osobne"><b>Délka konzultace:</b> {{ p.delka[0] }}</li>
+          <li class="cena-online"><b>Délka konzultace:</b> {{ p.delka[1] }}</li>
+          <li><b>Počet setkání:</b> {{ p.setkani }}</li>
+        </ul>
+        <div class="ceny">
+          {% for c in p.ceny %}
+          <div class="cena cena-osobne"><span>{{ c[0] or "Cena" }}</span><strong>{{ c[1] }} Kč</strong></div>
+          <div class="cena cena-online"><span>{{ c[0] or "Cena" }}</span><strong>{{ c[2] }} Kč</strong></div>
+          {% endfor %}
+        </div>
+        <ul class="obsahuje">
+          {% for pol in a.polozky %}<li class="{{ 'ne' if not p.obsahuje[loop.index0] }}{{ ' osobne-jen' if loop.index0 == 1 and p.obsahuje[1] }}">{{ pol }}</li>{% endfor %}
+        </ul>
+        <a class="tlacitko svetle" href="#formular" data-zajem="{{ p.nazev }}">Přihlásit se</a>
+      </article>
+      {% endfor %}
+    </div>
+    <p class="poznamka">{{ "Pokud byste si přáli přístup jógy mysli nejprve vyzkoušet, vytvořila jsem i možnost kratší zkušební spolupráce. Informativní konzultace je zdarma."|nbsp }}</p>
+  </div>
+</section>
+
+<section class="sekce">
+  <div class="wrap" style="max-width: 62rem">
+    {{ m.reference_blok(data.reference[0], True) }}
+  </div>
+</section>
+
+{{ m.formular(["Roční program", "Půlroční program", "Zkušební program bez závazků", "Informativní konzultace zdarma"], "Přihlásit se do Akademie", "Odeslat přihlášku") }}
+{{ m.faq([data.faq[0]]) }}
+{% endblock %}
+{% block head %}{{ faq_ld([data.faq[0]]) }}{% endblock %}

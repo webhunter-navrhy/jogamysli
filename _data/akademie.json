@@ -1,0 +1,142 @@
+{
+ "uceni": [
+  [
+   "Rozvíjet",
+   "vnitřní vědomou pozornost"
+  ],
+  [
+   "Pracovat",
+   "s myšlenkami a vnitřními vzorci"
+  ],
+  [
+   "Uvolňovat",
+   "napětí a vypjaté emoce"
+  ],
+  [
+   "Harmonizovat",
+   "tělo a energie"
+  ],
+  [
+   "Objevovat",
+   "vnitřní klid"
+  ]
+ ],
+ "poskytuje": [
+  [
+   "Dostatek času",
+   "Skutečná změna zažitého uvažování vyžaduje čas a trpělivou praxi."
+  ],
+  [
+   "Vědomé vedení",
+   "Doprovázení jednotlivými kroky podle individuálních potřeb."
+  ],
+  [
+   "Praktickou využitelnost",
+   "To, co se učíme, není teorie, ale živá zkušenost, kterou lze uplatnit a žít v každodenním životě."
+  ],
+  [
+   "Vnitřní svobodu",
+   "Cílem je vnitřní vědomý klid a svoboda od omezení mysli."
+  ]
+ ],
+ "programy": [
+  {
+   "nazev": "Roční program",
+   "frekvence": "1× za 2 týdny (v létě 1× za 3 týdny)",
+   "delka": [
+    "2–2,5 h",
+    "1,5 h"
+   ],
+   "setkani": "až 24",
+   "ceny": [
+    [
+     "1. rok",
+     "99 000",
+     "79 000"
+    ],
+    [
+     "2. rok",
+     "89 000",
+     "74 000"
+    ],
+    [
+     "3. rok a další roky",
+     "79 000",
+     "69 000"
+    ]
+   ],
+   "obsahuje": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  },
+  {
+   "nazev": "Půlroční program",
+   "frekvence": "1× za 2 týdny (v létě 1× za 3 týdny)",
+   "delka": [
+    "2–2,5 h",
+    "1,5 h"
+   ],
+   "setkani": "až 12",
+   "ceny": [
+    [
+     "",
+     "46 000",
+     "36 000"
+    ]
+   ],
+   "obsahuje": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    false,
+    false
+   ]
+  },
+  {
+   "nazev": "Zkušební program bez závazků",
+   "frekvence": "1× za 2–3 týdny (max. 3 měsíce)",
+   "delka": [
+    "2 h",
+    "1,5 h"
+   ],
+   "setkani": "až 7",
+   "ceny": [
+    [
+     "za 1 setkání (období až 4 měsíce)",
+     "3 500",
+     "2 500"
+    ]
+   ],
+   "obsahuje": [
+    true,
+    true,
+    true,
+    false,
+    false,
+    false,
+    false,
+    false
+   ]
+  }
+ ],
+ "polozky": [
+  "Individuální konzultace jógy mysli",
+  "Energetické uvolňující masáže/procesy (jen osobně)",
+  "Zasílání materiálů na každou konzultaci",
+  "Vstupní materiály (kniha s pracovním sešitem, karty)",
+  "Rozbor Human Designu, se kterým pracujeme",
+  "Konzultace mailem (eventuálně telefonicky) kdykoli",
+  "Balíček audiomeditací",
+  "Přístup k online kurzu"
+ ]
+}

@@ -1,0 +1,140 @@
+{% extends "_base.html" %}
+{% import "_m.html" as m with context %}
+{% set titulek = "Jóga mysli – cesta do nitra k vnitřnímu klidu | Radana Makariusová" %}
+{% set cesta = "" %}
+{% block telo %}uvod{% endblock %}
+{% block obsah %}
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <p class="stitek">Jóga mysli · PhDr. Radana Makariusová, Ph.D.</p>
+      <h1>Cesta do nitra k&nbsp;vnitřnímu klidu a&nbsp;lehkosti</h1>
+      <p class="hero-perex">{{ "Pojďme společně objevit osvobozující umění vnitřní vědomé pozornosti a nechme, ať nás radost provází. Nalezneme ticho nitra, ze kterého vychází klid, lehkost a naplnění."|nbsp }}</p>
+      <div class="hero-akce">
+        <a class="tlacitko" href="{{ url('konzultace') }}">Informativní konzultace zdarma</a>
+        <a class="odkaz" href="#ukazka">Poslechnout ukázku meditace {{ m.sipka() }}</a>
+      </div>
+    </div>
+    <div class="hero-obraz dech" aria-label="Obraz Radany Makariusové, který dýchá: nádech 4 sekundy, výdech 6 sekund">
+      <span class="vlna"></span><span class="vlna"></span><span class="vlna"></span>
+      <span class="zare" aria-hidden="true"></span>
+      {{ m.kruh("obraz-hero.jpg", "Kruhový energetický obraz Radany Makariusové v zelených a zlatých tónech", "(min-width: 800px) 44vw, 86vw", "dychajici", eager=True) }}
+      <p class="dech-popis" aria-hidden="true"><span class="nadech">nádech</span><span class="vydech">výdech</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="sekce vitejte">
+  <div class="wrap vitejte-grid">
+    <figure class="vitejte-foto r">
+      {{ img("radana-u-stojanu.jpg", "Radana Makariusová u stojanu s rozmalovaným obrazem", "(min-width: 800px) 34vw, 90vw") }}
+    </figure>
+    <div class="vitejte-text">
+      <h2 class="h2 r">Vítejte na stránkách Jógy mysli</h2>
+      <p class="velky r">{{ "Jmenuji se Radana Makariusová a ráda vás budu doprovázet na vaší cestě do nitra k vnitřnímu klidu a lehkosti."|nbsp }}</p>
+      <p class="r">{{ "Jóga mysli je přístup, který jsem v průběhu 15 let poskládala dohromady jako moderní postup práce s myslí zaměřený na vnitřní transformaci. Učí nás vnitřní vědomé pozornosti a jejím cílem je harmonie, lehkost a osvobození od úzkosti a tlaku."|nbsp }}</p>
+      <blockquote class="citat r"><p>„Všichni si přejeme cítit se dobře, záleží na tom, jaký zaujímáme mentální postoj.“</p></blockquote>
+      <a class="odkaz r" href="{{ url('o-mne') }}">Více o mně {{ m.sipka() }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="sekce cesty" aria-labelledby="cesty-h">
+  <div class="wrap">
+    <div class="sekce-hlava">
+      <h2 class="h2" id="cesty-h">Kudy se můžeme vydat</h2>
+      <p>{{ "Pět cest jógy mysli. Každá vede z jiné strany do stejného středu: k tichu nitra."|nbsp }}</p>
+    </div>
+    <ul class="cesty-seznam">
+    {% for s in data.sluzby %}
+      <li class="r">
+        <a class="cesta" href="{{ url(s.href) }}">
+          {{ m.kruh(s.obraz, "", "(min-width: 800px) 10rem, 6rem", "otacet") }}
+          <span class="cesta-nazev">{{ s.nazev|nbsp }}</span>
+          <span class="cesta-veta">{{ s.veta|nbsp }}<small>{{ s.detail|nbsp }}</small></span>
+          <span class="cesta-akce">{{ s.akce }} {{ m.sipka() }}</span>
+        </a>
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="sekce ukazka" id="ukazka">
+  <div class="wrap">
+    {{ m.prehravac(data.meditace.seznam[0], "Vyzkoušejte, jestli vám bude vyhovovat hlas, téma a atmosféra. Pohodlně se posaďte se vzpřímenou páteří tak, aby vás nic nerušilo.") }}
+    <p class="ukazka-dal r"><a class="odkaz" href="{{ url('audiomeditace') }}">Všech 11 meditací a dárkový balíček {{ m.sipka() }}</a></p>
+  </div>
+</section>
+
+<section class="video">
+  <div class="wrap video-grid">
+    <blockquote class="video-citat r">
+      <p>„Všichni máme v sobě ten největší poklad, stačí jen jej v sobě objevit a poznat se v něm.“</p>
+      <footer>Radana Makariusová</footer>
+    </blockquote>
+    <div class="video-ram r" data-video data-src-mobil="{{ base }}media/promo-360.mp4" data-src="{{ base }}media/promo-720.mp4">
+      {{ img("promo-poster.jpg", "Náhled videa o józe mysli s Radanou Makariusovou", "(min-width: 800px) 60vw, 100vw") }}
+      <button class="video-play" type="button" aria-label="Přehrát video o józe mysli (3 min 20 s)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+        <span>Přehrát video · 3:20</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="sekce obrazy" aria-labelledby="obrazy-h">
+  <div class="wrap obrazy-hlava">
+    <div>
+      <p class="stitek">Sesterský web Obrazy z nitra</p>
+      <h2 class="h2" id="obrazy-h">Energetické obrazy s poselstvími</h2>
+    </div>
+    <div>
+      <p>{{ "Najednou jsem z čista jasna začala malovat energetické obrazy s poselstvími. Jsou to energetické zářiče na dané téma a mé velké životní překvapení. Na tomto webu doprovázejí meditace i články, celá galerie je na Obrazech z nitra."|nbsp }}</p>
+      <a class="odkaz" href="{{ site.obrazy_url }}" target="_blank" rel="noopener">Celá galerie na obrazy-z-nitra.cz {{ m.ven() }}</a>
+    </div>
+  </div>
+  <div class="pas" data-pas>
+    <ul class="pas-stopa">
+    {% for slug in ["o-hojnosti-a-blahobytu", "o-odvaze", "o-radosti", "o-rozhodnuti", "je-cas-vyjit-z-ulity", "o-kolobehu-zivota", "o-prijeti", "o-transformaci", "ze-tmy-do-svetla", "o-pochopeni"] %}
+      {% set o = data.obrazy[slug] %}
+      <li>
+        <a href="{{ o.url }}" target="_blank" rel="noopener" class="pas-obraz">
+          {{ m.kruh(o.img, "Obraz " ~ o.nazev, "(min-width: 800px) 17rem, 13rem", "otacet") }}
+          <span class="pas-nazev">{{ o.nazev }}</span>
+          <span class="pas-vers">{{ o.verse[0]|nbsp }}</span>
+        </a>
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="sekce reference" aria-labelledby="ref-h">
+  <div class="wrap ref-grid">
+    <div class="ref-hlava">
+      <h2 class="h2" id="ref-h">Kdo už prošel touto cestou</h2>
+      <p>{{ "Slova klientů Akademie jógy mysli a retreatu na Sahaře."|nbsp }}</p>
+    </div>
+    <div class="ref-seznam">
+      {% for r in data.reference %}{{ m.reference_blok(r, loop.first) }}{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="sekce blog-uvod" aria-labelledby="blog-h">
+  <div class="wrap">
+    <div class="sekce-hlava">
+      <h2 class="h2" id="blog-h">Z blogu</h2>
+      <a class="odkaz" href="{{ url('blog') }}">Všechny články {{ m.sipka() }}</a>
+    </div>
+    <div class="clanky-3">
+      {% for c in data.blog[:3] %}{{ m.clanek_karta(c) }}{% endfor %}
+    </div>
+  </div>
+</section>
+
+{{ m.formular(["Informativní konzultace zdarma", "Akademie jógy mysli", "Transformační energetické procesy", "Audiomeditace", "Retreaty", "Online kurz Akademie JM"], "Kontaktujte mě pro více informací") }}
+
+{% endblock %}

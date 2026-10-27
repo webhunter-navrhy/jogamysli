@@ -1,0 +1,148 @@
+{# Makra webu Jóga mysli. Import: {% import '_m.html' as m with context %} #}
+
+{% macro sipka() %}<svg class="sipka" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>{% endmacro %}
+{% macro ven() %}<svg class="ven" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 16 16 8M9 8h7v7" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>{% endmacro %}
+
+{# Kulatý obraz. Obrazy jsou čtvercové ořezy kruhových pláten. #}
+{% macro kruh(soubor, alt, sizes="20rem", cls="", eager=None) -%}
+<span class="kruh {{ cls }}">{{ img(soubor, alt, sizes, eager=eager) }}</span>
+{%- endmacro %}
+
+{# Obraz k tématu: most na Obrazy z nitra. #}
+{% macro obraz_tema(slug, nadpis="Obraz k tématu") %}
+{% set o = data.obrazy[slug] %}
+<aside class="tema r" aria-label="{{ nadpis }}: {{ o.nazev }}">
+  <a class="tema-kruh" href="{{ o.url }}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+    {{ kruh(o.img, "", "(min-width: 800px) 12rem, 9rem", "otacet") }}
+  </a>
+  <div class="tema-text">
+    <p class="stitek">{{ nadpis }} · Obrazy z nitra</p>
+    <p class="tema-nazev"><a href="{{ o.url }}" target="_blank" rel="noopener">{{ o.nazev }}</a></p>
+    <p class="verse">{% for v in o.verse %}{{ v|nbsp }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>
+    <a class="odkaz" href="{{ o.url }}" target="_blank" rel="noopener">Celé poselství a obraz v galerii {{ ven() }}</a>
+  </div>
+</aside>
+{% endmacro %}
+
+{# Přehrávač ukázky meditace. Obraz se při přehrávání otáčí, kolem něj běží kruh průběhu. #}
+{% macro prehravac(m, uvod="") %}
+{% set o = data.obrazy[m.obraz] %}
+<div class="prehravac" data-prehravac>
+  <div class="prehravac-obraz">
+    <svg class="prubeh" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="48.5" class="prubeh-dráha"/><circle cx="50" cy="50" r="48.5" class="prubeh-cara" pathLength="100"/></svg>
+    {{ kruh(o.img, "Obraz " ~ o.nazev ~ " od Radany Makariusové", "(min-width: 800px) 30rem, 80vw", "toci") }}
+    <button class="prehrat" type="button" aria-label="Přehrát ukázku meditace {{ m.nazev }}">
+      <svg class="ikona-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+      <svg class="ikona-pauza" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 5.5h3v13h-3zM13.5 5.5h3v13h-3z" fill="currentColor"/></svg>
+    </button>
+  </div>
+  <div class="prehravac-text">
+    <p class="stitek">Ukázka zdarma · {{ m.delka }} min</p>
+    <h2 class="h2">{{ m.nazev }}</h2>
+    <p class="velky">{{ m.popis|nbsp }}</p>
+    {% if uvod %}<p>{{ uvod|nbsp }}</p>{% endif %}
+    <div class="ovladani">
+      <button class="tlacitko hrat" type="button" data-hrat><span data-popis>Přehrát ukázku</span></button>
+      <span class="cas" aria-live="off"><span data-ted>0:00</span> / {{ m.delka }}</span>
+    </div>
+    <p class="obraz-k">Při poslechu se otáčí obraz <a href="{{ o.url }}" target="_blank" rel="noopener">{{ o.nazev }} {{ ven() }}</a></p>
+    <audio preload="none" src="{{ base }}media/vse-je-dobre.mp3"></audio>
+  </div>
+</div>
+{% endmacro %}
+
+{# Hlavička podstránky: text vlevo, kruhový obraz u pravého okraje, otáčí se se scrollem. #}
+{% macro hlava(nadpis, perex, obraz, alt, kicker="") %}
+<section class="hlava">
+  <div class="wrap hlava-grid">
+    <div class="hlava-text">
+      <p class="stitek">{{ kicker or "Jóga mysli" }}</p>
+      <h1>{{ nadpis|nbsp }}</h1>
+      <div class="hlava-perex">{{ perex }}</div>
+      {% if caller is defined %}{{ caller() }}{% endif %}
+    </div>
+    <div class="hlava-obraz">
+      {{ kruh(obraz, alt, "(min-width: 800px) 38vw, 70vw", "otacet-scroll", eager=True) }}
+    </div>
+  </div>
+</section>
+{% endmacro %}
+
+{# Formulář. volby = seznam možností „Mám zájem o“. #}
+{% macro formular(volby, nadpis="Kontaktujte mě pro více informací", tlacitko="Odeslat", vybrano="", text="") %}
+<section class="sekce kontakt" id="formular">
+  <div class="wrap kontakt-grid">
+    <div class="kontakt-text">
+      <h2 class="h2">{{ nadpis|nbsp }}</h2>
+      {% if text %}<p class="velky">{{ text|nbsp }}</p>{% endif %}
+      <p>Ozvu se vám e-mailem nebo telefonicky. Informativní konzultace je zdarma.</p>
+      <ul class="kontakty">
+        <li><span>E-mail</span><a href="mailto:{{ site.kontakt.email }}">{{ site.kontakt.email }}</a></li>
+        <li><span>Telefon</span><a href="tel:{{ site.kontakt.telefon|replace(' ', '') }}">{{ site.kontakt.telefon }}</a></li>
+        <li><span>Kde</span>Praha a online</li>
+      </ul>
+    </div>
+    <form class="formular" method="post" data-endpoint="{{ site.formular.endpoint }}" data-demo="{{ 1 if site.formular.demo or not site.formular.endpoint else 0 }}">
+      <div class="pole2">
+        <label>Jméno a příjmení <input name="jmeno" autocomplete="name" required></label>
+        <label>E-mail <input name="email" type="email" autocomplete="email" required></label>
+      </div>
+      <div class="pole2">
+        <label>Telefon <input name="telefon" type="tel" autocomplete="tel"></label>
+        <label>Mám zájem o
+          <select name="zajem">
+            {% for v in volby %}<option{% if v == vybrano %} selected{% endif %}>{{ v }}</option>{% endfor %}
+          </select>
+        </label>
+      </div>
+      <label>Jak jste se o mně dozvěděli? <input name="zdroj"></label>
+      <label>Zpráva <textarea name="zprava" rows="4"></textarea></label>
+      <label class="souhlas"><input type="checkbox" name="souhlas" required> <span>Souhlasím se zpracováním údajů pro účely vyřízení poptávky (<a href="{{ url('gdpr') }}">zásady</a>).</span></label>
+      <div class="past" aria-hidden="true"><label>Nevyplňovat <input name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+      <input type="hidden" name="_subject" value="{{ site.formular.predmet }}">
+      <button class="tlacitko" type="submit">{{ tlacitko }}</button>
+      <p class="formular-stav" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+{% endmacro %}
+
+{% macro faq(skupiny, nadpis="Nejčastější otázky") %}
+<section class="sekce faq">
+  <div class="wrap faq-grid">
+    <h2 class="h2">{{ nadpis }}</h2>
+    <div>
+    {% for s in skupiny %}
+      {% if skupiny|length > 1 %}<h3 class="faq-tema" id="{{ s.href }}">{{ s.tema }}</h3>{% endif %}
+      {% for q in s.otazky %}
+      <details class="otazka"><summary>{{ q[0]|nbsp }}<span class="plus" aria-hidden="true"></span></summary><div class="odpoved"><p>{{ q[1]|nbsp }}</p></div></details>
+      {% endfor %}
+    {% endfor %}
+    </div>
+  </div>
+</section>
+{% endmacro %}
+
+
+{% macro reference_blok(r, velky=False) %}
+<figure class="ref r{% if velky %} ref-velka{% endif %}">
+  <blockquote><p>„{{ r.citat|nbsp }}“</p></blockquote>
+  <figcaption>{{ r.jmeno }}, {{ r.vek }} let</figcaption>
+  <details class="ref-cele"><summary>Celé svědectví</summary>
+    <div class="odpoved">{% for p in r.text %}<p>{{ p|nbsp }}</p>{% endfor %}</div>
+  </details>
+</figure>
+{% endmacro %}
+
+{% macro clanek_karta(c, h="h3") %}
+{% set o = data.obrazy[c.obraz] %}
+<article class="karta-clanek r">
+  <a href="{{ url(c.slug) }}" class="karta-odkaz">
+    {{ kruh(o.img, "", "8rem", "otacet") }}
+    <p class="stitek"><time datetime="{{ c.datum }}">{{ c.datum_text }}</time> · {{ c.minut }} min čtení</p>
+    <{{ h }} class="karta-nazev">{{ c.nazev|nbsp }}</{{ h }}>
+    <p class="karta-perex">{{ c.perex|nbsp }}</p>
+    <span class="odkaz">Číst článek {{ sipka() }}</span>
+  </a>
+</article>
+{% endmacro %}

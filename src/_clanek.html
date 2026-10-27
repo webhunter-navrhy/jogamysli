@@ -1,0 +1,31 @@
+{% extends "_base.html" %}
+{% import "_m.html" as m with context %}
+{% set titulek = clanek.nazev ~ " | Jóga mysli – Radana Makariusová" %}
+{% set popis = clanek.perex[:155] %}
+{% block obsah %}
+<article>
+  <header class="clanek-hlava">
+    <div class="wrap">
+      <a class="zpet" href="{{ url('blog') }}">{{ m.sipka() }} Všechny články</a>
+      <p class="stitek"><time datetime="{{ clanek.datum }}">{{ clanek.datum_text }}</time> · {{ clanek.minut }} min čtení · Radana Makariusová</p>
+      <h1>{{ clanek.nazev|nbsp }}</h1>
+    </div>
+  </header>
+  <div class="wrap clanek-grid">
+    <div class="prose">{{ clanek.obsah|safe }}</div>
+    <div class="clanek-bok">{{ m.obraz_tema(clanek.obraz, "Obraz k článku") }}</div>
+  </div>
+</article>
+<section class="sekce dalsi" aria-labelledby="dalsi-h">
+  <div class="wrap">
+    <div class="sekce-hlava">
+      <h2 class="h2" id="dalsi-h">Další články</h2>
+      <a class="odkaz" href="{{ url('blog') }}">Všechny články {{ m.sipka() }}</a>
+    </div>
+    <div class="clanky-3">
+      {% for c in (data.blog|rejectattr("slug", "equalto", clanek.slug)|list)[:3] %}{{ m.clanek_karta(c) }}{% endfor %}
+    </div>
+  </div>
+</section>
+{{ m.formular(["Informativní konzultace zdarma", "Akademie jógy mysli", "Transformační energetické procesy", "Audiomeditace", "Retreaty", "Online kurz Akademie JM"], "Kontaktujte mě pro více informací") }}
+{% endblock %}

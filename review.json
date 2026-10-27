@@ -1,0 +1,17 @@
+{
+  "znamka": 8,
+  "slabiny": [
+    "Pod několika sekcemi zůstávají velké prázdné krémové plochy, které působí jako rozbité nebo nenačtené místo. Na PC je to buňka 5 (pod řádkem „Online kurz“ je prázdná zhruba polovina obrazovky, než začne tmavý pruh) a buňka 7 (pod videem). Na mobilu buňka 3 (mezi „Více o mně“ a „Kudy se můžeme vydat“) a buňka 6 (nad tmavou sekcí). Oprava: zmenšit padding sekcí na mobilu zhruba na 64–80 px a na PC na 120 px. Pokud jde o reveal animaci, která se při snímání nespustila, musí mít obsah výchozí stav viditelný.",
+    "Text je drobný a málo kontrastní. Popisky v rejstříku „Kudy se můžeme vydat“ (šedé řádky „Roční, půlroční…“, „90 minut až celodenní workshop…“), odkazy „To chci / Rezervovat / Mám zájem“, perexy blogu a kurzívní popisky pod obrazy v pásu Obrazy z nitra jsou na PC asi 12–13 px v Albert Sans 300 světle šedou na krému. Oprava: běžný text aspoň 16 px a řez 400, tmavší barva (#73614c nebo #5a4a38), akční odkazy v rejstříku 14–15 px. Pod hero obrazem je téměř neviditelný popisek „nádech/výdech“: ztmavit ho, nebo ho odstranit.",
+    "Na mobilu jsou malé dotykové cíle (QA: 6×). Odkaz „O dobru“ u přehrávače má 20 px, souhlasný checkbox ve formuláři 18 px, e-mail a telefon v kontaktech 27 px. Oprava: dát jim min-height 44 px a padding, checkbox zvětšit na 24 px a klikací udělat celý label. Na mobilu v sekci Kontakt (buňka 11–12) přidat pod nadpis viditelné tlačítko „Napsat e-mail“, aby kontakt nebyl schovaný až pod dlouhým formulářem."
+  ],
+  "zavazne": [],
+  "silne": [
+    "Silný koncept přímo z díla klientky: její kruhové obrazy-zářiče nesou celý web (dýchající hero, rejstřík cest s malými obrazy, přehrávač s otáčejícím se obrazem, pás Obrazů z nitra). Nedá se zaměnit s jiným webem.",
+    "Brand drží: logo „Žijeme s lehkostí“ je vlevo v hlavičce, písmo Nyght Serif z jejího webu, teplá paleta z jejích barev (krém, písek, hnědá) a všude její vlastní fotky a obrazy, žádný stock.",
+    "Světlý, vzdušný editorial bez AI vzorů (žádný marquee, čísla 01/02/03 ani pás statistik). Jediná tmavá sekce je odůvodněná videem a kurzíva je jen v citátech.",
+    "Obsah je bohatý a skutečný: pět služeb, ukázka meditace, reference z jejího webu, blog, formulář s výběrem zájmu a odkaz na sesterský web. Na všech šířkách nic nepřetéká."
+  ],
+  "verdikt": "Odeslat po drobných opravách. Koncept s jejími kruhovými obrazy je výrazně lepší než současný web a brand drží, ale před odesláním je potřeba stáhnout prázdné mezery mezi sekcemi a zvětšit a ztmavit drobný šedý text a malé dotykové prvky na mobilu.",
+  "_hash": "b413b69d3b2ab4017a71dc174e60104e6afb9fec"
+}

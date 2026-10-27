@@ -1,0 +1,41 @@
+{
+ "ebook": "https://form.simpleshop.cz/9X3n8/",
+ "zahranici": [
+  {
+   "misto": "Havaj",
+   "nazev": "Transformační poznávání Havaje, Big Islandu a dalších havajských ostrovů",
+   "foto": "havaj.jpg",
+   "foto2": "retreat-havaj-surf.jpg",
+   "text": "Na Big Islandu pocítíme jedinečnou aloha energii, která přináší inspiraci, radost, hojnost a vnitřní naplnění. Pojďme společně objevovat největší havajský ostrov Big Island, jeho krásy a spiritualitu.",
+   "ebook": true,
+   "obraz": null
+  },
+  {
+   "misto": "Sahara",
+   "nazev": "Nádherný saharský transformační trek",
+   "foto": "sahara.jpg",
+   "foto2": "retreat-sahara-skupina.jpg",
+   "text": "Putujeme s beduíny a velbloudí karavanou, rozjímáme, přecházíme duny i plošiny, pozorujeme východy a západy slunce, v noci nekonečnou hvězdnou oblohu. Sahara vám pomůže napojit se na své nitro a pomůže transformovat, co má být proměněno.",
+   "ebook": false,
+   "obraz": "ze-tmy-do-svetla"
+  },
+  {
+   "misto": "Maledivy",
+   "nazev": "Plavba podél maledivských atolů s jógou mysli",
+   "foto": "maledivy.jpg",
+   "foto2": null,
+   "text": "Odpočíváme, cvičíme jógu a uvolňujeme se s jógou mysli. Jedinečná cesta za vnitřním poznáním azurovými vodami a s delfíny.",
+   "ebook": false,
+   "obraz": null
+  },
+  {
+   "misto": "Vietnam · Laos · Taiwan",
+   "nazev": "Za spiritualitou Indočíny",
+   "foto": "vietnam.jpg",
+   "foto2": "retreat-hory.jpg",
+   "text": "Vydejme se za poznáním spirituálních míst Indočíny a nechme se prodchnout místním klidem a mírem.",
+   "ebook": false,
+   "obraz": null
+  }
+ ]
+}

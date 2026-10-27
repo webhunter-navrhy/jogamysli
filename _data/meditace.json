@@ -1,0 +1,79 @@
+{
+ "koupit": "https://form.simpleshop.cz/OD4Dx/buy/",
+ "voucher": "https://form.simpleshop.cz/a0pxP/buy/",
+ "prinosy": [
+  "uvolnění napětí a stresu",
+  "zklidnění mysli",
+  "hlubší vnímání sebe sama",
+  "rozvoj vědomé pozornosti"
+ ],
+ "seznam": [
+  {
+   "nazev": "Vše je dobré",
+   "delka": "6:03",
+   "popis": "Uklidňující meditace, která vás zavede do pocitu důvěry, že vše je tak, jak má být.",
+   "obraz": "o-dobru",
+   "ukazka": true
+  },
+  {
+   "nazev": "O uzdravení",
+   "delka": "8:22",
+   "popis": "Meditace podporující vnitřní regeneraci a probouzející jemné léčivé síly těla i mysli.",
+   "obraz": "o-uzdraveni"
+  },
+  {
+   "nazev": "O přijímání pocitů",
+   "delka": "14:24",
+   "popis": "Meditace, která vás vede k vnímání a přijímání pocitů s laskavostí a bez odporu.",
+   "obraz": "o-prijeti"
+  },
+  {
+   "nazev": "Meditace pro každý den",
+   "delka": "7:10",
+   "popis": "Krátké a univerzální vnitřní cvičení pro zklidnění kdykoli během dne.",
+   "obraz": "tady-a-ted"
+  },
+  {
+   "nazev": "O emocích",
+   "delka": "11:08",
+   "popis": "Průvodce k hlubšímu porozumění emocím a jejich přirozenému plynutí.",
+   "obraz": "o-zvladnuti-strachu"
+  },
+  {
+   "nazev": "Nevěnuj tomu pozornost",
+   "delka": "10:13",
+   "popis": "Meditace, která vás vede k uvolnění od toho, co není důležité, a k návratu k sobě.",
+   "obraz": "o-uvolneni-lpeni"
+  },
+  {
+   "nazev": "O výdechu a nechat plynout",
+   "delka": "8:15",
+   "popis": "Jemná práce s dechem, která pomáhá pouštět napětí a odevzdávat se přítomnému okamžiku.",
+   "obraz": "nechat-plynout"
+  },
+  {
+   "nazev": "Mezi dvěma myšlenkami",
+   "delka": "16:40",
+   "popis": "Hluboká meditace, která vás zve do prostoru ticha a klidu mezi myšlenkami.",
+   "obraz": "o-opusteni-ega"
+  },
+  {
+   "nazev": "O vědomé pozornosti",
+   "delka": "11:20",
+   "popis": "Meditace zaměřená na rozvíjení schopnosti být plně přítomen.",
+   "obraz": "o-vnitrnim-vedomem-klidu"
+  },
+  {
+   "nazev": "O radosti",
+   "delka": "9:22",
+   "popis": "Lehká a povznášející meditace, která otevírá radost a vděčnost.",
+   "obraz": "o-radosti"
+  },
+  {
+   "nazev": "Meditace na „NIC“",
+   "delka": "8:15",
+   "popis": "Průvodce do ticha a prázdna, kde může mysl konečně spočinout.",
+   "obraz": "o-opousteni-iluzi"
+  }
+ ]
+}
