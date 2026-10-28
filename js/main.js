@@ -33,7 +33,7 @@
   }
 
   // nekonečné otáčení (slunce, paprsky, pečeť) běží jen když je vidět
-  d.querySelectorAll('.ha-vizual, .hlava-vizual, .kontakt').forEach(function (el) {
+  d.querySelectorAll('.souhvezdi, .cesty, .noc, .prehravac, .slova').forEach(function (el) {
     new IntersectionObserver(function (e) { el.classList.toggle('mimo', !e[0].isIntersecting); }).observe(el);
   });
 
@@ -54,18 +54,66 @@
     });
   });
 
-  // přehrávač meditace (deska)
+  // přehrávač meditace: obraz svítí v rytmu hlasu (Web Audio), kreslí se jen během přehrávání
   d.querySelectorAll('[data-prehravac]').forEach(function (p) {
     var a = p.querySelector('audio'), cara = p.querySelector('.prubeh-cara'), ted = p.querySelector('[data-ted]'), popis = p.querySelector('[data-popis]');
-    function prepni() { if (a.paused) { a.play(); } else { a.pause(); } }
+    var cv = p.querySelector('.paprsky-hlas'), cx = cv && cv.getContext('2d'), an = null, data = null, raf = 0, W = 0, hl = [];
+    var N = 150; for (var i = 0; i < N; i++) hl.push(0);
+    function rozmer() { if (!cv) return; var r = cv.getBoundingClientRect(), q = Math.min(devicePixelRatio || 1, 2); W = Math.round(r.width * q); cv.width = cv.height = W; }
+    function kresli(t, zive) {
+      if (!cx || !W) return;
+      if (!zive) { cx.clearRect(0, 0, W, W); return; }
+      var c = W / 2, r0 = W * .335, barva = getComputedStyle(cv).color;
+      cx.clearRect(0, 0, W, W);
+      cx.globalCompositeOperation = 'lighter';
+      cx.strokeStyle = barva; cx.lineCap = 'round';
+      if (an && zive) an.getByteFrequencyData(data);
+      for (var i = 0; i < N; i++) {
+        var u = i / N * Math.PI * 2 + t * .00004, cil;
+        if (an && zive) { var k = Math.floor((i < N / 2 ? i : N - i) / (N / 2) * data.length * .55) + 2; cil = data[k] / 255; }
+        else cil = .18 + .12 * Math.sin(i * 1.7 + t * .0012) * Math.sin(i * .37 + t * .0007);
+        hl[i] += (cil - hl[i]) * .22;
+        var v = hl[i], L = W * (.025 + v * .13) * (.7 + .3 * Math.sin(i * 12.9898));
+        cx.globalAlpha = .18 + v * .6; cx.lineWidth = W * (.002 + v * .004);
+        cx.beginPath(); cx.moveTo(c + Math.cos(u) * r0, c + Math.sin(u) * r0); cx.lineTo(c + Math.cos(u) * (r0 + L), c + Math.sin(u) * (r0 + L)); cx.stroke();
+      }
+      cx.globalAlpha = 1;
+    }
+    function smycka(t) { if (a.paused) { raf = 0; kresli(0, false); return; } kresli(t, true); raf = requestAnimationFrame(smycka); }
+    function analyzator() {
+      if (an || klid) return;
+      try {
+        var AC = window.AudioContext || window.webkitAudioContext, ac = new AC(), src = ac.createMediaElementSource(a);
+        an = ac.createAnalyser(); an.fftSize = 256; an.smoothingTimeConstant = .82; data = new Uint8Array(an.frequencyBinCount);
+        src.connect(an); an.connect(ac.destination);
+        a.addEventListener('play', function () { if (ac.state === 'suspended') ac.resume(); });
+      } catch (e) { an = null; }
+    }
+    if (cv) { rozmer(); kresli(0, false); addEventListener('resize', function () { rozmer(); kresli(performance.now(), false); }); }
+    function prepni() { analyzator(); if (a.paused) { a.play(); } else { a.pause(); } }
     p.querySelectorAll('.prehrat, [data-hrat]').forEach(function (b) { b.addEventListener('click', prepni); });
-    a.addEventListener('play', function () { p.classList.add('hraje'); popis.textContent = 'Pozastavit'; });
-    a.addEventListener('pause', function () { p.classList.remove('hraje'); popis.textContent = a.currentTime > 0 && !a.ended ? 'Pokračovat' : 'Přehrát ukázku'; });
+    a.addEventListener('play', function () { p.classList.add('hraje'); popis.textContent = 'Pozastavit'; if (!raf && !klid) raf = requestAnimationFrame(smycka); });
+    a.addEventListener('pause', function () { p.classList.remove('hraje'); kresli(0, false); popis.textContent = a.currentTime > 0 && !a.ended ? 'Pokračovat' : 'Přehrát ukázku'; });
     a.addEventListener('timeupdate', function () {
       ted.textContent = cas(a.currentTime);
       if (a.duration) cara.style.strokeDashoffset = 100 - (a.currentTime / a.duration) * 100;
     });
     a.addEventListener('ended', function () { cara.style.strokeDashoffset = 100; ted.textContent = '0:00'; });
+  });
+
+  // pět cest: lepkavý obraz se mění podle služby uprostřed obrazovky, pozadí přebírá barvu obrazu
+  d.querySelectorAll('[data-cesty]').forEach(function (sek) {
+    var obr = sek.querySelectorAll('.cesty-obraz'), radky = sek.querySelectorAll('.cesta'), tecky = sek.querySelectorAll('.cesty-tecky li');
+    function nastav(i) {
+      obr.forEach(function (o, j) { o.classList.toggle('akt', j === i); o.classList.toggle('pred', j < i); });
+      radky.forEach(function (o, j) { o.classList.toggle('akt', j === i); });
+      tecky.forEach(function (o, j) { o.classList.toggle('akt', j === i); });
+      sek.style.setProperty('--tint', radky[i].dataset.barva);
+    }
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) nastav(+e.target.dataset.i); });
+    }, { rootMargin: '-48% 0px -48% 0px' });
+    radky.forEach(function (r) { io.observe(r); });
   });
 
   // video v okně: načte se až po kliknutí, mobil dostane menší soubor
