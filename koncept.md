@@ -1,70 +1,121 @@
-# Jóga mysli – koncept v3 „Ze tmy do světla“ (28. 10. 2026)
+# Jóga mysli – koncept v4 (28. 10. 2026)
 
-Předchozí verze: `koncept-v1.md` (editoriál, „šablonový“), `koncept-v2.md` („Zářič“, Rafael: „pořád nic moc, měl by být mnohem lepší“).
+Předchozí verze: `koncept-v1.md`, `koncept-v2.md` a `koncept-v3.md` („Ze tmy do světla“).
 
-## Proč v2 neprošla (upřímně)
-- **Hero je koláž, ne obraz.** Výřez Radany s roztřepenými vlasy přilepený přes polokruh obrazu useknutý vodorovnou čarou
-  a CSS „paprsky“ jako z Canvy. Kolem pět drobných prvků (pečeť, přehrávač, dva sloupce textu, pruh). Oko nemá kam spočinout.
-- **Obrazy jsou jen kulaté fotky.** Radaniny malby svítí: mají světlý střed, paprsky, třpyt. Ve v2 to byly ploché kruhové obrázky
-  s pomalou rotací. Žádné světlo, žádná hloubka.
-- **Pod hero průměr žánru.** Krémová plocha, text vlevo, pět stejných kruhů vedle sebe, citáty textem, formulář v kartě.
-  Rytmus sekcí se nemění, nic nepřekvapí. Malé verzálkové štítky všude.
-- **Pohyb je skoro neviditelný** (rotace 180 s). Klientka chtěla animace, které jsou vidět a něco znamenají.
-- Review dalo 8/10, protože hodnotilo „bez chyb“, ne „úroveň špičky žánru“. Vedle wellness webů ze Site of the Day by v2 působila levně.
+## Proč v3 neprošla
+Rafael: „strašný, děláš to horší a horší… musí být víc světlý a milionkrát lepší + obrázky se načítají moc pomalu.“
+- **Šerá nálada.** Tmavá obloha v úvodu, noc u meditace a tmavá patička jdou přímo proti „Žijeme s lehkostí“ i proti VKUS.md
+  (šerá tmavá nálada je mezi věcmi, které Rafael odmítá).
+- **Tenké písmo v malých velikostech a hodně prázdna.** Nyght Light působil křehce, obrazovky byly z velké části prázdné.
+- **Pomalé obrázky.** Malby měly 500 až 1 141 kB, WebP 1920 px i u miniatur. Miniatury v menu (3rem) tahaly celý srcset.
+  WebGL zářič navíc čekal na texturu, než se něco ukázalo.
 
-## Tři koncepty
-1. **„Ze tmy do světla“ (vybráno).** Jeden z Radaniných obrazů se jmenuje „Ze tmy do světla“ a celá jóga mysli je cesta od tlaku
-   a úzkosti k lehkosti. Web je jeden den: úvod začíná za šera, Radanin obraz vychází jako živé slunce (WebGL: obraz svítí, paprsky
-   se chvějí, střed dýchá v rytmu nádech 4 s / výdech 6 s, stoupají zlaté částečky) a scrollem se obloha rozednívá do krémového dne.
-   Uprostřed webu je noc meditace (obraz „O dobru“ svítí v rytmu jejího hlasu), na konci obraz zapadá za obzor u kontaktu
-   a patička je noc.
-2. **„Galaxie zářičů“.** Celý úvod jako noční obloha plná jejích obrazů v různé hloubce, scroll = let mezi nimi. Silné, ale celý
-   tmavý a abstraktní, jóga a Radana se v tom ztratí; tmavý web pro wellness je proti brandu (krém, hnědá).
-3. **„Dech“.** Web řízený dechem (obrazy a text se nadechují a vydechují). Krásné jako detail, slabé jako celek: dech má každé studio.
-   Bereme z něj rytmus 4/6 s pro dýchání slunce.
+## Pevná pravidla v4 (pro všechny koncepty)
+- **Barvy:** krém #fffaf2, písek #f6ecdc, pudr #f8e2d4, broskev #f9cba6, med #f4c46a. Text je tmavě hnědý #3f2c19
+  (z brandu #513a1c). Jediný sytý akcent je terakotová oranž #cf530d (z brandu #f3690e, ztmavená kvůli kontrastu bílého písma).
+  Žádná tmavá sekce.
+- **Písmo:** Nyght Serif Regular 400 pro titulky (je to písmo jejího loga) a Albert Sans 400/600 pro text v 17 až 19 px.
+  Žádné kurzívní barevné slovo a žádné verzálky přes celý řádek. Tlačítka jsou obdélná, ne pilulky.
+- **Hrdina:** její kulaté svítící malby a ona sama na skutečné fotce u malby.
+- **Pod hero hned prodej:** pět cest (služby) s obrazem a cenou „od“ a informativní konzultace zdarma.
+- **Rychlost:**
+  - build.py: varianty 320/480/640/960/1280/1600/1920 a malby nejvýš 1200 px.
+  - Každý soubor nejvýš ~150 kB (kvalita se sama sníží, dokud se nevejde) a menší šířky úměrně méně (640 px ≈ 50 kB).
+  - Každý obrázek má rozměry a barvu podkladu (průměrná barva fotky), takže se nic neskládá a nebliká bílá.
+  - Hero je eager s fetchpriority=high, ostatní lazy. Žádné WebGL; pohyb jen v CSS (transform, opacity, clip-path).
+  - Scroll je nativní a pohyb vázaný na scroll jde jen přes CSS `animation-timeline`.
 
-## Proč 1
-- Je postavená na tom, co nemá nikdo jiný: její svítící malby, název jejího obrazu a její slib (z tlaku do lehkosti).
-- Drama dává kontrast šero → den, ne efekt pro efekt. Tmavé jsou jen začátek úvodu, meditace a patička, zbytek je světlý brand.
-- Není to tmavá + zlatá „luxus“: šero je teplá švestkově-hnědá obloha, zlato jen ze samotných obrazů.
-- Test zaměnitelnosti: bez jejích obrazů a bez názvu „Ze tmy do světla“ by koncept nefungoval.
+---
 
-## Skladba úvodu (obsah a pořadí jako v2/originál)
-1. **Svítání (signature 1).** Celá obrazovka: WebGL obloha za šera, obraz-slunce vychází zpoza mlhy, obří nadpis „Cesta do nitra
-   k vnitřnímu klidu a lehkosti“ ve světlém Nyght přes oblohu. V mlze dole perex + konzultace zdarma a malý přehrávač ukázky.
-   Scrollem slunce stoupá a obloha se rozední do krému další sekce.
-2. **Vítejte.** Velká fotka Radany u stojanu s obrazem (rám ve tvaru vycházejícího slunce, odkrývá se scrollem) + věta „Jmenuji se…“,
-   která se slovo po slovu rozsvěcuje, text, citát.
-3. **Kudy se můžeme vydat.** Vlevo lepkavý (sticky) velký obraz, který se při scrollu mění podle služby (5 obrazů, točí se, světlo
-   kolem má barvu obrazu, celé pozadí sekce se jemně přebarví). Vpravo pět služeb velkým písmem. Na mobilu obraz u každé služby
-   zasahující přes okraj.
-4. **Noc meditace (signature 2).** Tmavá sekce: obraz „O dobru“ s paprsky světla, které při přehrávání reagují na Radanin hlas
-   (Web Audio analyzer, kreslení jen během přehrávání). Video o józe mysli.
-5. **Souhvězdí obrazů.** Obrazy z Obrazů z nitra rozházené v hloubce kolem nadpisu, každý jinou rychlostí paralaxy (CSS view-timeline),
-   pomalu se točí, po najetí popisek. Odkazy na obrazy-z-nitra.cz.
-6. **Kdo už prošel touto cestou.** Jeden velký citát + dva menší, světlo obrazu za nimi.
-7. **Západ.** Kontakt na večerní obloze, obraz zapadá do mlhy (druhá instance WebGL), formulář jako krémový list. Patička = noc.
+## A – „Malba v zahradě“ (člověk + jeho řemeslo)
+**Nápad:** Hlavní fotkou webu je skutečný záběr z jejího videa: Radana v rozkvetlé zahradě maluje velké bílo-zlaté slunce.
+Pod fotkou vychází oblouk z jejích pěti kulatých obrazů a každý je jedna cesta (Akademie, procesy, meditace, retreaty, online)
+s cenou nebo „ukázka zdarma“.
+- **Proč jen Radana:** Jóga mysli a malování energetických obrazů jsou u ní jedna práce (sesterský web Obrazy z nitra).
+  Žádná jiná lektorka jógy nemá pět vlastních obrazů, které můžou nést její služby, ani fotku, kde to slunce právě maluje.
+- **Jak se projeví všude:**
+  - **Hlavička:** bílá plovoucí lišta s logem vlevo a menu uprostřed. Vpravo je „Konzultace zdarma“ na pudrovém poli se slunečním
+    znakem z loga (ne oranžová pilulka).
+  - **Typografie:** centrovaný claim 96 px ve dvou řádcích a pod ním jedna věta.
+  - **Fotky:** široké okno se zaoblením 28 px a teplým tónem. Fotky jsou zvětšené z videa (Real-ESRGAN ×2), lehce prosvětlené
+    a do broskvova.
+  - **Nabídka:** kulaté obrazy jako vstupy do služeb, na všech stránkách stejný jazyk. Podstránka služby otevře svůj obraz velký
+    jako slunce v hero a vedle něj dá fotku z té služby.
+  - **Pohyb:**
+    - Fotka se odkryje z oblouku a obrazy vyjdou postupně jako slunce.
+    - Každý obraz se pomalu otáčí (90 s).
+    - Na plátně na fotce „dýchá“ světlo v rytmu nádech 4 s / výdech 6 s (soft-light vrstva, žádný canvas).
+    - Ve fázi 2 může místo statické fotky běžet krátká smyčka z videa (načtená až po prvním vykreslení).
+- **Nejbližší laťka:** Dermato `super/8064c99…`. Bere z něj centrovaný serifový claim na teplém podkladu, širokou zaoblenou fotku,
+  oblouk ošetření na okraji fotky a dvě plovoucí karty (recenze + důvěra). U nás je ve kartách konzultace zdarma a skutečný citát Lucie, 37.
+- **Test zaměnitelnosti:** Jiná lektorka jógy by neměla co dát do oblouku ani na fotku (stock jógy by koncept zabil).
+  V `_prehled.png` nemá obdobu: žádný návrh neměl centrovaný claim nad fotkou s obloukem kruhů.
 
-**Podstránky:** stejné nebe, ale ranní (světlé), s obrazem služby jako sluncem vpravo dole, velký nadpis vlevo.
+## B – „Tři slunce“ (obraz jako vycházející slunce)
+**Nápad:** Nad obzorem stránky vychází její obraz jako slunce a mění se podle toho, s čím člověk přichází. Tři slunce jsou tři
+claimy jejího současného webu: Klid, Uvolnění a Transformace, každý s jiným obrazem.
+- **Proč jen Radana:** Logo „Žijeme s lehkostí“ má místo O slunce a její obrazy jsou zářiče (paprsky ze světlého středu).
+  Tři claimy jsou její vlastní („Najděte svůj vnitřní klid“, „Uvolněte se od negativních myšlenek“, „Otevřete se celkové transformaci“).
+- **Jak se projeví všude:**
+  - **Hlavička:** logo vlevo, menu vpravo a hranaté terakotové tlačítko.
+  - **Typografie:** jeden velký claim centrovaný na „nebi“.
+  - **Kompozice:** kruh obrazu přes 3/4 šířky z poloviny pod obzorem. Scrollem stoupá (CSS scroll-timeline).
+  - **Pod hero:** bílá rezervační lišta jako u restaurací („Kudy se vydat“ → 5 cest s cenou → konzultace zdarma).
+  - **Podstránky:** každá má své slunce (obraz služby) nad obzorem, menší.
+- **Nejbližší laťka:** Nest/Table `super/26f444f8…` (rezervační lišta pod hero, kulaté talíře = kulaté obrazy, rezavý akcent)
+  a Santé `libi/6587927…` (teplé zlaté světlo).
+- **Test zaměnitelnosti:** Slunce nad obzorem bez jejích obrazů by bylo obecné „wellness“. Funguje díky malbám a logu se sluncem.
+  Slabina: obraz bez Radany, ona je jen malý štítek. Hrozí, že to bude spíš „galerie“ než „lektorka“.
 
-## Písmo, barvy, foto
-- Nyght Serif Light (písmo jejího webu a loga) v obřím měřítku, Albert Sans 300–500. Háčky otestované (v1).
-- Paleta z brandu: krém #fffbf3, písek #f6efe2, hnědá #73614c, tmavě hnědá #513a1c, zlatá #c6975d. Šero: #2a1c22 → #6b3b3c → #d98b5a
-  (teplá hnědo-švestková, navazuje na hnědou brandu).
-- Jen její fotky a malby. Žádné výřezy postavy (ve v2 působily lacině).
+## C – „Světlo z nitra“ (obraz jako světelné pole, Radana v jeho středu)
+**Nápad:** Celá obrazovka je její bílo-zlatý obraz paprsků. V jeho středu, tam, kde malby mají své „nitro“, je kruh s Radanou
+u stojanu. Z něj vedou tenké paprsky k pěti cestám s cenou.
+- **Proč jen Radana:** Její obrazy jsou kompozičně vždy světlý střed a paprsky ven. Metafora jógy mysli „cesta do nitra“ je
+  na webu doslova: obraz → střed → ona. Claim je její věta „Cesta do nitra k vnitřnímu klidu a lehkosti“.
+- **Jak se projeví všude:**
+  - **Hlavička:** logo vlevo a menu hned vedle něj. Konzultace zdarma je kulatá pečeť z obrazu s obíhajícím textem (žádné tlačítko v liště).
+  - **Typografie:** obří titulek „Cesta do nitra“ (148 px) v levém dolním rohu, vedle něj pokračování věty.
+  - **Paprsky:** jako popisky ze středu, stejně jako popisky technologií u Veridie.
+  - **Podstránky:** každá má svůj obraz jako pole a ve středu fotku z té služby (sezení, Sahara, Havaj).
+- **Nejbližší laťka:** Veridia `super/5d0f9b05…`. Bere z něj světlé rozostřené pole přes celou plochu, obří serif dole, tenké
+  popisky s čarami od středu a kulatý odznak „Discover“. Druhou laťkou je Mindora `super/76ce629…` (obří slovo za postavou).
+- **Test zaměnitelnosti:** Bez jejího obrazu paprsků a bez fotky u malby to nejde, protože pole by bylo jen béžový gradient.
 
-## Technika a pohyb
-- WebGL1 shader bez knihoven (~6 kB): obloha, mlha, obraz jako textura (rotace, chvění paprsků, dýchání), záře, god rays, částečky.
-  Kreslí jen když je canvas vidět, ve 30 fps v klidu a 60 fps při scrollu, rozlišení se samo sníží na slabém stroji.
-  Pod canvasem je statický plakát (CSS obloha + obraz), takže LCP je hned a bez WebGL/při reduced motion vše funguje.
-- Zbytek: nativní scroll, CSS `animation-timeline` (paralaxa, odkrytí fotky, rozsvěcení slov), IntersectionObserver. Bez Lenis/GSAP.
+---
 
-## Zakázané vzory
-- Částečky (zlatý prach) jsou blízko „zrnu“: jsou součástí světla obrazu, jen v hero, ne přes stránku.
-- Nekonečná animace slunce: je to obsah (dýchání 4/6 s), běží jen když je vidět.
-- Žádný marquee, statistiky, 01/02/03, pilulková navigace, polaroidy.
+## Výběr
+**Vyhrála C „Světlo z nitra“** (koordinátor 28. 10.). Ze všech tří je nejvíc Radanina (její obraz, její střed, ona v něm)
+a vedle Veridie obstojí. Varianty A/B/C jsou v `_varianty/v4/`.
 
-## Porovnání
-- Schválené: Gančar (obraz jako světlo), Kling (motiv z oboru řízený scrollem). Odmítnuté: tmavá + zlatá (tady ne, šero je obloha),
-  intro animace (žádná, obsah je vidět hned), prázdné sekce (žádné).
-- Poslední weby v registru: jiný display font (Nyght je brand klientky) i skladba.
+**Opravy hero ve fázi 2:**
+- Na PC je v hlavičce vpravo tlačítko „Konzultace zdarma“ v akcentu #cf530d. Pečeť zůstala jako doplněk u kruhu.
+- Místo šesti drobných kartiček je pět velkých štítků (název 24 px serif, cena 15 px akcent). Leží klidně po obvodu, mimo hlavní paprsky.
+- Kruh s Radanou je o 28 % větší (336 → 430 px). „Cesta do nitra“ má clamp(72px, 11.8vw, 190px) a perex 18 px.
+- Na mobilu jsou štítky plné řádky: kulatý náhled obrazu, název, cena a šipka.
+
+**Další obrazovky:**
+- Hned pod hero je lišta z B (pět cest s cenou + konzultace zdarma), na PC i mobilu vidět už na první obrazovce.
+- Fotka z A (Radana maluje v zahradě, `malba-zahrada.jpg`) je na úvodu v sekci „Dvě cesty“ a na O mně v sekci „Tak vznikají obrazy z nitra“.
+- Celý web je světlý (krém, písek, pudr, broskev), žádná tmavá sekce.
+- Podstránky přebírají hero C: obraz služby jako pole, ve středu fotka z té služby a čtyři štítky s cenou.
+
+## Sekce → předloha (`~/rafadev-ops/reference/vkus/super/`)
+| sekce | předloha | co bere |
+|---|---|---|
+| hero (pole + kruh + štítky) | Veridia `5d0f9b05…` | světlé pole, obří serif, popisky s čarami od středu |
+| lišta pod hero | Nest/Table `26f444f8…` | bílý pruh s pěti položkami a cenou |
+| vítejte | Dermato `8064c99f…` + Santé | velký serif text vedle portrétu, hodně vzduchu |
+| dvě cesty (akademie / procesy) | Nest/Table / Rouge | dvě velké fotky s textem, střídání |
+| obrazy (řada) | ARC Objects `bdc9a59f…` | obrazy jako předměty v řadě s popiskem |
+| audiomeditace | Calmness `76ce629a…` | medová plocha, přehrávač s vlnou |
+| místa / retreaty | Fieldnote PLACES | mřížka míst s velkými fotkami |
+| slova klientů | Her glow | jedna velká citace na pudrovém poli |
+| kontakt | Sóma | formulář vedle stoupajícího slunce |
+
+## Měření hero variant (28. 10., Playwright headless, Fast 4G: 9 Mb/s, 60 ms, bez cache, lokální server)
+| varianta | LCP 1440 | data 1440 | LCP 390 | data 390 | největší obrázek |
+|---|---|---|---|---|---|
+| A | 0,47 s | 348 kB | 0,34 s | 269 kB | 149 kB (fotka 1600 px) |
+| B | 0,34 s | 235 kB | 0,33 s | 220 kB | 90 kB (obraz 960 px) |
+| C | 0,32 s | 278 kB | 0,37 s | 249 kB | 116 kB (obraz 1200 px) |
+Snímky a koláže: `_snimky/v4/`.

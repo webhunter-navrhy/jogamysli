@@ -1,14 +1,10 @@
-{% extends "_base.html" %}
-{% import "_m.html" as m with context %}
+{% extends "_v4.html" %}
+{% import "_m4.html" as m with context %}
 {% set titulek = "Stránka nenalezena – " ~ site.nazev %}
 {% set noindex = true %}
+{% block telo %}pod{% endblock %}
 {% block obsah %}
-<section class="wrap ne404">
-  <div>
-    {{ m.kruh("obraz-meditace.jpg", "", "12rem", "otacet") }}
-    <h1>Tuto stránku jsme nenašli</h1>
-    <p>{{ "Adresa se možná změnila. Nechte to plynout a pokračujte na úvod."|nbsp }}</p>
-    <p style="margin-top: 2rem"><a class="tlacitko" href="{{ url('') }}">Zpět na úvod</a></p>
-  </div>
-</section>
+{% call m.hlava_text("Tuto stránku jsme nenašli", "404", "Adresa se možná změnila. Nechte to plynout a pokračujte na úvod.", "obraz-meditace.jpg") %}
+<div class="akce"><a class="tl" href="{{ url('') }}">Zpět na úvod {{ m.sipka() }}</a></div>
+{% endcall %}
 {% endblock %}

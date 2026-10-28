@@ -19,11 +19,13 @@ import sys
 
 from markupsafe import Markup
 from jinja2 import Environment, FileSystemLoader, StrictUndefined, select_autoescape
-from PIL import Image, ImageOps
+from PIL import Image, ImageFilter, ImageOps
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SRC, DATA, IMG, STATIC, DIST, CACHE = (os.path.join(ROOT, p) for p in ("src", "_data", "img", "static", "dist", ".cache/img"))
-SIRKY = (320, 640, 1280, 1920)
+SIRKY = (320, 480, 640, 960, 1280, 1600, 1920)
+MAX_MALBA = 1200          # malby (obraz-*, obrazy/) víc nepotřebují
+LIMIT_KB = 150            # největší varianta nejvýš ~150 kB (rychlost)
 RASTER = (".jpg", ".jpeg", ".png", ".webp")
 
 
@@ -72,21 +74,31 @@ class Obrazky:
         im = ImageOps.exif_transpose(Image.open(zdroj))
         im.load()
         w0, h0 = im.size
-        sirky = sorted({w for w in SIRKY if w < w0} | {min(w0, SIRKY[-1])})
+        strop = MAX_MALBA if (os.path.basename(nazev).startswith("obraz") or nazev.startswith("obrazy/")) else SIRKY[-1]
+        strop = min(w0, strop)
+        sirky = sorted({w for w in SIRKY if w < strop} | {strop})
+        pruhledny = "A" in im.getbands() or im.mode == "P"
+        prumer = im.convert("RGB").resize((1, 1), Image.BOX).getpixel((0, 0))
         varianty = []
         for w in sirky:
             vyska = round(h0 * w / w0)
-            q = 80 if w < 1000 else 66  # velké varianty: detailní malby jinak přes 400 kB
-            cache = os.path.join(CACHE, f"{h}-{w}-q{q}.webp")
-            if not os.path.exists(cache):
+            limit = max(18, LIMIT_KB * (w / 1280) ** 1.6) if w < 1280 else LIMIT_KB
+            cache = os.path.join(CACHE, f"{h}-{w}-L{int(limit)}.webp")
+            if not os.path.exists(cache) or os.path.getsize(cache) > limit * 1024 * 1.04:
                 r = im.resize((w, vyska), Image.LANCZOS) if w != w0 else im
                 if r.mode not in ("RGB", "RGBA"):
                     r = r.convert("RGBA" if "A" in r.getbands() else "RGB")
-                r.save(cache, "WEBP", quality=q, method=6)
+                # třpytivé malby mají šum, který WebP neumí stlačit: nejdřív kvalita, pak jemné změkčení šumu
+                pokusy = [(r, q) for q in (68, 62, 56, 50, 45)] + \
+                         [(r.filter(ImageFilter.GaussianBlur(b)), q) for b in (0.5, 0.8, 1.1) for q in (50, 42)]
+                for rr, q in pokusy:
+                    rr.save(cache, "WEBP", quality=q, method=5)
+                    if os.path.getsize(cache) <= limit * 1024:
+                        break
             out = f"{stem}-{w}.webp"
             shutil.copy(cache, os.path.join(cil_dir, out))
             varianty.append((w, vyska, f"img/{out}"))
-        self.info[nazev] = {"raster": True, "varianty": varianty}
+        self.info[nazev] = {"raster": True, "varianty": varianty, "barva": None if pruhledny else "#%02x%02x%02x" % prumer[:3]}
         return self.info[nazev]
 
     def img(self, nazev, alt=None, sizes="100vw", cls="", eager=None, styl=""):
@@ -97,9 +109,10 @@ class Obrazky:
         i = self._zpracuj(nazev)
         a = f' alt="{html.escape(alt, quote=True)}"'
         c = f' class="{cls}"' if cls else ""
-        s = f' style="{styl}"' if styl else ""
         if not i["raster"]:
+            s = f' style="{styl}"' if styl else ""
             return Markup(f'<img src="{self.base}{i["src"]}"{a}{c}{s} loading="{"eager" if prvni else "lazy"}" decoding="async">')
+        s = (f' style="background-color:{i["barva"]};{styl}"' if i["barva"] else (f' style="{styl}"' if styl else ""))
         w, h, nejv = i["varianty"][-1][0], i["varianty"][-1][1], i["varianty"][-1][2]
         srcset = ", ".join(f"{self.base}{p} {w_}w" for w_, _, p in i["varianty"])
         nacitani = 'loading="eager" fetchpriority="high"' if prvni else 'loading="lazy"'

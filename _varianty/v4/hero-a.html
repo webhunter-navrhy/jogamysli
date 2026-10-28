@@ -1,0 +1,51 @@
+{% extends "_v4.html" %}
+{% import "_m4.html" as m with context %}
+{% set titulek = "Varianta A – Malba v zahradě" %}
+{% set noindex = true %}
+{% block telo %}va{% endblock %}
+{% block hlavicka %}
+<header class="hl hl-a">
+  <div class="hl-in">
+    {{ m.logo() }}
+    {{ m.nav() }}
+    <a class="hl-odkaz" href="{{ url('konzultace') }}"><svg aria-hidden="true"><use href="#slunce"/></svg><span>Konzultace zdarma</span></a>
+    {{ m.burger() }}
+  </div>
+</header>
+{% endblock %}
+{% block obsah %}
+<section class="a-hero">
+  <div class="a-text">
+    <p class="a-kdo">PhDr. Radana Makariusová, Ph.D. · jóga mysli v Praze a online</p>
+    <h1 class="a-h1">Najděte svůj<br>vnitřní klid.</h1>
+    <p class="a-perex">{{ "Přístup k mysli, který jsem 15 let skládala dohromady. Vede k harmonii, lehkosti a osvobození od úzkosti a tlaku."|nbsp }}</p>
+  </div>
+
+  <a class="a-karta a-karta-l" href="{{ url('konzultace') }}">
+    <span class="a-karta-ikona"><svg aria-hidden="true"><use href="#slunce"/></svg></span>
+    <span><b>Informativní konzultace zdarma</b><br>osobně v Praze nebo online</span>
+  </a>
+  <figure class="a-karta a-karta-p">
+    <blockquote>{{ "„Naučila jsem se být sama sobě léčitelkou, pouštět, co už nechci nést.“"|nbsp }}</blockquote>
+    <figcaption>Lucie, 37 · Akademie jógy mysli</figcaption>
+  </figure>
+
+  <div class="a-foto">
+    {{ img("malba-zahrada.jpg", "Radana Makariusová maluje bílo-zlaté slunce na velké plátno v zahradě", "(max-width: 760px) 100vw, calc(100vw - 48px)", cls="a-foto-img", eager=True) }}
+    <span class="a-zar" aria-hidden="true"></span>
+  </div>
+
+  <ul class="a-oblouk" aria-label="Kudy se můžeme vydat">
+    {% set ceny = {"akademie": "roční, půlroční i zkušební", "procesy": "od 1 999 Kč", "meditace": "ukázka zdarma", "retreaty": "Havaj, Sahara, Česko", "online": "připravujeme"} %}
+    {% for s in data.sluzby %}
+    <li style="--i:{{ loop.index0 }}">
+      <a href="{{ url(s.href) }}">
+        <span class="a-kruh">{{ img(s.obraz, "", "(max-width: 760px) 92px, 132px", eager=False) }}</span>
+        <span class="a-nazev">{{ s.nazev|replace("Transformační energetické procesy", "Energetické procesy")|nbsp }}</span>
+        <span class="a-cena">{{ ceny[s.klic] }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endblock %}

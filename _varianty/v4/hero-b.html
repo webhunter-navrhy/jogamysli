@@ -1,0 +1,54 @@
+{% extends "_v4.html" %}
+{% import "_m4.html" as m with context %}
+{% set titulek = "Varianta B – Tři slunce" %}
+{% set noindex = true %}
+{% block telo %}vb{% endblock %}
+{% block hlavicka %}
+<header class="hl hl-b">
+  <div class="hl-in">
+    {{ m.logo() }}
+    {{ m.nav() }}
+    <a class="hl-tl" href="{{ url('konzultace') }}">Konzultace zdarma</a>
+    {{ m.burger() }}
+  </div>
+</header>
+{% endblock %}
+{% block obsah %}
+{% set slunce = [
+  {"h": "Najděte svůj vnitřní klid.", "obraz": "obrazy/o-smireni.jpg", "nazev": "O smíření", "barva": "#f4c46a"},
+  {"h": "Uvolněte se od negativních myšlenek.", "obraz": "obraz-procesy.jpg", "nazev": "Energetický zářič", "barva": "#f2a86a"},
+  {"h": "Otevřete se celkové transformaci.", "obraz": "obrazy/o-prijeti.jpg", "nazev": "O přijetí", "barva": "#ee8a55"}
+] %}
+<section class="b-hero" data-slunce>
+  <div class="b-nebe" aria-hidden="true"></div>
+  <div class="b-text">
+    <div class="b-tituly" aria-live="polite">
+      {% for s in slunce %}<h1 class="b-h1{% if loop.first %} on{% endif %}"{% if not loop.first %} aria-hidden="true"{% endif %}>{{ s.h|nbsp }}</h1>{% endfor %}
+    </div>
+    <p class="b-perex">{{ "S jógou mysli. Doprovodím vás na cestě do nitra: individuálně, ve skupině, na retreatu i online."|nbsp }}</p>
+    <div class="b-prepinac" role="tablist" aria-label="Tři cesty">
+      {% for t in ["Klid", "Uvolnění", "Transformace"] %}<button type="button" role="tab" aria-selected="{{ 'true' if loop.first else 'false' }}" data-i="{{ loop.index0 }}"><span class="b-tecka" style="background:{{ slunce[loop.index0].barva }}"></span>{{ t }}</button>{% endfor %}
+    </div>
+  </div>
+
+  <div class="b-obzor">
+    <div class="b-slunce" aria-hidden="true">
+      {% for s in slunce %}<span class="b-obraz{% if loop.first %} on{% endif %}">{{ img(s.obraz, "", "(max-width: 760px) 104vw, min(50vw, 700px)", eager=loop.first) }}</span>{% endfor %}
+    </div>
+  </div>
+
+  <a class="b-radana" href="{{ url('o-mne') }}">
+    <span class="b-portret">{{ img("radana-zahrada.jpg", "Radana Makariusová", "64px", eager=False, styl="object-position:50% 18%") }}</span>
+    <span><b>PhDr. Radana Makariusová, Ph.D.</b><br>{{ "jóga mysli, 15 let praxe"|nbsp }}</span>
+  </a>
+
+</section>
+  <div class="b-lista">
+    <p class="b-lista-t">Kudy se vydat</p>
+    <ul>
+      {% set ceny = {"akademie": "osobně i online", "procesy": "od 1 999 Kč", "meditace": "ukázka zdarma", "retreaty": "Havaj, Sahara, ČR", "online": "připravujeme"} %}
+      {% for s in data.sluzby %}<li><a href="{{ url(s.href) }}"><b>{{ s.nazev|replace("Transformační energetické procesy", "Energetické procesy")|nbsp }}</b><span>{{ ceny[s.klic] }}</span></a></li>{% endfor %}
+    </ul>
+    <a class="b-lista-cta" href="{{ url('konzultace') }}">Informativní konzultace zdarma <span aria-hidden="true">→</span></a>
+  </div>
+{% endblock %}

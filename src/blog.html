@@ -1,27 +1,24 @@
-{% extends "_base.html" %}
-{% import "_m.html" as m with context %}
+{% extends "_v4.html" %}
+{% import "_m4.html" as m with context %}
 {% set titulek = "Blog – Jóga mysli | Radana Makariusová" %}
 {% set popis = "Články Radany Makariusové o józe mysli, vnitřní vědomé pozornosti, smíření, přijetí a transformaci. Ke každému článku patří obraz s poselstvím." %}
 {% set cesta = "blog/" %}
+{% block telo %}pod{% endblock %}
 {% block obsah %}
-<section class="clanek-hlava">
-  <div class="wrap">
-    <p class="stitek">Blog</p>
-    <h1>Myšlenky na cestu do nitra</h1>
-    <p class="hlava-perex" style="max-width: 40rem">{{ "Ke každému článku patří jeden obraz s poselstvím z galerie Obrazy z nitra."|nbsp }}</p>
-  </div>
-</section>
-<section class="sekce" style="padding-top: 0">
+{{ m.hlava_text("Myšlenky na cestu do nitra", "Blog · Radana Makariusová", "Ke každému článku patří jeden obraz s poselstvím z galerie Obrazy z nitra.", "obrazy/o-pochopeni.jpg") }}
+<section class="sekce" style="padding-top: 20px">
   <div class="wrap">
     <ul class="blog-seznam">
       {% for c in data.blog %}{% set o = data.obrazy[c.obraz] %}
       <li class="r"><a href="{{ url(c.slug) }}">
-        {{ m.kruh(o.img, "", "7rem", "otacet") }}
-        <span><span class="stitek"><time datetime="{{ c.datum }}">{{ c.datum_text }}</time> · {{ c.minut }} min čtení</span><h2>{{ c.nazev|nbsp }}</h2></span>
-        <p class="perex">{{ c.perex|nbsp }}</p>
+        {{ m.kruh(o.img, "", "(max-width: 860px) 96px, 150px", "toci") }}
+        <span><span class="meta"><time datetime="{{ c.datum }}">{{ c.datum_text }}</time> · {{ c.minut }} min čtení</span><h2>{{ c.nazev|nbsp }}</h2></span>
+        <p class="perex-c">{{ c.perex|nbsp }}</p>
+        <span class="blog-sipka" aria-hidden="true">{{ m.sipka() }}</span>
       </a></li>
       {% endfor %}
     </ul>
   </div>
 </section>
+{{ m.formular(["Informativní konzultace zdarma", "Akademie jógy mysli", "Transformační energetické procesy", "Audiomeditace", "Retreaty", "Online kurz Akademie JM"], "Kontaktujte mě pro více informací") }}
 {% endblock %}

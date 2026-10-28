@@ -1,35 +1,41 @@
-{% extends "_base.html" %}
-{% import "_m.html" as m with context %}
+{% extends "_v4.html" %}
+{% import "_m4.html" as m with context %}
 {% set titulek = "Meditace do uší – audiomeditace 10+1 | Radana Makariusová" %}
 {% set popis = "Audiomeditace Radany Makariusové: 11 meditací a mentálních cvičení pro klid, uvolnění a vědomou pozornost. Ukázka Vše je dobré zdarma, balíček 10+1 i jako dárkový voucher." %}
 {% set cesta = "audiomeditace/" %}
 {% set md = data.meditace %}
+{% block telo %}pod{% endblock %}
 {% block obsah %}
 
-{% call m.hlava("Meditace do uší", "Chvíle jen pro vás – relaxační i mentální cvičení pro vnitřní pohodu, klid a lehkost."|nbsp, "obraz-meditace.jpg", "Zlatý obraz Radany Makariusové se třemi propletenými kruhy", "Audiomeditace", slovo="Meditace", foto="proces-lehatko.jpg", foto_alt="Klidná místnost s lehátkem a Radaniným obrazem", foto_popis="Chvíle jen pro vás", nebe="oranz") %}
-<ul class="body4" style="max-width: 34rem">{% for b in md.prinosy %}<li>{{ b|capitalize }}</li>{% endfor %}</ul>
-<div class="hlava-akce">
-  <a class="tlacitko" href="#ukazka">Poslechnout ukázku zdarma</a>
+{% set st = [] %}
+{% for x in md.seznam[:4] %}{% set _ = st.append({"href": "#ukazka" if loop.first else "#seznam", "nazev": x.nazev, "cena": ("ukázka zdarma · " if loop.first else "") ~ x.delka ~ " min", "obraz": data.obrazy[x.obraz].img}) %}{% endfor %}
+{% call m.hlava("Meditace do uší", "Chvíle jen pro vás – relaxační i mentální cvičení pro vnitřní pohodu, klid a lehkost. Balíček 10 + 1 audiomeditací s průvodním textem."|nbsp, "obraz-meditace.jpg", "radana-obraz.jpg", "Radana Makariusová s jedním ze svých obrazů", st, "Audiomeditace", "50% 22%") %}
+<div class="akce">
+  <a class="tl" href="#ukazka">Poslechnout ukázku zdarma {{ m.sipka() }}</a>
   <a class="odkaz" href="{{ md.koupit }}" target="_blank" rel="noopener">Koupit balíček {{ m.ven() }}</a>
 </div>
 {% endcall %}
 
-<section class="sekce pruh" id="ukazka">
+<section class="medove" id="ukazka">
   <div class="wrap">
-    {{ m.prehravac(md.seznam[0], "Vyzkoušejte ukázku zdarma, jestli vám bude vyhovovat hlas, téma, atmosféra.") }}
+    {% call m.prehravac(md.seznam[0], "Vyzkoušejte ukázku zdarma, jestli vám bude vyhovovat hlas, téma, atmosféra.") %}
+    <ul class="dalsi-meditace" aria-label="Co meditace přinášejí">
+      {% for b in md.prinosy %}<li><span class="kruh">{{ img(data.obrazy[["o-uvolneni-lpeni", "tady-a-ted", "o-prijeti", "o-vnitrnim-vedomem-klidu"][loop.index0]].img, "", "56px", eager=False) }}</span><div><b>{{ b|capitalize }}</b></div></li>{% endfor %}
+    </ul>
+    {% endcall %}
   </div>
 </section>
 
-<section class="sekce" aria-labelledby="seznam-h">
+<section class="sekce" id="seznam" aria-labelledby="seznam-h">
   <div class="wrap">
     <div class="sekce-hlava">
       <h2 class="h2" id="seznam-h">Meditace v&nbsp;balíčku</h2>
-      <p>{{ "Ke každé meditaci patří jeden obraz s poselstvím z galerie Obrazy z nitra. Klikněte na obraz a přečtěte si celé poselství."|nbsp }}</p>
+      <p class="velky">{{ "Ke každé meditaci patří jeden obraz s poselstvím z galerie Obrazy z nitra. Klikněte na obraz a přečtěte si celé poselství."|nbsp }}</p>
     </div>
     <ul class="meditace-seznam">
       {% for x in md.seznam %}{% set o = data.obrazy[x.obraz] %}
       <li class="r">
-        <a class="m-obraz" href="{{ o.url }}" target="_blank" rel="noopener" aria-label="Obraz {{ o.nazev }} v galerii Obrazy z nitra">{{ m.kruh(o.img, "", "6rem") }}</a>
+        <a class="m-obraz" href="{{ o.url }}" target="_blank" rel="noopener" aria-label="Obraz {{ o.nazev }} v galerii Obrazy z nitra">{{ m.kruh(o.img, "", "(max-width: 860px) 72px, 92px", "toci") }}</a>
         <div>
           <h3>{{ x.nazev }}</h3>
           <p>{{ x.popis|nbsp }}</p>
@@ -42,16 +48,16 @@
   </div>
 </section>
 
-<section class="sekce pruh" style="padding-block: clamp(4rem, 8vw, 6.5rem)" aria-labelledby="balicek-h">
+<section class="sekce pudr" style="padding-top: 20px" aria-labelledby="balicek-h">
   <div class="wrap">
     <div class="balicek r">
-      {{ m.kruh("obraz-meditace.jpg", "", "13rem", "otacet") }}
+      {{ m.kruh("obraz-meditace.jpg", "", "(max-width: 860px) 180px, 260px", "toci") }}
       <div>
-        <p class="stitek">Dárkový balíček audiomeditací</p>
-        <h2 class="h2" id="balicek-h">10+1 audiomeditací a&nbsp;průvodní text</h2>
-        <p>{{ "V případě, že budete chtít balíček audiomeditací někomu darovat, můžete si zakoupit dárkový voucher."|nbsp }}</p>
+        <p class="kicker">Dárkový balíček audiomeditací</p>
+        <h2 class="h2" id="balicek-h">10 + 1 audiomeditací a&nbsp;průvodní text</h2>
+        <p class="velky" style="margin-top: 18px">{{ "V případě, že budete chtít balíček audiomeditací někomu darovat, můžete si zakoupit dárkový voucher."|nbsp }}</p>
         <div class="akce">
-          <a class="tlacitko" href="{{ md.koupit }}" target="_blank" rel="noopener">Koupit audiomeditace</a>
+          <a class="tl" href="{{ md.koupit }}" target="_blank" rel="noopener">Koupit audiomeditace {{ m.ven() }}</a>
           <a class="odkaz" href="{{ md.voucher }}" target="_blank" rel="noopener">Koupit jako dárkový voucher {{ m.ven() }}</a>
         </div>
       </div>
@@ -59,7 +65,7 @@
   </div>
 </section>
 
-{{ m.faq([data.faq[2]]) }}
-{{ m.formular(["Audiomeditace", "Informativní konzultace zdarma", "Akademie jógy mysli"], "Máte k&nbsp;meditacím otázku?"|safe, "Odeslat", zapad="obraz-meditace.jpg", nebe="oranz") }}
+{{ m.faq([data.faq[2]], "Otázky k meditacím") }}
+{{ m.formular(["Audiomeditace", "Informativní konzultace zdarma", "Akademie jógy mysli"], "Máte k meditacím otázku?", "Odeslat", obraz="obraz-meditace.jpg") }}
 {% endblock %}
 {% block head %}{{ faq_ld([data.faq[2]]) }}{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "_v4.html" %}
+{% import "_m4.html" as m with context %}
+{% set titulek = "Varianta C – Světlo z nitra" %}
+{% set noindex = true %}
+{% block telo %}vc{% endblock %}
+{% block hlavicka %}
+<header class="hl hl-c">
+  <div class="hl-in">
+    {{ m.logo() }}
+    {{ m.nav() }}
+    {{ m.burger() }}
+  </div>
+</header>
+{% endblock %}
+{% block obsah %}
+<section class="c-hero">
+  <div class="c-pole" aria-hidden="true">{{ img("obraz-retreaty.jpg", "", "100vw", cls="c-pole-img", eager=True) }}</div>
+
+  <div class="c-stred">
+    <div class="c-nitro">
+      {{ img("radana-u-stojanu.jpg", "Radana Makariusová u stojanu s obrazem, který právě maluje", "(max-width: 760px) 62vw, 340px", eager=True, styl="object-position:46% 30%") }}
+    </div>
+    <svg class="c-paprsky" viewBox="0 0 1000 1000" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+      <g fill="none" stroke="currentColor" stroke-width="1">
+        <path d="M500 500 L150 250"/><path d="M500 500 L120 600"/><path d="M500 500 L850 230"/><path d="M500 500 L885 560"/><path d="M500 500 L640 900"/>
+      </g>
+    </svg>
+    {% set pozice = ["c-l1", "c-p1", "c-l2", "c-p2", "c-d"] %}
+    {% set ceny = {"akademie": "roční, půlroční i zkušební program", "procesy": "90 min od 1 999 Kč", "meditace": "10 + 1 meditací, ukázka zdarma", "retreaty": "Havaj, Sahara, Maledivy, Česko", "online": "10 lekcí · připravujeme"} %}
+    {% for s in data.sluzby %}
+    <a class="c-stitek {{ pozice[loop.index0] }}" href="{{ url(s.href) }}"><span class="c-bod"></span><b>{{ s.nazev|replace("Transformační energetické procesy", "Energetické procesy")|nbsp }}</b><span>{{ ceny[s.klic]|nbsp }}</span></a>
+    {% endfor %}
+  </div>
+
+  <div class="c-claim">
+    <h1 class="c-h1">Cesta do nitra</h1>
+    <div class="c-pod">
+      <p>{{ "k vnitřnímu klidu a lehkosti. Jóga mysli PhDr. Radany Makariusové, Ph.D., v Praze, online a na retreatech."|nbsp }}</p>
+    </div>
+  </div>
+
+  <a class="c-pecet" href="{{ url('konzultace') }}" aria-label="Informativní konzultace zdarma">
+    <span class="c-pecet-obraz">{{ img("obrazy/o-pochopeni.jpg", "", "128px", eager=False) }}</span>
+    <svg class="c-pecet-text" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="kruh" d="M100 100 m-78 0 a78 78 0 1 1 156 0 a78 78 0 1 1 -156 0"/></defs><text><textPath href="#kruh">Informativní konzultace zdarma · osobně i online ·</textPath></text></svg>
+  </a>
+</section>
+{% endblock %}

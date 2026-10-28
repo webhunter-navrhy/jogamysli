@@ -1,22 +1,22 @@
-{% extends "_base.html" %}
-{% import "_m.html" as m with context %}
+{% extends "_v4.html" %}
+{% import "_m4.html" as m with context %}
 {% set titulek = clanek.nazev ~ " | Jóga mysli – Radana Makariusová" %}
 {% set popis = clanek.perex[:155] %}
+{% block telo %}pod{% endblock %}
 {% block obsah %}
 <article>
-  <header class="clanek-hlava">
-    <div class="wrap">
+  {% call m.hlava_text(clanek.nazev, "", "", data.obrazy[clanek.obraz].img) %}
+  <p class="meta"><time datetime="{{ clanek.datum }}">{{ clanek.datum_text }}</time> · {{ clanek.minut }} min čtení · Radana Makariusová</p>
+  {% endcall %}
+  <div class="wrap clanek-grid" style="padding-bottom: 110px">
+    <div>
       <a class="zpet" href="{{ url('blog') }}">{{ m.sipka() }} Všechny články</a>
-      <p class="stitek"><time datetime="{{ clanek.datum }}">{{ clanek.datum_text }}</time> · {{ clanek.minut }} min čtení · Radana Makariusová</p>
-      <h1>{{ clanek.nazev|nbsp }}</h1>
+      <div class="prose">{{ clanek.obsah|safe }}</div>
     </div>
-  </header>
-  <div class="wrap clanek-grid">
-    <div class="prose">{{ clanek.obsah|safe }}</div>
     <div class="clanek-bok">{{ m.obraz_tema(clanek.obraz, "Obraz k článku") }}</div>
   </div>
 </article>
-<section class="sekce dalsi" aria-labelledby="dalsi-h">
+<section class="sekce pruh" aria-labelledby="dalsi-h">
   <div class="wrap">
     <div class="sekce-hlava">
       <h2 class="h2" id="dalsi-h">Další články</h2>
