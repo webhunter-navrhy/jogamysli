@@ -1,8 +1,9 @@
-// Jóga mysli: menu, objevování, dýchání jen na obrazovce, přehrávač meditace, video, pás obrazů, formulář.
+// Jóga mysli: menu, objevování, rotace jen na obrazovce, přehrávače meditace, video v okně, formulář.
 (function () {
   var d = document, root = d.documentElement;
   root.classList.add('js');
   var klid = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function cas(s) { s = Math.floor(s || 0); return Math.floor(s / 60) + ':' + ('0' + (s % 60)).slice(-2); }
 
   // hlavička: linka po odscrollování (jen přepnutí třídy, bez smyčky)
   var hl = d.querySelector('.hlavicka');
@@ -31,13 +32,29 @@
     r.forEach(function (el) { io.observe(el); });
   }
 
-  // dýchající obraz: animace běží jen když je vidět
-  d.querySelectorAll('.dech').forEach(function (el) {
+  // nekonečné otáčení (slunce, paprsky, pečeť) běží jen když je vidět
+  d.querySelectorAll('.ha-vizual, .hlava-vizual, .kontakt').forEach(function (el) {
     new IntersectionObserver(function (e) { el.classList.toggle('mimo', !e[0].isIntersecting); }).observe(el);
   });
 
-  // přehrávač meditace
-  function cas(s) { s = Math.floor(s || 0); return Math.floor(s / 60) + ':' + ('0' + (s % 60)).slice(-2); }
+  // jen jedna nahrávka hraje najednou
+  d.addEventListener('play', function (e) {
+    d.querySelectorAll('audio').forEach(function (a) { if (a !== e.target) a.pause(); });
+  }, true);
+
+  // malý přehrávač v úvodu
+  d.querySelectorAll('[data-mini]').forEach(function (p) {
+    var a = p.querySelector('audio'), b = p.querySelector('button'), cara = p.querySelector('.prehr-cara i'), t = p.querySelector('[data-mini-cas]');
+    b.addEventListener('click', function () { if (a.paused) { a.play(); } else { a.pause(); } });
+    a.addEventListener('play', function () { p.classList.add('hraje'); b.setAttribute('aria-label', 'Pozastavit ukázku meditace'); });
+    a.addEventListener('pause', function () { p.classList.remove('hraje'); b.setAttribute('aria-label', 'Přehrát ukázku meditace'); });
+    a.addEventListener('timeupdate', function () {
+      if (a.duration) cara.style.width = (a.currentTime / a.duration * 100) + '%';
+      if (t) t.textContent = cas(a.currentTime);
+    });
+  });
+
+  // přehrávač meditace (deska)
   d.querySelectorAll('[data-prehravac]').forEach(function (p) {
     var a = p.querySelector('audio'), cara = p.querySelector('.prubeh-cara'), ted = p.querySelector('[data-ted]'), popis = p.querySelector('[data-popis]');
     function prepni() { if (a.paused) { a.play(); } else { a.pause(); } }
@@ -51,22 +68,19 @@
     a.addEventListener('ended', function () { cara.style.strokeDashoffset = 100; ted.textContent = '0:00'; });
   });
 
-  // video: načte se až po kliknutí, mobil dostane menší soubor
-  d.querySelectorAll('[data-video]').forEach(function (v) {
-    v.querySelector('.video-play').addEventListener('click', function () {
-      var el = d.createElement('video');
-      el.src = innerWidth < 800 ? v.dataset.srcMobil : v.dataset.src;
-      el.controls = true; el.playsInline = true; el.autoplay = true;
-      el.setAttribute('poster', v.querySelector('img').currentSrc || v.querySelector('img').src);
-      v.appendChild(el); v.classList.add('bezi'); el.play().catch(function () {});
+  // video v okně: načte se až po kliknutí, mobil dostane menší soubor
+  d.querySelectorAll('[data-video]').forEach(function (btn) {
+    var okno = d.getElementById(btn.dataset.video);
+    if (!okno) return;
+    var vid = okno.querySelector('video');
+    btn.addEventListener('click', function () {
+      if (!vid.src) vid.src = innerWidth < 800 ? btn.dataset.srcMobil : btn.dataset.src;
+      if (okno.showModal) okno.showModal(); else okno.setAttribute('open', '');
+      vid.play().catch(function () {});
     });
-  });
-
-  // pás obrazů: o kolik se má posunout (počítá se jen při změně velikosti)
-  d.querySelectorAll('[data-pas]').forEach(function (pas) {
-    var stopa = pas.querySelector('.pas-stopa');
-    function zmer() { pas.style.setProperty('--posun', Math.max(0, stopa.scrollWidth - pas.clientWidth) + 'px'); }
-    zmer(); addEventListener('resize', zmer); addEventListener('load', zmer);
+    okno.addEventListener('close', function () { vid.pause(); });
+    okno.querySelector('.okno-zavrit').addEventListener('click', function () { okno.close(); });
+    okno.addEventListener('click', function (e) { if (e.target === okno) okno.close(); });
   });
 
   // odkazy „Mám zájem“ předvyplní formulář
