@@ -36,10 +36,13 @@ git -c user.name="WebHunter" -c user.email="info@webhunter.cz" commit -q -m "Akt
 git push -q "$PUSH_URL" HEAD:main
 
 echo "== gh-pages (dist/)"
-TMP="$(mktemp -d)"; cp -R dist/. "$TMP/"; touch "$TMP/.nojekyll"
-( cd "$TMP" && git init -q -b gh-pages && git add -A \
-  && git -c user.name="WebHunter" -c user.email="info@webhunter.cz" commit -q -m "build $(date +%F\ %H:%M)" \
-  && git push -q -f "$PUSH_URL" gh-pages && git rev-parse HEAD > "$TMP.sha" )
+# Na existující gh-pages navazujeme (pushne se jen rozdíl); celý force-push velkého webu padal na HTTP 408.
+TMP="$(mktemp -d)"
+if git clone -q --single-branch -b gh-pages "$PUSH_URL" "$TMP" 2>/dev/null; then (cd "$TMP" && git rm -rq . >/dev/null); else git init -q -b gh-pages "$TMP"; fi
+cp -R dist/. "$TMP/"; touch "$TMP/.nojekyll"
+( cd "$TMP" && git add -A \
+  && { git -c user.name="WebHunter" -c user.email="info@webhunter.cz" commit -q -m "build $(date +%F\ %H:%M)" || true; } \
+  && git -c http.postBuffer=524288000 push -q "$PUSH_URL" gh-pages && git rev-parse HEAD > "$TMP.sha" )
 SHA="$(cat "$TMP.sha" 2>/dev/null || true)"; rm -rf "$TMP" "$TMP.sha"
 
 echo "== Pages zapnuté?"
