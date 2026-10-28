@@ -24,14 +24,36 @@
 </aside>
 {% endmacro %}
 
-{# Přehrávač ukázky meditace. Obraz se při přehrávání otáčí, kolem něj běží kruh průběhu. #}
+{# Obloha se zářičem (WebGL v static/js/zaric.js). Plakát pod canvasem = CSS obloha + obraz; LCP i fallback bez WebGL.
+   paleta: n = obloha za šera (nahoře, uprostřed, u obzoru), d = obloha ve dne, f = mlha (šero, den), g = barva záře,
+   mlha = výška mlhy (podíl výšky), svetlo = obraz svítí (screen, pro obrazy na tmavém podkladu), prach = zlaté částečky. #}
+{% set PALETY = {
+  "svitani": {"n": ["#1e1419", "#57303a", "#c8764c"], "d": ["#f3e3cf", "#fbeedb", "#fffbf3"], "f": ["#efc39e", "#fffbf3"], "mlha": 0.17, "prach": 1, "p0": 0, "p1": 1, "rot": 0.012},
+  "zapad": {"n": ["#1b1216", "#4a2731", "#b5643f"], "d": ["#1b1216", "#4a2731", "#2b2119"], "f": ["#3b2622", "#3b2622"], "mlha": 0.12, "prach": 1, "p0": 0, "p1": 0, "rot": -0.01},
+  "zlata": {"n": ["#efe3d3", "#f6dfb9", "#f0c98e"], "d": ["#fbf4e8", "#fcf1df", "#fffbf3"], "f": ["#fbefdc", "#fffbf3"], "mlha": 0.1, "prach": 0, "p0": 0, "p1": 0.9, "rot": 0.012},
+  "med": {"n": ["#f0e0d4", "#f6d6b6", "#efbd8b"], "d": ["#fbf4e8", "#fcf1df", "#fffbf3"], "f": ["#fbeedd", "#fffbf3"], "mlha": 0.1, "prach": 0, "p0": 0, "p1": 0.9, "rot": 0.012},
+  "oranz": {"n": ["#f1e1d6", "#f9d9b2", "#f3bb78"], "d": ["#fbf4e8", "#fcf1df", "#fffbf3"], "f": ["#fbeedd", "#fffbf3"], "mlha": 0.1, "prach": 0, "p0": 0, "p1": 0.9, "rot": 0.012},
+  "bila": {"n": ["#e9e3dd", "#efe5d6", "#ead7bb"], "d": ["#fbf6ee", "#fcf4e6", "#fffbf3"], "f": ["#fbf2e4", "#fffbf3"], "mlha": 0.1, "prach": 0, "p0": 0, "p1": 0.9, "rot": 0.01},
+  "ruda": {"n": ["#efdfd8", "#f5d2bf", "#eeb291"], "d": ["#fbf3eb", "#fcefe2", "#fffbf3"], "f": ["#fbede0", "#fffbf3"], "mlha": 0.1, "prach": 0, "p0": 0, "p1": 0.9, "rot": 0.012},
+  "salvej": {"n": ["#e9e6da", "#efe6c9", "#e4d6a4"], "d": ["#faf7ec", "#fbf4e2", "#fffbf3"], "f": ["#fbf2e2", "#fffbf3"], "mlha": 0.1, "prach": 0, "p0": 0, "p1": 0.9, "rot": 0.012}
+} %}
+{% macro nebe(obraz, alt, paleta="svitani", glow="#ffb04a", svetlo=False, eager=False, sizes="(min-width: 900px) 60vw, 100vw", cls="") %}
+{% set pal = dict(PALETY[paleta], g=glow, svetlo=(1 if svetlo else 0)) %}
+<div class="nebe nebe-{{ paleta }}{% if svetlo %} nebe-svetlo{% endif %} {{ cls }}" data-zaric data-paleta='{{ pal|tojson }}' aria-hidden="{{ 'false' if alt else 'true' }}"
+  style="--n0: {{ pal.n[0] }}; --n1: {{ pal.n[1] }}; --n2: {{ pal.n[2] }}; --f0: {{ pal.f[0] }}; --d2: {{ pal.d[2] }}; --mlha: {{ (pal.mlha * 100)|round|int }}%; --zare: {{ glow }}">
+  <div class="nebe-plakat">{{ img(obraz, alt, sizes, cls="nebe-slunce-img", eager=eager) }}</div>
+  <canvas aria-hidden="true"></canvas>
+</div>
+{% endmacro %}
+
+{# Přehrávač ukázky meditace. Kolem obrazu paprsky světla, které při přehrávání reagují na hlas (canvas, jen během přehrávání). #}
 {% macro prehravac(m, uvod="", nadpis_tag="h2") %}
 {% set o = data.obrazy[m.obraz] %}
 <div class="prehravac" data-prehravac>
   <div class="prehravac-obraz">
+    <canvas class="paprsky-hlas" aria-hidden="true"></canvas>
     <svg class="prubeh" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="48.5" class="prubeh-draha"/><circle cx="50" cy="50" r="48.5" class="prubeh-cara" pathLength="100"/></svg>
     {{ kruh(o.img, "Obraz " ~ o.nazev ~ " od Radany Makariusové", "(min-width: 800px) 30rem, 80vw", "toci") }}
-    <span class="drazky" aria-hidden="true"></span>
     <button class="prehrat" type="button" aria-label="Přehrát ukázku meditace {{ m.nazev }}">
       <svg class="ikona-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
       <svg class="ikona-pauza" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 5.5h3v13h-3zM13.5 5.5h3v13h-3z" fill="currentColor"/></svg>
@@ -39,51 +61,44 @@
   </div>
   <div class="prehravac-text">
     <p class="stitek">Ukázka zdarma · {{ m.delka }} min</p>
-    <h2 class="h2">{{ m.nazev }}</h2>
+    <{{ nadpis_tag }} class="h2 prehravac-nadpis">{{ m.nazev }}</{{ nadpis_tag }}>
     <p class="velky">{{ m.popis|nbsp }}</p>
     {% if uvod %}<p>{{ uvod|nbsp }}</p>{% endif %}
     <div class="ovladani">
       <button class="tlacitko hrat" type="button" data-hrat><span data-popis>Přehrát ukázku</span></button>
       <span class="cas" aria-live="off"><span data-ted>0:00</span> / {{ m.delka }}</span>
     </div>
-    <p class="obraz-k">Při poslechu se otáčí obraz <a href="{{ o.url }}" target="_blank" rel="noopener">{{ o.nazev }} {{ ven() }}</a></p>
+    <p class="obraz-k">Při poslechu svítí obraz <a href="{{ o.url }}" target="_blank" rel="noopener">{{ o.nazev }} {{ ven() }}</a></p>
     <audio preload="none" src="{{ base }}media/vse-je-dobre.mp3"></audio>
     {% if caller is defined %}{{ caller() }}{% endif %}
   </div>
 </div>
 {% endmacro %}
 
-{# Hlavička podstránky: svítání. Obraz služby vychází nad obzorem, za ním obří slovo,
-   před ním plovoucí fotka z praxe (foto) nebo Radanin výřez (postava). #}
-{% macro hlava(nadpis, perex, obraz, alt, kicker="", slovo="", foto="", foto_alt="", foto_popis="", postava="", nebe="med") %}
-<section class="hlava nebe-{{ nebe }}{% if postava %} s-postavou{% endif %}">
-  <div class="hlava-vizual">
-    <div class="paprsky" aria-hidden="true"></div>
-    <div class="slunce">{{ img(obraz, alt, "(min-width: 900px) 44vw, 92vw", eager=True) }}</div>
-    {% if slovo %}<p class="obri-slovo" aria-hidden="true">{{ slovo }}</p>{% endif %}
-    {% if postava %}{{ img(postava, "PhDr. Radana Makariusová, Ph.D.", "(min-width: 900px) 34vw, 70vw", cls="hlava-postava", eager=True) }}{% endif %}
-    {% if foto %}<figure class="hlava-foto">{{ img(foto, foto_alt, "(min-width: 900px) 16rem, 40vw", eager=True) }}{% if foto_popis %}<figcaption>{{ foto_popis|nbsp }}</figcaption>{% endif %}</figure>{% endif %}
-  </div>
-  <div class="wrap hlava-dole">
-    <div>
-      <p class="stitek">{{ kicker or "Jóga mysli" }}</p>
+{# Hlavička podstránky: ranní obloha, obraz služby vychází vpravo jako slunce, nadpis vlevo, fotka z praxe jako lístek. #}
+{% macro hlava(nadpis, perex, obraz, alt, kicker="", slovo="", foto="", foto_alt="", foto_popis="", postava="", nebe="med", glow="#f4b25a") %}
+<section class="hlava">
+  {{ nebe_m(obraz, alt, nebe, glow, eager=True, sizes="(min-width: 900px) 46vw, 92vw") }}
+  <div class="wrap hlava-in">
+    <div class="hlava-text">
+      <p class="kicker">{{ kicker or "Jóga mysli" }}</p>
       <h1>{{ nadpis|nbsp }}</h1>
-    </div>
-    <div>
       <div class="hlava-perex">{{ perex }}</div>
       {% if caller is defined %}{{ caller() }}{% endif %}
     </div>
+    {% if foto %}<figure class="hlava-foto">{{ img(foto, foto_alt, "(min-width: 900px) 16rem, 40vw", eager=True) }}{% if foto_popis %}<figcaption>{{ foto_popis|nbsp }}</figcaption>{% endif %}</figure>{% endif %}
   </div>
 </section>
 {% endmacro %}
+{% macro nebe_z(obraz, glow, svetlo) %}{{ nebe(obraz, "", "zapad", glow, svetlo, False, "(min-width: 900px) 34vw, 70vw") }}{% endmacro %}
+{% macro nebe_m(obraz, alt, paleta, glow, eager=False, sizes="") %}{{ nebe(obraz, alt, paleta, glow, False, eager, sizes) }}{% endmacro %}
 
-{# Formulář. volby = seznam možností „Mám zájem o“. #}
-{% macro formular(volby, nadpis="Kontaktujte mě pro více informací", tlacitko="Odeslat", vybrano="", text="", zapad="obraz-hero.jpg", nebe="med") %}
-<section class="sekce kontakt nebe-{{ nebe }}" id="formular">
-  <div class="slunce" aria-hidden="true">{{ img(zapad, "", "(min-width: 900px) 36rem, 90vw", eager=False) }}</div>
-  <div class="zem" aria-hidden="true"></div>
-  <div class="wrap kontakt-grid">
-    <div class="kontakt-text">
+{# Formulář na večerní obloze: obraz zapadá do mlhy, pod ním patička = noc. #}
+{% macro formular(volby, nadpis="Kontaktujte mě pro více informací", tlacitko="Odeslat", vybrano="", text="", zapad="obraz-hero.jpg", nebe="med", svetlo=False, glow="#f0a050") %}
+<section class="zapad" id="formular">
+  {{ nebe_z(zapad, glow, svetlo) }}
+  <div class="wrap zapad-grid">
+    <div class="zapad-text">
       <h2 class="h2">{{ nadpis|nbsp }}</h2>
       {% if text %}<p class="velky">{{ text|nbsp }}</p>{% endif %}
       <p>Ozvu se vám e-mailem nebo telefonicky. Informativní konzultace je zdarma.</p>
@@ -107,7 +122,7 @@
         </label>
       </div>
       <label>Jak jste se o mně dozvěděli? <input name="zdroj"></label>
-      <label>Zpráva <textarea name="zprava" rows="4"></textarea></label>
+      <label>Zpráva <textarea name="zprava" rows="3"></textarea></label>
       <label class="souhlas"><input type="checkbox" name="souhlas" required> <span>Souhlasím se zpracováním údajů pro účely vyřízení poptávky (<a href="{{ url('gdpr') }}">zásady</a>).</span></label>
       <div class="past" aria-hidden="true"><label>Nevyplňovat <input name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
       <input type="hidden" name="_subject" value="{{ site.formular.predmet }}">

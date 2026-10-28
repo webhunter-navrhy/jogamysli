@@ -19,6 +19,7 @@
 <link rel="icon" href="{{ base }}img/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="{{ base }}fonts/NyghtSerif-Light.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link rel="stylesheet" href="{{ asset('css/v3.css') }}">
 {% block head %}{% endblock %}
 {% if jsonld %}<script type="application/ld+json">{{ jsonld|safe }}</script>{% endif %}
 </head>
@@ -92,5 +93,6 @@
   </div>
 </footer>
 <script src="{{ asset('js/main.js') }}" defer></script>
+<script src="{{ asset('js/zaric.js') }}" defer></script>
 </body>
 </html>

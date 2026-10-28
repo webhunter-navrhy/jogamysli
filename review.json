@@ -1,17 +1,16 @@
 {
   "znamka": 8,
   "slabiny": [
-    "PC buňka 1 (hero): obří slovo „lehkost“ má horní část dotahů l/h/k useknutou pod fixní hlavičkou a logo „ŽIJEME S LEHKOSTÍ“ vlevo nahoře je na snímku oříznuté horním okrajem. Rafael nechce, aby prvky zajížděly pod fixní menu. Oprava: dát hero padding-top aspoň ve výšce hlavičky (cca 80 px), aby bylo celé slovo pod lištou, a logu v hlavičce nechat vertikální padding, ať je vidět celé.",
-    "Mobil buňka 1 (spodek první obrazovky): štítek „Vítejte na stránkách jógy mysli“ a nadpis „Jmenuji se Radana“ jsou při načtení skoro neviditelné (reveal začíná na nízké průhlednosti). Oprava: reveal spouštět dřív (IntersectionObserver s rootMargin „0px 0px -10% 0px“ nebo threshold 0) a začínat aspoň na opacity 0.6 s posunem do 12 px, nebo ho na mobilu u nadpisů úplně vypnout.",
-    "PC buňka 3 (rejstřík „Kudy se můžeme vydat“): v pěti úzkých sloupcích vychází popisky na 25–30 znaků na řádek a nadpis „Transformační energetické procesy“ se láme do tří řádků, takže řada karet je nestejně vysoká a akční odkazy nesedí na jedné lince. Oprava: popisky na 16 px, nadpisy karet o stupeň menší (cca 26 px) a odkazy „To chci / Rezervovat / …“ zarovnat na spodní linku karty (flex column + margin-top:auto)."
+    "PC svědectví (buňka 10): dvě menší citace (Andrea, Karel) jsou kvůli margin-left: auto u .slova-dalsi odsazené doprava. Levá třetina zůstává prázdná a citace se odtrhávají od hlavní citace Lucie, která stojí vlevo. Zarovnat .slova-dalsi k levému okraji .wrap (margin-left: 0), aby tvořily sloupec pod hlavní citací.",
+    "PC úvod (buňka 1): perex „Pojďme společně objevit…“ vlevo dole je drobný (1,05rem), tmavě hnědý na oranžové záři a vedle tlačítka skoro zaniká. Zvětšit ho na ~1,2rem a na PC mu dát krémovou barvu (#fff4e4 s jemným stínem) nebo stejný poloprůhledný podklad, jaký má přehrávač vpravo.",
+    "Mobil Pět cest (buňky 4–7): kruhové obrazy služeb přesahují okraj obrazovky střídavě o 16vw. U Retreatů (buňka 6) je obraz z poloviny mimo obrazovku a u Akademie se dva obrazy těsně potkávají, takže sled působí jako uříznutý. Zmenšit přesah .cesta-mobil na ~8vw a mezi službami nechat aspoň 3rem vzduchu."
   ],
   "zavazne": [],
   "silne": [
-    "Všechny tři minulé výtky jsou opravené. Prázdné krémové plochy pod sekcemi zmizely (PC 3–4, mobil 3 a 6–8 mají přiměřené mezery), popisky a odkazy v rejstříku jsou tmavší a čitelnější, neviditelný popisek „nádech/výdech“ pod hero je pryč. Na mobilu je teď kontakt (e-mail a telefon velkým písmem) hned pod nadpisem a před formulářem, checkbox má 24 px a QA hlásí jen 2 hraniční dotykové cíle místo 6.",
-    "Silný koncept z vlastního světa klientky: energetické obrazy Radany (Obrazy z nitra) jsou vizuálním jazykem celého webu. Jsou za hero fotkou, jako „okna“ služeb, jako otáčející se obraz u přehrávače meditace i jako kruh v sekci sesterského webu. Nic takového by šablona neměla.",
-    "Brand sedí: logo „Žijeme s lehkostí“ vlevo v hlavičce, teplá hnědo-oranžová paleta z původního webu (#73614c, oranžová, krémová), skutečná fotka Radany v hero. Texty, citát i svědectví jsou převzaté z jejího webu, nic vymyšleného.",
-    "Mobil je navržený, ne zmenšený: přehrávač ukázky meditace hned v hero, rejstřík služeb s obrazem vlevo a textem vpravo, nic nepřetéká na 390 ani 360 px."
+    "Výtky z minulého kola jsou opravené. Neaktivní položky rejstříku „Kudy se můžeme vydat“ mají opacity 0,58 a barvu #73614c, na PC jsou čitelné (buňky 3 a 5). Obraz vlevo je jen sticky a scroll se nepinuje. Logo v hlavičce má rezervu 4 px a line-height 1,12 a nic ho neořezává. Cena 1 999 Kč, balíček 10+1 / 11 meditací i věk u svědectví jsou teď v brief.json jako fakta se zdrojem z podstránek joga-mysli.cz.",
+    "Silný koncept z oboru: Radaniny vlastní energetické obrazy jako vycházející slunce a zářiče. Celý web jde od svítání v úvodu přes noc u meditace a souhvězdí obrazů až k západu v kontaktu, takže nápad je vidět v každé sekci, ne jen v úvodu.",
+    "Brand i obsah sedí: logo „Žijeme s lehkostí“ vlevo, paleta #73614c / #ecdecd s teplým oranžovým akcentem, skutečná fotka Radany u stojanu a její obrazy, reálné texty a citace. Kontakt (e-mail, telefon, formulář, konzultace zdarma) je v hlavičce i v kontaktní sekci. QA bez chyb a bez přetečení na všech šířkách."
   ],
-  "verdikt": "Výtky z minulého kola jsou opravené a nová závažná vada se neobjevila. Web má vlastní koncept postavený na Radaniných obrazech a dá se poslat (známka 8, ODESLAT). Zbývající slabiny jsou jen doladění: ořez hero pod hlavičkou, reveal na mobilu a sjednocení karet v rejstříku.",
-  "_hash": "5255d14806ed2bce51f71d14776c91036955bc74"
+  "verdikt": "odeslat – všechny tři minulé výtky jsou opravené a nová závažná vada tu není. Atmosférický, konceptuálně jednolitý redesign postavený na Radaniných obrazech je na úrovni k odeslání, zbývají jen drobnosti v kompozici.",
+  "_hash": "6824965975120171dceb1cdb27af71a51bf9b41a"
 }

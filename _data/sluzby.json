@@ -6,7 +6,8 @@
   "obraz": "obraz-akademie.jpg",
   "veta": "Individuální doprovázení za účelem schopnosti vnitřního klidu.",
   "akce": "To chci",
-  "detail": "Roční, půlroční nebo zkušební program, osobně i online."
+  "detail": "Roční, půlroční nebo zkušební program, osobně i online.",
+  "barva": "#e9bd2e"
  },
  {
   "klic": "procesy",
@@ -15,7 +16,8 @@
   "obraz": "obraz-procesy.jpg",
   "veta": "Transformativní procesy vedoucí k uvolnění energetických center.",
   "akce": "Rezervovat",
-  "detail": "90 minut až celodenní workshop, od 1 999 Kč."
+  "detail": "90 minut až celodenní workshop, od 1 999 Kč.",
+  "barva": "#f6a04a"
  },
  {
   "klic": "meditace",
@@ -24,7 +26,8 @@
   "obraz": "obraz-meditace.jpg",
   "veta": "Zaposlouchejte se do uvolňujících meditací.",
   "akce": "Poslechnout ukázku",
-  "detail": "Balíček 10+1 audiomeditací s průvodním textem, ukázka zdarma."
+  "detail": "Balíček 10+1 audiomeditací s průvodním textem, ukázka zdarma.",
+  "barva": "#ffb119"
  },
  {
   "klic": "retreaty",
@@ -33,7 +36,8 @@
   "obraz": "obraz-retreaty.jpg",
   "veta": "Transformativní cestování přinášející nová poznání.",
   "akce": "Mám zájem",
-  "detail": "Havaj, Sahara, Maledivy, Indočína, v Česku i na míru."
+  "detail": "Havaj, Sahara, Maledivy, Indočína, v Česku i na míru.",
+  "barva": "#c9b48a"
  },
  {
   "klic": "online",
@@ -42,6 +46,7 @@
   "obraz": "obraz-online.jpg",
   "veta": "Jógu mysli můžete studovat i online u vás doma.",
   "akce": "Připravujeme",
-  "detail": "10 lekcí, 10 témat práce s myslí, 10 mentálních technik."
+  "detail": "10 lekcí, 10 témat práce s myslí, 10 mentálních technik.",
+  "barva": "#ec7a3a"
  }
 ]

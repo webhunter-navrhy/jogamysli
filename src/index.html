@@ -5,83 +5,85 @@
 {% block telo %}uvod{% endblock %}
 {% block obsah %}
 
-{# 1 · Svítání: Radanin obraz vychází nad obzorem za slovem „lehkost“ #}
-<section class="ha">
-  <div class="ha-vizual">
-    <div class="paprsky" aria-hidden="true"></div>
-    <div class="slunce">{{ img("obraz-procesy.jpg", "Zlatý kruhový energetický obraz Radany Makariusové", "(min-width: 900px) 56vw, 118vw", eager=True) }}</div>
-    <div class="zem" aria-hidden="true"></div>
-    <p class="obri-slovo" aria-hidden="true">lehkost</p>
-    {{ img("vyrez/radana-stojan.png", "PhDr. Radana Makariusová, Ph.D.", "(min-width: 900px) 30vw, 60vw", cls="ha-radana", eager=True) }}
-    <a class="pecet" href="{{ site.obrazy_url }}" target="_blank" rel="noopener" aria-label="Obrazy z nitra – sesterský web s Radaninými obrazy">
-      <svg viewBox="0 0 100 100" aria-hidden="true"><defs><path id="kr" d="M50,50 m-41,0 a41,41 0 1,1 82,0 a41,41 0 1,1 -82,0"/></defs><text><textPath href="#kr">Obrazy z nitra · zářiče · Obrazy z nitra · zářiče ·</textPath></text></svg>
-      {{ m.kruh(data.obrazy["o-radosti"].img, "", "5rem") }}
-    </a>
+{# 1 · Svítání: obraz „O odvaze“ vychází jako živé slunce, obloha se scrollem rozednívá #}
+<section class="ha" aria-labelledby="ha-h">
+  {{ m.nebe(data.obrazy["o-odvaze"].img, "Radanin obraz O odvaze svítí jako slunce nad obzorem", "svitani", "#ffa947", True, True, "(min-width: 900px) 58vh, 60vw", "ha-nebe") }}
+  <div class="ha-in">
+    <p class="ha-kicker">Jóga mysli · PhDr. Radana Makariusová, Ph.D.</p>
+    <h1 id="ha-h"><span class="ha-r" style="--d: 0">Cesta do nitra</span> <span class="ha-r" style="--d: 1">k&nbsp;vnitřnímu klidu</span> <span class="ha-r" style="--d: 2">a&nbsp;lehkosti</span></h1>
+  </div>
+  <div class="ha-dole">
+    <div class="ha-perex">
+      <p>{{ "Pojďme společně objevit osvobozující umění vnitřní vědomé pozornosti a nechme, ať nás radost provází."|nbsp }}</p>
+      <a class="tlacitko" href="{{ url('konzultace') }}">Informativní konzultace zdarma</a>
+    </div>
     <div class="prehr" data-mini>
       <button class="prehr-kruh" type="button" aria-label="Přehrát ukázku meditace">{{ img(data.obrazy["o-dobru"].img, "", "4rem", eager=False) }}<span><svg class="ikona-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg><svg class="ikona-pauza" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 5.5h3v13h-3zM13.5 5.5h3v13h-3z" fill="currentColor"/></svg></span></button>
       <div><small>Ukázka meditace · <span data-mini-cas>0:00</span> / 6:03</small><b>Vše je dobré</b><span class="prehr-cara"><i></i></span></div>
       <audio preload="none" src="{{ base }}media/vse-je-dobre.mp3"></audio>
     </div>
-    <div class="ha-pruh" aria-hidden="true"><span>Praha a online</span><span>Jóga mysli · 15 let praxe</span></div>
   </div>
-  <div class="ha-levy">
-    <p class="stitek">Jóga mysli · PhDr. Radana Makariusová</p>
-    <h1>Cesta do nitra k&nbsp;vnitřnímu klidu a&nbsp;lehkosti</h1>
-  </div>
-  <div class="ha-pravy">
-    <p>{{ "Pojďme společně objevit osvobozující umění vnitřní vědomé pozornosti a nechme, ať nás radost provází."|nbsp }}</p>
-    <a class="tlacitko" href="{{ url('konzultace') }}">Informativní konzultace zdarma</a>
-  </div>
+  <p class="ha-obraz">Obraz <a href="{{ data.obrazy['o-odvaze'].url }}" target="_blank" rel="noopener">O odvaze</a></p>
 </section>
 
-{# 2 · Věta, která se při scrollu rozsvěcuje #}
-{% set v1 = ("Jmenuji se Radana Makariusová"|nbsp).split(' ') %}
-{% set v2 = ("a ráda vás budu doprovázet na vaší cestě do nitra"|nbsp).split(' ') %}
-{% set v3 = ("k vnitřnímu klidu a lehkosti"|nbsp).split(' ') %}
-<section class="veta-sekce" aria-labelledby="veta-h">
-  <div class="wrap">
-    <p class="stitek">Vítejte na stránkách Jógy mysli</p>
-    <h2 class="veta" id="veta-h">{% for w in v1 %}<span class="sl">{{ w }}</span> {% endfor %}<span class="vkruh oval radana" aria-hidden="true">{{ img("radana-zahrada.jpg", "", "10rem", eager=False) }}</span> {% for w in v2 %}<span class="sl">{{ w }}</span> {% endfor %}<span class="vkruh" aria-hidden="true">{{ img(data.obrazy["nitro-je-poklad"].img, "", "6rem", eager=False) }}</span> {% for w in v3 %}<span class="sl">{{ w }}</span>{% if not loop.last %} {% endif %}{% endfor %}<svg class="vslunce" aria-hidden="true"><use href="#slunce"/></svg></h2>
-    <div class="veta-dole">
-      <p class="r">{{ "Jóga mysli je přístup, který jsem v průběhu 15 let poskládala dohromady jako moderní postup práce s myslí zaměřený na vnitřní transformaci. Učí nás vnitřní vědomé pozornosti a jejím cílem je harmonie, lehkost a osvobození od úzkosti a tlaku."|nbsp }}</p>
-      <blockquote class="r"><p>„Všichni si přejeme cítit se dobře, záleží na tom, jaký zaujímáme mentální postoj.“</p></blockquote>
-      <a class="odkaz r" href="{{ url('o-mne') }}">Více o mně {{ m.sipka() }}</a>
+{# 2 · Vítejte: Radana u stojanu, rám vychází jako slunce; věta se rozsvěcuje #}
+{% set v1 = ("Jmenuji se Radana Makariusová a ráda vás budu doprovázet na vaší cestě do nitra k vnitřnímu klidu a lehkosti"|nbsp).split(' ') %}
+<section class="vitejte" aria-labelledby="veta-h">
+  <div class="wrap vitejte-grid">
+    <figure class="vitejte-foto">
+      <div class="vitejte-ram">{{ img("radana-u-stojanu.jpg", "PhDr. Radana Makariusová u stojanu se svým obrazem", "(min-width: 900px) 38vw, 92vw") }}</div>
+      <figcaption>PhDr. Radana Makariusová, Ph.D.</figcaption>
+    </figure>
+    <div class="vitejte-text">
+      <p class="kicker">Vítejte na stránkách jógy mysli</p>
+      <h2 class="veta" id="veta-h">{% for w in v1 %}<span class="sl">{{ w }}</span>{% if not loop.last %} {% endif %}{% endfor %}</h2>
+      <div class="vitejte-dole">
+        <p>{{ "Jóga mysli je přístup, který jsem v průběhu 15 let poskládala dohromady jako moderní postup práce s myslí zaměřený na vnitřní transformaci. Učí nás vnitřní vědomé pozornosti a jejím cílem je harmonie, lehkost a osvobození od úzkosti a tlaku."|nbsp }}</p>
+        <blockquote class="vitejte-citat"><p>„Všichni si přejeme cítit se dobře, záleží na tom, jaký zaujímáme mentální postoj.“</p></blockquote>
+        <a class="odkaz" href="{{ url('o-mne') }}">Více o mně {{ m.sipka() }}</a>
+      </div>
     </div>
   </div>
 </section>
 
-{# 3 · Pět cest jako pět sluncí nad jedním obzorem #}
-<section class="cesty" aria-labelledby="cesty-h">
+{# 3 · Pět cest: lepkavý obraz, který se mění podle služby; pozadí přebírá barvu obrazu #}
+<section class="cesty" aria-labelledby="cesty-h" data-cesty style="--tint: {{ data.sluzby[0].barva }}">
   <div class="wrap cesty-hlava">
     <h2 class="h2" id="cesty-h">Kudy se můžeme vydat</h2>
     <p>{{ "Pět cest jógy mysli. Každá vede z jiné strany do stejného středu: k tichu nitra."|nbsp }}</p>
   </div>
-  <div class="cesty-pas">
-    <ol class="slunce5">
+  <div class="wrap cesty-grid">
+    <div class="cesty-scena" aria-hidden="true">
+      <div class="cesty-stred">
+        <span class="cesty-zare"></span>
+        {% for s in data.sluzby %}<span class="kruh cesty-obraz{% if loop.first %} akt{% endif %}" data-i="{{ loop.index0 }}">{{ img(s.obraz, "", "(min-width: 900px) 34vw, 1px", eager=False) }}</span>{% endfor %}
+        <svg class="cesty-drahy" viewBox="0 0 100 100"><circle cx="50" cy="50" r="49.6"/></svg>
+        <ol class="cesty-tecky">{% for s in data.sluzby %}<li{% if loop.first %} class="akt"{% endif %}></li>{% endfor %}</ol>
+      </div>
+    </div>
+    <ol class="cesty-seznam">
     {% for s in data.sluzby %}
-      <li>
-        <a class="s5" href="{{ url(s.href) }}">
-          <span class="s5-nebe"><span class="s5-kruh">{{ m.kruh(s.obraz, "", "(min-width: 860px) 15rem, 7rem") }}</span></span>
-          <span class="s5-text">
-            <span class="s5-nazev">{{ s.nazev|nbsp }}</span>
-            <span class="s5-veta">{{ s.veta|nbsp }} {{ s.detail|nbsp }}</span>
-            <span class="s5-akce">{{ s.akce }} {{ m.sipka() }}</span>
-          </span>
-        </a>
+      <li class="cesta{% if loop.first %} akt{% endif %}" data-i="{{ loop.index0 }}" data-barva="{{ s.barva }}">
+        <span class="kruh cesta-mobil" aria-hidden="true">{{ img(s.obraz, "", "(min-width: 900px) 1px, 64vw", eager=False) }}</span>
+        <h3 class="cesta-nazev"><a href="{{ url(s.href) }}">{{ s.nazev|nbsp }}</a></h3>
+        <p class="cesta-veta">{{ s.veta|nbsp }}</p>
+        <p class="cesta-detail">{{ s.detail|nbsp }}</p>
+        <a class="odkaz" href="{{ url(s.href) }}" tabindex="-1">{{ s.akce }} {{ m.sipka() }}</a>
       </li>
     {% endfor %}
     </ol>
   </div>
 </section>
 
-{# 4 · Meditace jako deska + video #}
-<section class="sekce deska-sekce" id="ukazka">
+{# 4 · Noc meditace: obraz O dobru svítí v rytmu Radanina hlasu #}
+<section class="noc" id="ukazka" aria-label="Ukázka meditace Vše je dobré">
+  <span class="noc-hvezdy" aria-hidden="true"></span>
   <div class="wrap">
     {% call m.prehravac(data.meditace.seznam[0], "Vyzkoušejte, jestli vám bude vyhovovat hlas, téma a atmosféra. Pohodlně se posaďte se vzpřímenou páteří tak, aby vás nic nerušilo.") %}
     <p class="ukazka-dal"><a class="odkaz" href="{{ url('audiomeditace') }}">Všech 11 meditací a dárkový balíček {{ m.sipka() }}</a></p>
     <div class="video-karta">
       <button class="video-nahled" type="button" data-video="okno-video" data-src-mobil="{{ base }}media/promo-360.mp4" data-src="{{ base }}media/promo-720.mp4" aria-label="Přehrát video o józe mysli (3 min 20 s)">
-        {{ img("promo-poster.jpg", "", "12rem", eager=False) }}
+        {{ img("promo-poster.jpg", "", "14rem", eager=False) }}
         <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
       </button>
       <p><b>Video o józe mysli · 3:20</b>{{ "„Všichni máme v sobě ten největší poklad, stačí jen jej v sobě objevit a poznat se v něm.“"|nbsp }}</p>
@@ -94,39 +96,66 @@
   </dialog>
 </section>
 
-{# 5 · Kolo zářičů: obrazy z Obrazů z nitra na kružnici, která se scrollem otáčí #}
-{% set kolo = ["o-radosti", "o-odvaze", "o-hojnosti-a-blahobytu", "o-rozhodnuti", "je-cas-vyjit-z-ulity", "o-kolobehu-zivota", "o-prijeti", "o-transformaci", "ze-tmy-do-svetla", "tady-a-ted", "o-smireni", "nechat-plynout", "o-zmene", "o-spolupraci", "o-propojeni", "o-dobru"] %}
-<section class="kolo" aria-labelledby="kolo-h">
-  <div class="kolo-text">
-    <p class="stitek">Sesterský web Obrazy z nitra</p>
-    <h2 class="h2" id="kolo-h">Energetické obrazy s&nbsp;poselstvími</h2>
+{# 5 · Souhvězdí zářičů: obrazy v různé hloubce kolem textu, odkazy na Obrazy z nitra #}
+{% set hvezdy = [
+  ("o-radosti", 9, 13, 9.5, 3, 16, 7, 27),
+  ("nitro-je-poklad", 33, 5, 5.5, 1, 50, 2, 13),
+  ("o-pochopeni", 79, 11, 11, 3, 80, 9, 30),
+  ("tady-a-ted", 95, 36, 6, 2, 96, 25, 13),
+  ("o-transformaci", 14, 50, 7.5, 2, 5, 24, 12),
+  ("o-uzdraveni", 62, 3, 4.5, 1, 0, 0, 0),
+  ("ze-tmy-do-svetla", 84, 68, 13, 3, 76, 87, 33),
+  ("o-vnitrnim-vedomem-klidu", 4, 84, 6.5, 1, 4, 75, 12),
+  ("o-hojnosti-a-blahobytu", 30, 90, 8.5, 2, 24, 90, 27),
+  ("o-kolobehu-zivota", 63, 94, 6, 1, 52, 98, 13),
+  ("o-prijeti", 98, 92, 5, 1, 96, 72, 12),
+  ("o-realite-a-osudu", 22, 31, 4.2, 1, 0, 0, 0),
+  ("o-odevzdani", 3, 30, 5, 2, 0, 0, 0)
+] %}
+<section class="souhvezdi" aria-labelledby="sv-h">
+  <ul class="sv-pole">
+  {% for h in hvezdy %}{% set o = data.obrazy[h[0]] %}
+    <li class="sv h{{ h[4] }}{% if not h[7] %} jen-pc{% endif %}" style="--x: {{ h[1] }}%; --y: {{ h[2] }}%; --s: {{ h[3] }}vw; --mx: {{ h[5] }}%; --my: {{ h[6] }}%; --ms: {{ h[7] }}vw; --t: {{ 90 + loop.index * 17 }}s">
+      <a href="{{ o.url }}" target="_blank" rel="noopener" aria-label="Obraz {{ o.nazev }} na Obrazech z nitra"><span class="kruh">{{ img(o.img, "", "(min-width: 900px) 13vw, 34vw", eager=False) }}</span><span class="sv-n" aria-hidden="true">{{ o.nazev }}</span></a>
+    </li>
+  {% endfor %}
+  </ul>
+  <div class="sv-text">
+    <p class="kicker">Sesterský web Obrazy z nitra</p>
+    <h2 class="h2" id="sv-h">Energetické obrazy s&nbsp;poselstvími</h2>
     <p>{{ "Najednou jsem z čista jasna začala malovat energetické obrazy s poselstvími. Jsou to energetické zářiče na dané téma a mé velké životní překvapení."|nbsp }}</p>
-    <a class="odkaz" href="{{ site.obrazy_url }}" target="_blank" rel="noopener">Celá galerie na obrazy-z-nitra.cz {{ m.ven() }}</a>
+    <a class="tlacitko svetle" href="{{ site.obrazy_url }}" target="_blank" rel="noopener">Celá galerie na obrazy-z-nitra.cz</a>
   </div>
-  <div class="kolo-kruh">
-    <ul class="kolo-pol">
-    {% for slug in kolo %}{% set o = data.obrazy[slug] %}
-      <li style="--u: {{ -150 + loop.index0 * 20 }}deg"><a href="{{ o.url }}" target="_blank" rel="noopener" title="{{ o.nazev }}" aria-label="Obraz {{ o.nazev }} na Obrazech z nitra">{{ m.kruh(o.img, "", "(min-width: 860px) 9rem, 6rem") }}<span class="n" aria-hidden="true">{{ o.nazev }}</span></a></li>
-    {% endfor %}
-    </ul>
-  </div>
-  <div class="kolo-stred" aria-hidden="true">{{ m.kruh(data.obrazy["o-pochopeni"].img, "", "(min-width: 860px) 30rem, 80vw") }}</div>
 </section>
 
 {# 6 · Slova klientů #}
-<section class="sekce slova" aria-labelledby="ref-h">
+{% set r0 = data.reference[0] %}
+<section class="slova" aria-labelledby="ref-h">
+  <span class="slova-zare" aria-hidden="true"></span>
+  <figure class="slova-obraz">
+    <span class="kruh">{{ img(data.obrazy["o-prijeti"].img, "Radanin obraz Vím, že jsem naplňující Bytí / O přijetí", "(min-width: 900px) 40vw, 60vw", eager=False) }}</span>
+    <figcaption>Obraz <a href="{{ data.obrazy['o-prijeti'].url }}" target="_blank" rel="noopener">O&nbsp;přijetí</a></figcaption>
+  </figure>
   <div class="wrap">
     <h2 class="h2" id="ref-h">Kdo už prošel touto cestou</h2>
-    <div class="slova-grid">
-      {{ m.reference_blok(data.reference[0], True) }}
-      <div class="ref-dalsi">
-        {% for r in data.reference[1:] %}{{ m.reference_blok(r) }}{% endfor %}
-      </div>
+    <figure class="slovo-velke">
+      <blockquote><p>„{{ r0.citat|nbsp }}“</p></blockquote>
+      <figcaption><span class="tecka" aria-hidden="true"></span>{{ r0.jmeno }}, {{ r0.vek }} let</figcaption>
+      <details class="ref-cele"><summary>Celé svědectví</summary><div class="odpoved">{% for p in r0.text %}<p>{{ p|nbsp }}</p>{% endfor %}</div></details>
+    </figure>
+    <div class="slova-dalsi">
+    {% for r in data.reference[1:] %}
+      <figure class="slovo">
+        <blockquote><p>„{{ r.citat|nbsp }}“</p></blockquote>
+        <figcaption><span class="tecka" aria-hidden="true"></span>{{ r.jmeno }}, {{ r.vek }} let</figcaption>
+        <details class="ref-cele"><summary>Celé svědectví</summary><div class="odpoved">{% for p in r.text %}<p>{{ p|nbsp }}</p>{% endfor %}</div></details>
+      </figure>
+    {% endfor %}
     </div>
   </div>
 </section>
 
-{# 7 · Konzultace jako západ slunce #}
-{{ m.formular(["Informativní konzultace zdarma", "Akademie jógy mysli", "Transformační energetické procesy", "Audiomeditace", "Retreaty", "Online kurz Akademie JM"], "Kontaktujte mě pro více informací", zapad="obraz-hero.jpg") }}
+{# 7 · Západ: obraz O karmě zapadá do mlhy, kontakt na večerní obloze #}
+{{ m.formular(["Informativní konzultace zdarma", "Akademie jógy mysli", "Transformační energetické procesy", "Audiomeditace", "Retreaty", "Online kurz Akademie JM"], "Kontaktujte mě pro více informací", zapad=data.obrazy["o-karme"].img, svetlo=True, glow="#ffc23a") }}
 
 {% endblock %}

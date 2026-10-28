@@ -1,73 +1,70 @@
-# Jóga mysli – koncept v2 (28. 10. 2026)
+# Jóga mysli – koncept v3 „Ze tmy do světla“ (28. 10. 2026)
 
-**Proč v2:** Rafael 28. 10.: v1 je „moc jednoduchá, moc obyčejná, moc šablonová, klientku nezaujme“.
-V1 byl korektní editoriál (text vlevo + obraz vpravo, řádkové seznamy, karty, menu vpravo + pilulka) a neměl nápad, který by
-patřil jen Radaně. Původní koncept v1 je v `koncept-v1.md`.
+Předchozí verze: `koncept-v1.md` (editoriál, „šablonový“), `koncept-v2.md` („Zářič“, Rafael: „pořád nic moc, měl by být mnohem lepší“).
 
-**Hrdina webu:** Radaniny energetické obrazy. Jsou kulaté a paprskovité jako slunce, mají soustředné kruhy a ve středu světlo.
-Ona sama jim říká „energetické zářiče“. Žádný jiný lektor jógy je nemá. Druhý hrdina je Radana: má výrazný vzhled
-(platinové vlasy) a vlastní fotky z ateliéru, z praxe a z retreatů. Výřezy: `img/vyrez/radana-stojan.png` (u stojanu)
-a `radana-portret.png` (zahrada).
+## Proč v2 neprošla (upřímně)
+- **Hero je koláž, ne obraz.** Výřez Radany s roztřepenými vlasy přilepený přes polokruh obrazu useknutý vodorovnou čarou
+  a CSS „paprsky“ jako z Canvy. Kolem pět drobných prvků (pečeť, přehrávač, dva sloupce textu, pruh). Oko nemá kam spočinout.
+- **Obrazy jsou jen kulaté fotky.** Radaniny malby svítí: mají světlý střed, paprsky, třpyt. Ve v2 to byly ploché kruhové obrázky
+  s pomalou rotací. Žádné světlo, žádná hloubka.
+- **Pod hero průměr žánru.** Krémová plocha, text vlevo, pět stejných kruhů vedle sebe, citáty textem, formulář v kartě.
+  Rytmus sekcí se nemění, nic nepřekvapí. Malé verzálkové štítky všude.
+- **Pohyb je skoro neviditelný** (rotace 180 s). Klientka chtěla animace, které jsou vidět a něco znamenají.
+- Review dalo 8/10, protože hodnotilo „bez chyb“, ne „úroveň špičky žánru“. Vedle wellness webů ze Site of the Day by v2 působila levně.
 
-Laťka: pin `super/76ce629a…` (Mindora „Calmness“: obří slovo za postavou, plovoucí karty, teplé světlo),
-TOP web charleston (umění domu jako textura značky, obří písmena přes malbu), yam (reálný člověk místo modelky).
+## Tři koncepty
+1. **„Ze tmy do světla“ (vybráno).** Jeden z Radaniných obrazů se jmenuje „Ze tmy do světla“ a celá jóga mysli je cesta od tlaku
+   a úzkosti k lehkosti. Web je jeden den: úvod začíná za šera, Radanin obraz vychází jako živé slunce (WebGL: obraz svítí, paprsky
+   se chvějí, střed dýchá v rytmu nádech 4 s / výdech 6 s, stoupají zlaté částečky) a scrollem se obloha rozednívá do krémového dne.
+   Uprostřed webu je noc meditace (obraz „O dobru“ svítí v rytmu jejího hlasu), na konci obraz zapadá za obzor u kontaktu
+   a patička je noc.
+2. **„Galaxie zářičů“.** Celý úvod jako noční obloha plná jejích obrazů v různé hloubce, scroll = let mezi nimi. Silné, ale celý
+   tmavý a abstraktní, jóga a Radana se v tom ztratí; tmavý web pro wellness je proti brandu (krém, hnědá).
+3. **„Dech“.** Web řízený dechem (obrazy a text se nadechují a vydechují). Krásné jako detail, slabé jako celek: dech má každé studio.
+   Bereme z něj rytmus 4/6 s pro dýchání slunce.
 
----
+## Proč 1
+- Je postavená na tom, co nemá nikdo jiný: její svítící malby, název jejího obrazu a její slib (z tlaku do lehkosti).
+- Drama dává kontrast šero → den, ne efekt pro efekt. Tmavé jsou jen začátek úvodu, meditace a patička, zbytek je světlý brand.
+- Není to tmavá + zlatá „luxus“: šero je teplá švestkově-hnědá obloha, zlato jen ze samotných obrazů.
+- Test zaměnitelnosti: bez jejích obrazů a bez názvu „Ze tmy do světla“ by koncept nefungoval.
 
-## A) „Zářič“: obraz vychází jako slunce nad obzorem
-**Nápad:** každá stránka má svůj obraz-slunce, které vychází nad teplým obzorem. Radana jim říká zářiče, mají paprsky a světlý střed,
-a „Žijeme s lehkostí“ má v logu slunce místo „o“. Celý web je jedno svítání.
-- **Hero:** obloha od krémové po medovou (svítání). Obří slovo „lehkost“ ve fontu Nyght přes celou šířku. Za ním vychází zlatý obraz
-  a při scrollu stoupá a pomalu se točí. Radana (výřez u stojanu) stojí před slovem a písmena překrývá jako postava na pinu
-  Mindora. Kolem plují dvě karty: přehrávač ukázky meditace a „Informativní konzultace zdarma“. Kulatá pečeť
-  „Obrazy z nitra“ s textem do kruhu vede na sesterský web.
-- **Hlavička:** logo vlevo (slunce v „lehkosti“). Menu je tenké uprostřed. Vpravo je odkaz se sluníčkem, který se točí při najetí. Pilulka tam není.
-- **Typografie:** Nyght Light v obřím měřítku (až 22vw), řádkování 0,85. Text v Albert Sans.
-- **Podstránky:** každá služba má hero se svým obrazem, který vychází nad obzorem stejně jako na úvodu, s obřím slovem
-  („Akademie“, „Procesy“, „Retreaty“). Barvu oblohy určuje obraz: zlatá, oranžová, krémová.
-- **Pohyb:** CSS `animation-timeline: scroll()` (slunce stoupá, paprsky se rozvírají) a pomalá rotace obrazu.
-- **Test zaměnitelnosti:** u jiné lektorky jógy nefunguje, protože ta nemá kulaté zářiče a slunce v logu. Stockový obrázek slunce by byl kýč.
-  Funguje proto, že jsou to její skutečné malby.
+## Skladba úvodu (obsah a pořadí jako v2/originál)
+1. **Svítání (signature 1).** Celá obrazovka: WebGL obloha za šera, obraz-slunce vychází zpoza mlhy, obří nadpis „Cesta do nitra
+   k vnitřnímu klidu a lehkosti“ ve světlém Nyght přes oblohu. V mlze dole perex + konzultace zdarma a malý přehrávač ukázky.
+   Scrollem slunce stoupá a obloha se rozední do krému další sekce.
+2. **Vítejte.** Velká fotka Radany u stojanu s obrazem (rám ve tvaru vycházejícího slunce, odkrývá se scrollem) + věta „Jmenuji se…“,
+   která se slovo po slovu rozsvěcuje, text, citát.
+3. **Kudy se můžeme vydat.** Vlevo lepkavý (sticky) velký obraz, který se při scrollu mění podle služby (5 obrazů, točí se, světlo
+   kolem má barvu obrazu, celé pozadí sekce se jemně přebarví). Vpravo pět služeb velkým písmem. Na mobilu obraz u každé služby
+   zasahující přes okraj.
+4. **Noc meditace (signature 2).** Tmavá sekce: obraz „O dobru“ s paprsky světla, které při přehrávání reagují na Radanin hlas
+   (Web Audio analyzer, kreslení jen během přehrávání). Video o józe mysli.
+5. **Souhvězdí obrazů.** Obrazy z Obrazů z nitra rozházené v hloubce kolem nadpisu, každý jinou rychlostí paralaxy (CSS view-timeline),
+   pomalu se točí, po najetí popisek. Odkazy na obrazy-z-nitra.cz.
+6. **Kdo už prošel touto cestou.** Jeden velký citát + dva menší, světlo obrazu za nimi.
+7. **Západ.** Kontakt na večerní obloze, obraz zapadá do mlhy (druhá instance WebGL), formulář jako krémový list. Patička = noc.
 
-## B) „Do středu“: web jako cesta po kruzích do nitra
-**Nápad:** obrazy mají soustředné kruhy, které vedou do světlého středu, a Radanina metoda se jmenuje „cesta do nitra“. Web je
-mapa kruhů. Úvod ukazuje pět cest jako oběžnice kolem středu. Scrollem se jde dovnitř.
-- **Hero:** uprostřed velký obraz se soustřednými kruhy. Nadpis běží po kružnici kolem něj a pomalu se otáčí. Na vnější dráze
-  obíhá pět malých obrazů služeb s popisky (Akademie, Procesy, Meditace, Retreaty, Online kurz), každý vede na svou podstránku.
-  Při scrollu se obraz přibližuje a jeho světlý střed se otevře do další sekce („ticho nitra“).
-- **Hlavička:** logo vlevo. Menu jako svislý rejstřík vpravo s malými kroužky (aktivní kroužek je plný).
-- **Podstránky:** hero je výřez kruhu a stránka „sedí“ na své dráze. Na ní jsou malé značky ostatních cest pro přechod jinam.
-- **Test zaměnitelnosti:** kruhy obecně jsou wellness klišé. Silné je to jen díky jejím obrazům. Hrozí „design pro designéry“
-  (obíhající navigace) a hůř se čte na mobilu.
+**Podstránky:** stejné nebe, ale ranní (světlé), s obrazem služby jako sluncem vpravo dole, velký nadpis vlevo.
 
-## C) „Dech“: obraz, který dýchá s vámi
-**Nápad:** jóga mysli začíná dechem. Hero je dechové cvičení: Radanina tvář v kruhu z obrazu, který se nadechuje (4 s) a vydechuje (6 s).
-Slova „nádech“ a „výdech“ se střídají v obřím písmu.
-- **Hero:** vlevo nahoře obří „nádech“, vpravo dole „výdech“. Uprostřed portrét Radany v kruhovém rámu z obrazu (paprsky kolem
-  tváře), rám dýchá. Plovoucí karta: „Zkuste to teď: 4 s nádech, 6 s výdech“.
-- **Podstránky:** v hlavičce malý dechový kruh, sekce se odkrývají v rytmu výdechu.
-- **Test zaměnitelnosti:** dech jako téma má každé jógové studio. Odlišuje ho jen obraz a portrét, takže je nejslabší.
+## Písmo, barvy, foto
+- Nyght Serif Light (písmo jejího webu a loga) v obřím měřítku, Albert Sans 300–500. Háčky otestované (v1).
+- Paleta z brandu: krém #fffbf3, písek #f6efe2, hnědá #73614c, tmavě hnědá #513a1c, zlatá #c6975d. Šero: #2a1c22 → #6b3b3c → #d98b5a
+  (teplá hnědo-švestková, navazuje na hnědou brandu).
+- Jen její fotky a malby. Žádné výřezy postavy (ve v2 působily lacině).
 
----
+## Technika a pohyb
+- WebGL1 shader bez knihoven (~6 kB): obloha, mlha, obraz jako textura (rotace, chvění paprsků, dýchání), záře, god rays, částečky.
+  Kreslí jen když je canvas vidět, ve 30 fps v klidu a 60 fps při scrollu, rozlišení se samo sníží na slabém stroji.
+  Pod canvasem je statický plakát (CSS obloha + obraz), takže LCP je hned a bez WebGL/při reduced motion vše funguje.
+- Zbytek: nativní scroll, CSS `animation-timeline` (paralaxa, odkrytí fotky, rozsvěcení slov), IntersectionObserver. Bez Lenis/GSAP.
 
-## Výběr
-Všechny tři varianty hero jsou postavené (`_varianty/hero-a|b|c.html`).
+## Zakázané vzory
+- Částečky (zlatý prach) jsou blízko „zrnu“: jsou součástí světla obrazu, jen v hero, ne přes stránku.
+- Nekonečná animace slunce: je to obsah (dýchání 4/6 s), běží jen když je vidět.
+- Žádný marquee, statistiky, 01/02/03, pilulková navigace, polaroidy.
 
-**Vyhrála A „Zářič“.**
-- Jako jediná má Radanu i její obraz najednou. Vedle pinu Mindora nevypadá levněji, protože obří slovo, postava přes písmo, plovoucí karty a teplé světlo tvoří jeden nápad.
-- B je krásná, ale abstraktní: chybí člověk, je to „design pro designéry“ a na mobilu se oběžnice rozpadají. Její motiv oběžné dráhy jsem přenesla do A jako „kolo zářičů“ v sekci Obrazy z nitra.
-- C se dá zaměnit: dech má každé studio.
-
-**Jak A prochází webem**
-- **Hlavička:** logo vlevo, tenké menu uprostřed a vpravo odkaz se sluníčkem. Po odscrollování se z ní stane krémový pruh.
-- **Úvod:**
-  1. Svítání (hero).
-  2. Představení Radany obří větou, ve které jsou malé kulaté fotky. Při scrollu se postupně „rozsvěcuje“.
-  3. Pět cest jako pět sluncí nad jedním obzorem. Při scrollu postupně vycházejí a vedou na podstránky.
-  4. Meditace jako deska: obraz se při přehrávání točí a kolem běží prsten průběhu. Vedle je video.
-  5. Kolo zářičů: obrazy na velké kružnici, která se scrollem otáčí. Odkazy vedou na obrazy-z-nitra.cz.
-  6. Slova klientů.
-  7. Konzultace zdarma (formulář) jako západ slunce: obraz zapadá za obzor.
-- **Podstránky:** hero má stejný obzor a vlastní obraz služby (Akademie zlatý, Procesy medový, Meditace oranžový, Retreaty bílý, Online kurz rudý). Obří slovo je název služby a vedle stojí fotka z praxe jako plovoucí karta. Ceníky jsou sázené jako tištěný lístek, FAQ je rozbalovací.
-- **Pohyb:** jen CSS scroll-driven (`animation-timeline: scroll()/view()`) a IntersectionObserver. Pomalá rotace obrazů se mimo obrazovku pozastaví. Respektuje se `prefers-reduced-motion`. Nepoužívám Lenis ani GSAP.
-- **Signature moment:** svítání v hero a kolo zářičů. Obojí tvoří Radaniny skutečné obrazy.
+## Porovnání
+- Schválené: Gančar (obraz jako světlo), Kling (motiv z oboru řízený scrollem). Odmítnuté: tmavá + zlatá (tady ne, šero je obloha),
+  intro animace (žádná, obsah je vidět hned), prázdné sekce (žádné).
+- Poslední weby v registru: jiný display font (Nyght je brand klientky) i skladba.

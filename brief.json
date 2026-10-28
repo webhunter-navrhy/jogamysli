@@ -1,505 +1,541 @@
 {
-  "slug": "jogamysli",
-  "zdroj_url": "https://www.joga-mysli.cz/",
-  "firma": "Jóga mysli – Radana Makariusová",
-  "obor": [
-    "sport a výuka",
-    "právo a poradenství"
+ "slug": "jogamysli",
+ "zdroj_url": "https://www.joga-mysli.cz/",
+ "firma": "Jóga mysli – Radana Makariusová",
+ "obor": [
+  "sport a výuka",
+  "právo a poradenství"
+ ],
+ "ico": "61023442",
+ "ares": null,
+ "kontakty": {
+  "emaily": [
+   "radana@makarius.cz"
   ],
-  "ico": "61023442",
-  "ares": null,
-  "kontakty": {
-    "emaily": [
-      "radana@makarius.cz"
-    ],
-    "telefony": [
-      "+420 777 223 188"
-    ],
-    "adresa": "",
-    "socialni_site": []
+  "telefony": [
+   "+420 777 223 188"
+  ],
+  "adresa": "",
+  "socialni_site": []
+ },
+ "logo": {
+  "soubor": "podklady/logo.png",
+  "zdroj": "https://www.joga-mysli.cz/wp-content/uploads/2024/06/zls_bl_logo.png",
+  "rozmery": [
+   300,
+   120
+  ]
+ },
+ "barvy": {
+  "css_promenne": {
+   "brand--primary": "#73614c",
+   "brand--secondary": "#73614c",
+   "brand--accent": "#ED8936",
+   "brand--button": "#3633e1",
+   "brand--button-hover": "#2f2ffc"
   },
-  "logo": {
-    "soubor": "podklady/logo.png",
-    "zdroj": "https://www.joga-mysli.cz/wp-content/uploads/2024/06/zls_bl_logo.png",
-    "rozmery": [
-      300,
-      120
-    ]
+  "z_css": [
+   "#f3690e",
+   "#ecdecd",
+   "#3182ce",
+   "#513a1c",
+   "#9b51e0",
+   "#003388"
+  ],
+  "z_loga": [],
+  "theme_color": null,
+  "doporucene": [
+   "#73614c",
+   "#f3690e",
+   "#ecdecd"
+  ]
+ },
+ "fotky": [
+  {
+   "soubor": "podklady/foto/foto-01.jpg",
+   "url": "https://www.joga-mysli.cz/wp-content/uploads/2023/09/radana-makariusova-768x1152.jpg",
+   "sirka": 768,
+   "vyska": 1152,
+   "alt": ""
   },
-  "barvy": {
-    "css_promenne": {
-      "brand--primary": "#73614c",
-      "brand--secondary": "#73614c",
-      "brand--accent": "#ED8936",
-      "brand--button": "#3633e1",
-      "brand--button-hover": "#2f2ffc"
-    },
-    "z_css": [
-      "#f3690e",
-      "#ecdecd",
-      "#3182ce",
-      "#513a1c",
-      "#9b51e0",
-      "#003388"
-    ],
-    "z_loga": [],
-    "theme_color": null,
-    "doporucene": [
-      "#73614c",
-      "#f3690e",
-      "#ecdecd"
-    ]
+  {
+   "soubor": "podklady/foto/foto-02.jpg",
+   "url": "https://www.joga-mysli.cz/wp-content/uploads/2024/10/joga-mysli-nahled-promo-768x430.jpg",
+   "sirka": 768,
+   "vyska": 430,
+   "alt": ""
+  }
+ ],
+ "fakta": [
+  {
+   "typ": "h1",
+   "text": "Najděte svůj vnitřní klid",
+   "zdroj": "https://www.joga-mysli.cz/"
   },
-  "fotky": [
-    {
-      "soubor": "podklady/foto/foto-01.jpg",
-      "url": "https://www.joga-mysli.cz/wp-content/uploads/2023/09/radana-makariusova-768x1152.jpg",
-      "sirka": 768,
-      "vyska": 1152,
-      "alt": ""
-    },
-    {
-      "soubor": "podklady/foto/foto-02.jpg",
-      "url": "https://www.joga-mysli.cz/wp-content/uploads/2024/10/joga-mysli-nahled-promo-768x430.jpg",
-      "sirka": 768,
-      "vyska": 430,
-      "alt": ""
-    }
-  ],
-  "fakta": [
-    {
-      "typ": "h1",
-      "text": "Najděte svůj vnitřní klid",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "h1",
-      "text": "Uvolněte se od negativních myšlenek",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "h1",
-      "text": "Otevřete se celkové transformaci",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "h2",
-      "text": "AKADEMIE JÓGY MYSLI",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "h2",
-      "text": "ENERGETICKÉ PROCESY",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "h2",
-      "text": "MEDITACE DO UŠÍ",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "h2",
-      "text": "RETREATY",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "h2",
-      "text": "ONLINE KURZY",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "h2",
-      "text": "Vítejte na stránkách Jógy mysli,",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "h2",
-      "text": "“Všichni SI přejeme cítit se dobře, ZÁLEŽÍ NA TOM, JAKÝ ZAUJÍMÁME MENTÁLNÍ POSTOJ.”",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "h2",
-      "text": "Nejčastější otázky",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "h3",
-      "text": "Akademie Jógy mysli",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "h3",
-      "text": "Energetické procesy",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "h3",
-      "text": "MEDITACE DO UŠÍ",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "h3",
-      "text": "Retreaty",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "h3",
-      "text": "Online kurzy",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "h2",
-      "text": "Kdo už prošel touto cestou",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "h2",
-      "text": "Blog",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "h3",
-      "text": "Změňme svoji strategii zaměření mysli",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "h3",
-      "text": "Rozevřeme svá křídla a vyleťme",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "h3",
-      "text": "Smíření osvobozuje",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "h3",
-      "text": "Pojďme naplnit svůj potenciál – jsme naplňující vědomé bytí",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "h3",
-      "text": "Jak pracovat s vnitřním tlakem? Zkusme proti tlaku nebojovat, zkusme jej jen pozorovat. Osvobodit se můžeme jen my sami.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "h3",
-      "text": "Máme v sobě ten největší poklad. Pojďme jej objevit uměním vnitřní bdělé pozornosti.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "h3",
-      "text": "Jak změnit myšlení zaměřené na minulost? Co se stalo, muselo se stát.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "h3",
-      "text": "Otevřeme se své vnitřní transformaci.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "h3",
-      "text": "Manifestovat nebo nechat plynout? Pochopení „odevzdání se“ je životní gamechanger.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "h2",
-      "text": "Kontaktujte mě pro více informací",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "h3",
-      "text": "Ať už vám nic neunikne",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Služby Rozbalit Akademie Jógy mysli Transformační energetické procesy Meditace do uší Retreaty Online kurz",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Najděte svůj vnitřní klid S jógou mysli audiomeditace zdarma „Zaměřuji se na celkovou mentální i fyzickou pohodu a doprovodím Vás na Vaší cestě do nitra.“",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Uvolněte se od negativních myšlenek S jógou mysli audiomeditace zdarma „Zaměřuji se na celkovou mentální i fyzickou pohodu a doprovodím Vás na Vaší cestě do nitra.“",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Otevřete se celkové transformaci S jógou mysli audiomeditace zdarma „Zaměřuji se na celkovou mentální i fyzickou pohodu a doprovodím Vás na Vaší cestě do nitra.“",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "AKADEMIE JÓGY MYSLI Individuální doprovázení za účelem schopnosti vnitřního klidu To chci",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Individuální doprovázení za účelem schopnosti vnitřního klidu",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "ENERGETICKÉ PROCESY Transformativní procesy vedoucí k uvolnění energetických center Rezervovat",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Transformativní procesy vedoucí k uvolnění energetických center",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "MEDITACE DO UŠÍ Zaposlouchejte se do uvolňujících meditací Stáhnout",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "RETREATY Transformativní cestování přinášející nová poznání Mám zájem",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "ONLINE KURZY Můžete jógu mysli studovat i online u vás doma Přihlásit se",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "ráda Vás budu doprovázet na Vaší cestě do nitra k vnitřnímu klidu a lehkosti.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Pojďme společně objevit osvobozující umění vnitřní vědomé pozornosti a nechme, ať nás radost provází.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Nalezneme ticho nitra, ze kterého vychází klid, lehkost a naplnění.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Jóga mysli je přístup, který jsem v průběhu 15 let poskládala dohromady jako moderní postup práce s myslí zaměřeném na vnitřní transformaci. Jóga mysli nás učí vnitřní vědomé pozornosti a jejím cílem je harmonie, lehkost a osvobození od úzkosti a tlaku. Soustředíme se na rozvoj vnitřního klidu a hlubší porozumění nitra. Jedná se o velmi propracovaný systém, který nás vede k celkové proměně našeho uvažování a vědomí.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Akademie jógy mysli vznikla jako propracovaný postup práce s myslí, mentálními technikami a uměním meditace. Akademie jógy mysli nás učí zaměřovat se dovnitř, což je přístup, ke kterému nás společnost obecně nevede. Postupem času vlastní zkušeností poznáváme, že veškeré uvolnění, energii, klid, apod. máme stále v sobě a poznáváme tak svůj nezměrný potenciál.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Akademie jógy mysli se zaměřuje pouze na individuální doprovázeni. V průběhu konzultací pracujeme se zažitými mentálními vzorci i emocemi, které postupně proměňujeme uvědoměním.Osobní doprovázení propojujeme s tělesnými energetickými procesy, neboť  mentální transformace začíná v těle.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Akademie jógy mysli je vhodná pro každého, kdo si přeje vydat se na velké dobrodružství do svého nitra a zvládnout umění vnitřní vědomé pozornosti. Jedná se o osudovou spolupráci, neboť nic se neděje jen tak, vše má svůj hluboký smysl a význam.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Práce s myslí vyžaduje svůj prostor a čas. Proměna způsobu uvažování vedoucí k lehkostí a vnitřní většinou nepřichází ze dne na den.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Ano, samozřejmě. Program počítá s tím, že si budete chtít konzultace/ práci/ celkový proces vyzkoušet, abyste mohli nacítit, zda vám vyhovuje.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Energetický  proces je jemná práce s energií, která má velký transformační potenciál pro celé tělo i ducha.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Ležíte v pohodlném oblečení na lehátku a postupně pracuji s tělesnou energií, která přesto že je lidskému oku většinou neviditelná, je přítomná. Energie vědomí je naší podstatou. Vědomě vedeným procesem je energie rozprouděna tak, aby sama provedla svoji práci. Dochází k uvolnění, pochopení, aha momentům, regeneraci a také k opuštění, co nepotřebujeme a co už nemá být s námi.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Procesu se můžete zúčastnit jednorázově, ale je možné docházet i pravidelně. V takovém případě zaznamenáte v delším časovém horizontu pro sebe zásadní přínos.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Audiomeditace jsou mentální cvičení zaměřená na různorodá témata, jejichž cílem je práce s dechem, uvolnění, klid a zaměření dovnitř. Vedou nás do nitra k prožití vlastní zkušeností, že uvnitř nás je uvolnění, klid, svoboda nekonečný prostor.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Bude skvělé, když vám audiomeditace pomohou k vytvoření prostoru jen pro sebe. Pohodlně se posaďte se vzpřímenou páteří tak, aby vás nic nerušilo a nechte se unést do svého nitra. Užijte si svůj klid a rozjímejte.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Nabízím retreaty v zahraničí (uvedené na webu) a v České republice, které budou publikovány na jaře roku 2026. Mohu Vám také vytvořit a naplánovat retreat na míru podle Vašeho přání jen pro Vás a Vaši skupinu. Na retreatech se pracuje s principy jógy mysli a tělesnými procesy podle Vašeho individuálního přání.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Prosím vyplňte formulář a obratem Vám zašlu kompletní nabídku.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Retreaty jsou organizovány v zemích a oblastech, kde speciální očkování není bezpodmínečně nutné, záleží jen na Vašem individuálním rozhodnutí.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Online kurz obsahuje základní seznámení s principem Jógy mysli. Obsahuje 10 lekcí, přičemž zpracovává 10 témat práce s myslí společně s 10 mentálními technikami, kterými vás pečlivě provedu.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Publikace kurzu je naplánována v průběhu tohoto roku.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Sama jsem si prošla mnoha kurzy a způsoby, jak se vymanit ze starých a zatěžujících programů. Nelituji toho, každý mě nějak posunul a navedl na další cestu.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Kurz Akademie jógy mysli je ale jiný. Cílem není vracet se znovu do minulosti a hledat další kostlivce, ale zaměření se na svoje vnitřní štěstí, pohodu a vnitřní klid. Na světlo, které je v každém z nás.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Každý z nás touží být přijímány a milovaný, všichni chceme, abychom se cítili dobře. A kdo jiný nám tohle může dát, než my sami?",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Tento kurz mě pod vedením Radany na tuhle cestu přivedl – velmi laskavě a láskyplně, bez jakékoliv tlaku.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Naučila jsem se být sama sobě léčitelkou, pouštět, co už nechci nést v svém životě, přijímat věci, jaké jsou, spojit se s vnitřní radostí, kterou všichni máme uvnitř sebe. Pochopila jsem, že své štěstí si nesu v sobě a není vně někde jinde.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Dlouho jsem nevěřila, že práce s myslí a tím i posilování vnitřní radosti se dá naučit a pravidelnými cvičeními posilovat.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Teď už o tom nepochybuji.  Díky pravidelným setkáním není moc prostoru jednotlivá cvičení a texty donekonečna odkládat na neurčito, ale postupně jsem si vytvořila návyky, které mě zaměřují DO sebe na přítomné štěstí, radost a vnitřní pohodu.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Nejen, že jsem moc vděčná za své rozhodnutí do tohoto kurzu vstoupit, ale také bych chtěla Radaně ze srdce poděkovat.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Radanu jsem potkal v prvním ročníku vysoké školy. Když paní doktorka vešla poprvé do posluchárny a stoupla si za katedru, všechno ztichlo. Vstoupila jedinečná charismatická osobnost, která měla v sobě něco nadpřirozeného. Bylo nepochopitelné, co tahle mladá krásná žena již ve svém životě dokázala a obdivuhodné, že si to všechno nenechávala pro sebe a svým jedinečným způsobem to předávala nám všem.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Díky Radaně jsem poznal a naučil se, že když člověk něco chce, tak to dokáže, ale musí začít přemýšlet jinak, zaměřit se dovnitř, na svůj vnitřní klid a mír. Nesmí se bát vystoupit z dosud zažitých mentálních mechanismů, které příliš nefungovaly a začít je měnit vnitřním klidem a zaměřením do nitra. Pak se najednou věci začnou proměňovat. Každý z nás má na tomto světě své poslání a ve chvíli, kdy jej pochopí, může být šťasten a předávat své štěstí zase dál.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Velice si vážím přátelství, které přetrvává i dlouho po absolvování studia a nikdy ji nepřestanu děkovat, že mne dovedla tam, kde jsem dnes.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Akademie jógy mysli je velmi citlivě a komplexně sestavený program, který funguje. Velice mi vyhovuje empatický a trpělivý přístup Radany, její neutuchající pozitivní mysl a podpora. Program mi pomáhá ve zklidnění mysli, získání nadhledu nad vším okolo, vhledu do mých potřeb, do sebe a na sebe. Můj dojem z celého ročního kurzu je ten nejlepší a postupně jsem získávala velkou důvěru, že zaměřením dovnitř a mentálním technikám, které se v kurzu učím, můžu proměnit svůj přístup.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "S Radanou jsem se vydala i na transformativní putování na Saharu a i to byl pro mě naprosto jedinečný a magický zážitek. Občas jsem si sáhla velmi hluboko, ale právě to mělo nesmírně uvolňující a transformační efekt. Sama za sebe bych putování po Sahaře zařadila jako „povinné“ po absolvování prvního ročníku Akademie jógy mysli, protože mě samotné velice pomohlo ponořit se do sebe bez vnějších vlivů.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Radanu a její program Akademie jógy mysli, který jsem absolvovala i putování po Sahaře mohu jedině doporučit a stále doporučuji.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Změňme svoji strategii zaměření mysli O energii Pojďme rozumět vnitřní vědomé pozornosti (bdělosti) jako základnímu kroku/ procesu, který nám ušetří energii na to, co má… Přečíst článek Změňme svoji strategii zaměření mysli",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Rozevřeme svá křídla a vyleťme Zkusme jen tak nepostávat opodál a představovat si, že se někdy něco stane. Přestaňme jen snít. Roztáhněme svá pomyslná křídla, nebojme… Přečíst článek Rozevřeme svá křídla a vyleťme",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Smíření osvobozuje Slovo smíření zní tak nenápadně, nevinně, možná až trochu nezajímavě. Ale to je jen zdání, smíření má v sobě totiž úžasný… Přečíst článek Smíření osvobozuje",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Pojďme naplnit svůj potenciál – jsme naplňující vědomé bytí Co říkáte naučit se umění vědomého bytí? Je to umění, které se může hodit každému z nás a mělo by se vyučovat… Přečíst článek Pojďme naplnit svůj potenciál – jsme naplňující vědomé bytí",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Jak pracovat s vnitřním tlakem? Zkusme proti tlaku nebojovat, zkusme jej jen pozorovat. Osvobodit se můžeme jen my sami. Máte někdy pocit vnitřního tlaku? Cítíte, že život je vlastně takový nekonečný boj téměř na všech frontách? Abychom se s tím… Přečíst článek Jak pracovat s vnitřním tlakem? Zkusme proti tlaku nebojovat, zkusme jej jen pozorovat. Osvobodit se můžeme jen my sami.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Máme v sobě ten největší poklad. Pojďme jej objevit uměním vnitřní bdělé pozornosti. Pojďme se každý den alespoň na chvilku ponořit do svého vnitřního ticha. Pojďme poznat své skutečné vnitřní bytí, poznejme sami… Přečíst článek Máme v sobě ten největší poklad. Pojďme jej objevit uměním vnitřní bdělé pozornosti.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Jak změnit myšlení zaměřené na minulost? Co se stalo, muselo se stát. Každý nový den tvoříme nové, s každým okamžikem JE nové teď a tady. Jsme tvůrci svého myšlení v každém okamžiku, jsme tvůrci svého… Přečíst článek Jak změnit myšlení zaměřené na minulost? Co se stalo, muselo se stát.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Otevřeme se své vnitřní transformaci. Jediný způsob, jak věci proměnit, je změnit sami sebe (své vědomí), a to je možné tím, že se postupně naučíme měnit… Přečíst článek Otevřeme se své vnitřní transformaci.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Manifestovat nebo nechat plynout? Pochopení „odevzdání se“ je životní gamechanger. Každý z nás se již setkal s přístupem, že věci/ okolnosti/ životní možnosti atd. si můžeme manifestovat. Setkali jsme se s přístupem, když… Přečíst článek Manifestovat nebo nechat plynout? Pochopení „odevzdání se“ je životní gamechanger.",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "© 2026 Žijeme s lehkostí - Radana Makariusová - Ochrana osobních údajů",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "typ": "odstavec",
-      "text": "Služby Toggle child menu Rozbalit Akademie Jógy mysli Transformační energetické procesy Meditace do uší Retreaty Online kurz",
-      "zdroj": "https://www.joga-mysli.cz/"
-    },
-    {
-      "text": "IČO 61023442, PhDr. Radana Makariusová, Ph.D.",
-      "zdroj": "ARES / patička obrazy-z-nitra.cz"
-    }
-  ],
-  "chybi": [
-    "adresa prostor v Praze (na webu je jen „Praha a online“)",
-    "aktuální termíny a ceny retreatů v ČR i v zahraničí",
-    "cena balíčku audiomeditací (prodej přes externí odkaz)",
-    "stav online kurzu (zatím „Připravujeme“)",
-    "aktualizovat text GDPR (zmiňuje Forpsi, Digiverse, Automattic a zijemeslehkosti.cz)",
-    "potvrdit dvojice meditace/článek ↔ obraz z Obrazů z nitra",
-    "EN verze webu, pokud ji chce"
-  ],
-  "popis_webu": ""
+  {
+   "typ": "h1",
+   "text": "Uvolněte se od negativních myšlenek",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "h1",
+   "text": "Otevřete se celkové transformaci",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "h2",
+   "text": "AKADEMIE JÓGY MYSLI",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "h2",
+   "text": "ENERGETICKÉ PROCESY",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "h2",
+   "text": "MEDITACE DO UŠÍ",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "h2",
+   "text": "RETREATY",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "h2",
+   "text": "ONLINE KURZY",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "h2",
+   "text": "Vítejte na stránkách Jógy mysli,",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "h2",
+   "text": "“Všichni SI přejeme cítit se dobře, ZÁLEŽÍ NA TOM, JAKÝ ZAUJÍMÁME MENTÁLNÍ POSTOJ.”",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "h2",
+   "text": "Nejčastější otázky",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "h3",
+   "text": "Akademie Jógy mysli",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "h3",
+   "text": "Energetické procesy",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "h3",
+   "text": "MEDITACE DO UŠÍ",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "h3",
+   "text": "Retreaty",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "h3",
+   "text": "Online kurzy",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "h2",
+   "text": "Kdo už prošel touto cestou",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "h2",
+   "text": "Blog",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "h3",
+   "text": "Změňme svoji strategii zaměření mysli",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "h3",
+   "text": "Rozevřeme svá křídla a vyleťme",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "h3",
+   "text": "Smíření osvobozuje",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "h3",
+   "text": "Pojďme naplnit svůj potenciál – jsme naplňující vědomé bytí",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "h3",
+   "text": "Jak pracovat s vnitřním tlakem? Zkusme proti tlaku nebojovat, zkusme jej jen pozorovat. Osvobodit se můžeme jen my sami.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "h3",
+   "text": "Máme v sobě ten největší poklad. Pojďme jej objevit uměním vnitřní bdělé pozornosti.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "h3",
+   "text": "Jak změnit myšlení zaměřené na minulost? Co se stalo, muselo se stát.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "h3",
+   "text": "Otevřeme se své vnitřní transformaci.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "h3",
+   "text": "Manifestovat nebo nechat plynout? Pochopení „odevzdání se“ je životní gamechanger.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "h2",
+   "text": "Kontaktujte mě pro více informací",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "h3",
+   "text": "Ať už vám nic neunikne",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Služby Rozbalit Akademie Jógy mysli Transformační energetické procesy Meditace do uší Retreaty Online kurz",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Najděte svůj vnitřní klid S jógou mysli audiomeditace zdarma „Zaměřuji se na celkovou mentální i fyzickou pohodu a doprovodím Vás na Vaší cestě do nitra.“",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Uvolněte se od negativních myšlenek S jógou mysli audiomeditace zdarma „Zaměřuji se na celkovou mentální i fyzickou pohodu a doprovodím Vás na Vaší cestě do nitra.“",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Otevřete se celkové transformaci S jógou mysli audiomeditace zdarma „Zaměřuji se na celkovou mentální i fyzickou pohodu a doprovodím Vás na Vaší cestě do nitra.“",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "AKADEMIE JÓGY MYSLI Individuální doprovázení za účelem schopnosti vnitřního klidu To chci",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Individuální doprovázení za účelem schopnosti vnitřního klidu",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "ENERGETICKÉ PROCESY Transformativní procesy vedoucí k uvolnění energetických center Rezervovat",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Transformativní procesy vedoucí k uvolnění energetických center",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "MEDITACE DO UŠÍ Zaposlouchejte se do uvolňujících meditací Stáhnout",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "RETREATY Transformativní cestování přinášející nová poznání Mám zájem",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "ONLINE KURZY Můžete jógu mysli studovat i online u vás doma Přihlásit se",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "ráda Vás budu doprovázet na Vaší cestě do nitra k vnitřnímu klidu a lehkosti.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Pojďme společně objevit osvobozující umění vnitřní vědomé pozornosti a nechme, ať nás radost provází.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Nalezneme ticho nitra, ze kterého vychází klid, lehkost a naplnění.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Jóga mysli je přístup, který jsem v průběhu 15 let poskládala dohromady jako moderní postup práce s myslí zaměřeném na vnitřní transformaci. Jóga mysli nás učí vnitřní vědomé pozornosti a jejím cílem je harmonie, lehkost a osvobození od úzkosti a tlaku. Soustředíme se na rozvoj vnitřního klidu a hlubší porozumění nitra. Jedná se o velmi propracovaný systém, který nás vede k celkové proměně našeho uvažování a vědomí.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Akademie jógy mysli vznikla jako propracovaný postup práce s myslí, mentálními technikami a uměním meditace. Akademie jógy mysli nás učí zaměřovat se dovnitř, což je přístup, ke kterému nás společnost obecně nevede. Postupem času vlastní zkušeností poznáváme, že veškeré uvolnění, energii, klid, apod. máme stále v sobě a poznáváme tak svůj nezměrný potenciál.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Akademie jógy mysli se zaměřuje pouze na individuální doprovázeni. V průběhu konzultací pracujeme se zažitými mentálními vzorci i emocemi, které postupně proměňujeme uvědoměním.Osobní doprovázení propojujeme s tělesnými energetickými procesy, neboť  mentální transformace začíná v těle.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Akademie jógy mysli je vhodná pro každého, kdo si přeje vydat se na velké dobrodružství do svého nitra a zvládnout umění vnitřní vědomé pozornosti. Jedná se o osudovou spolupráci, neboť nic se neděje jen tak, vše má svůj hluboký smysl a význam.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Práce s myslí vyžaduje svůj prostor a čas. Proměna způsobu uvažování vedoucí k lehkostí a vnitřní většinou nepřichází ze dne na den.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Ano, samozřejmě. Program počítá s tím, že si budete chtít konzultace/ práci/ celkový proces vyzkoušet, abyste mohli nacítit, zda vám vyhovuje.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Energetický  proces je jemná práce s energií, která má velký transformační potenciál pro celé tělo i ducha.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Ležíte v pohodlném oblečení na lehátku a postupně pracuji s tělesnou energií, která přesto že je lidskému oku většinou neviditelná, je přítomná. Energie vědomí je naší podstatou. Vědomě vedeným procesem je energie rozprouděna tak, aby sama provedla svoji práci. Dochází k uvolnění, pochopení, aha momentům, regeneraci a také k opuštění, co nepotřebujeme a co už nemá být s námi.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Procesu se můžete zúčastnit jednorázově, ale je možné docházet i pravidelně. V takovém případě zaznamenáte v delším časovém horizontu pro sebe zásadní přínos.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Audiomeditace jsou mentální cvičení zaměřená na různorodá témata, jejichž cílem je práce s dechem, uvolnění, klid a zaměření dovnitř. Vedou nás do nitra k prožití vlastní zkušeností, že uvnitř nás je uvolnění, klid, svoboda nekonečný prostor.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Bude skvělé, když vám audiomeditace pomohou k vytvoření prostoru jen pro sebe. Pohodlně se posaďte se vzpřímenou páteří tak, aby vás nic nerušilo a nechte se unést do svého nitra. Užijte si svůj klid a rozjímejte.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Nabízím retreaty v zahraničí (uvedené na webu) a v České republice, které budou publikovány na jaře roku 2026. Mohu Vám také vytvořit a naplánovat retreat na míru podle Vašeho přání jen pro Vás a Vaši skupinu. Na retreatech se pracuje s principy jógy mysli a tělesnými procesy podle Vašeho individuálního přání.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Prosím vyplňte formulář a obratem Vám zašlu kompletní nabídku.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Retreaty jsou organizovány v zemích a oblastech, kde speciální očkování není bezpodmínečně nutné, záleží jen na Vašem individuálním rozhodnutí.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Online kurz obsahuje základní seznámení s principem Jógy mysli. Obsahuje 10 lekcí, přičemž zpracovává 10 témat práce s myslí společně s 10 mentálními technikami, kterými vás pečlivě provedu.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Publikace kurzu je naplánována v průběhu tohoto roku.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Sama jsem si prošla mnoha kurzy a způsoby, jak se vymanit ze starých a zatěžujících programů. Nelituji toho, každý mě nějak posunul a navedl na další cestu.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Kurz Akademie jógy mysli je ale jiný. Cílem není vracet se znovu do minulosti a hledat další kostlivce, ale zaměření se na svoje vnitřní štěstí, pohodu a vnitřní klid. Na světlo, které je v každém z nás.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Každý z nás touží být přijímány a milovaný, všichni chceme, abychom se cítili dobře. A kdo jiný nám tohle může dát, než my sami?",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Tento kurz mě pod vedením Radany na tuhle cestu přivedl – velmi laskavě a láskyplně, bez jakékoliv tlaku.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Naučila jsem se být sama sobě léčitelkou, pouštět, co už nechci nést v svém životě, přijímat věci, jaké jsou, spojit se s vnitřní radostí, kterou všichni máme uvnitř sebe. Pochopila jsem, že své štěstí si nesu v sobě a není vně někde jinde.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Dlouho jsem nevěřila, že práce s myslí a tím i posilování vnitřní radosti se dá naučit a pravidelnými cvičeními posilovat.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Teď už o tom nepochybuji.  Díky pravidelným setkáním není moc prostoru jednotlivá cvičení a texty donekonečna odkládat na neurčito, ale postupně jsem si vytvořila návyky, které mě zaměřují DO sebe na přítomné štěstí, radost a vnitřní pohodu.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Nejen, že jsem moc vděčná za své rozhodnutí do tohoto kurzu vstoupit, ale také bych chtěla Radaně ze srdce poděkovat.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Radanu jsem potkal v prvním ročníku vysoké školy. Když paní doktorka vešla poprvé do posluchárny a stoupla si za katedru, všechno ztichlo. Vstoupila jedinečná charismatická osobnost, která měla v sobě něco nadpřirozeného. Bylo nepochopitelné, co tahle mladá krásná žena již ve svém životě dokázala a obdivuhodné, že si to všechno nenechávala pro sebe a svým jedinečným způsobem to předávala nám všem.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Díky Radaně jsem poznal a naučil se, že když člověk něco chce, tak to dokáže, ale musí začít přemýšlet jinak, zaměřit se dovnitř, na svůj vnitřní klid a mír. Nesmí se bát vystoupit z dosud zažitých mentálních mechanismů, které příliš nefungovaly a začít je měnit vnitřním klidem a zaměřením do nitra. Pak se najednou věci začnou proměňovat. Každý z nás má na tomto světě své poslání a ve chvíli, kdy jej pochopí, může být šťasten a předávat své štěstí zase dál.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Velice si vážím přátelství, které přetrvává i dlouho po absolvování studia a nikdy ji nepřestanu děkovat, že mne dovedla tam, kde jsem dnes.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Akademie jógy mysli je velmi citlivě a komplexně sestavený program, který funguje. Velice mi vyhovuje empatický a trpělivý přístup Radany, její neutuchající pozitivní mysl a podpora. Program mi pomáhá ve zklidnění mysli, získání nadhledu nad vším okolo, vhledu do mých potřeb, do sebe a na sebe. Můj dojem z celého ročního kurzu je ten nejlepší a postupně jsem získávala velkou důvěru, že zaměřením dovnitř a mentálním technikám, které se v kurzu učím, můžu proměnit svůj přístup.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "S Radanou jsem se vydala i na transformativní putování na Saharu a i to byl pro mě naprosto jedinečný a magický zážitek. Občas jsem si sáhla velmi hluboko, ale právě to mělo nesmírně uvolňující a transformační efekt. Sama za sebe bych putování po Sahaře zařadila jako „povinné“ po absolvování prvního ročníku Akademie jógy mysli, protože mě samotné velice pomohlo ponořit se do sebe bez vnějších vlivů.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Radanu a její program Akademie jógy mysli, který jsem absolvovala i putování po Sahaře mohu jedině doporučit a stále doporučuji.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Změňme svoji strategii zaměření mysli O energii Pojďme rozumět vnitřní vědomé pozornosti (bdělosti) jako základnímu kroku/ procesu, který nám ušetří energii na to, co má… Přečíst článek Změňme svoji strategii zaměření mysli",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Rozevřeme svá křídla a vyleťme Zkusme jen tak nepostávat opodál a představovat si, že se někdy něco stane. Přestaňme jen snít. Roztáhněme svá pomyslná křídla, nebojme… Přečíst článek Rozevřeme svá křídla a vyleťme",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Smíření osvobozuje Slovo smíření zní tak nenápadně, nevinně, možná až trochu nezajímavě. Ale to je jen zdání, smíření má v sobě totiž úžasný… Přečíst článek Smíření osvobozuje",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Pojďme naplnit svůj potenciál – jsme naplňující vědomé bytí Co říkáte naučit se umění vědomého bytí? Je to umění, které se může hodit každému z nás a mělo by se vyučovat… Přečíst článek Pojďme naplnit svůj potenciál – jsme naplňující vědomé bytí",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Jak pracovat s vnitřním tlakem? Zkusme proti tlaku nebojovat, zkusme jej jen pozorovat. Osvobodit se můžeme jen my sami. Máte někdy pocit vnitřního tlaku? Cítíte, že život je vlastně takový nekonečný boj téměř na všech frontách? Abychom se s tím… Přečíst článek Jak pracovat s vnitřním tlakem? Zkusme proti tlaku nebojovat, zkusme jej jen pozorovat. Osvobodit se můžeme jen my sami.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Máme v sobě ten největší poklad. Pojďme jej objevit uměním vnitřní bdělé pozornosti. Pojďme se každý den alespoň na chvilku ponořit do svého vnitřního ticha. Pojďme poznat své skutečné vnitřní bytí, poznejme sami… Přečíst článek Máme v sobě ten největší poklad. Pojďme jej objevit uměním vnitřní bdělé pozornosti.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Jak změnit myšlení zaměřené na minulost? Co se stalo, muselo se stát. Každý nový den tvoříme nové, s každým okamžikem JE nové teď a tady. Jsme tvůrci svého myšlení v každém okamžiku, jsme tvůrci svého… Přečíst článek Jak změnit myšlení zaměřené na minulost? Co se stalo, muselo se stát.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Otevřeme se své vnitřní transformaci. Jediný způsob, jak věci proměnit, je změnit sami sebe (své vědomí), a to je možné tím, že se postupně naučíme měnit… Přečíst článek Otevřeme se své vnitřní transformaci.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Manifestovat nebo nechat plynout? Pochopení „odevzdání se“ je životní gamechanger. Každý z nás se již setkal s přístupem, že věci/ okolnosti/ životní možnosti atd. si můžeme manifestovat. Setkali jsme se s přístupem, když… Přečíst článek Manifestovat nebo nechat plynout? Pochopení „odevzdání se“ je životní gamechanger.",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "© 2026 Žijeme s lehkostí - Radana Makariusová - Ochrana osobních údajů",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "typ": "odstavec",
+   "text": "Služby Toggle child menu Rozbalit Akademie Jógy mysli Transformační energetické procesy Meditace do uší Retreaty Online kurz",
+   "zdroj": "https://www.joga-mysli.cz/"
+  },
+  {
+   "text": "IČO 61023442, PhDr. Radana Makariusová, Ph.D.",
+   "zdroj": "ARES / patička obrazy-z-nitra.cz"
+  },
+  {
+   "typ": "cena",
+   "text": "Energetický transformační proces (90 minut) 1 999 Kč",
+   "zdroj": "https://www.joga-mysli.cz/transformativni-energeticke-procesy/",
+   "overeno": "2026-10-28"
+  },
+  {
+   "typ": "cena",
+   "text": "Energetický transformační proces (120 minut) 2 499 Kč",
+   "zdroj": "https://www.joga-mysli.cz/transformativni-energeticke-procesy/",
+   "overeno": "2026-10-28"
+  },
+  {
+   "typ": "cena",
+   "text": "Komplexní energetický transformační proces (3–4 hod) 3 900 Kč",
+   "zdroj": "https://www.joga-mysli.cz/transformativni-energeticke-procesy/",
+   "overeno": "2026-10-28"
+  },
+  {
+   "typ": "cena",
+   "text": "Celodenní energetický workshop (9:30–17:00 s obědem a občerstvením) 9 900 Kč",
+   "zdroj": "https://www.joga-mysli.cz/transformativni-energeticke-procesy/",
+   "overeno": "2026-10-28"
+  },
+  {
+   "typ": "produkt",
+   "text": "Dárkový balíček audiomeditací: 10+1 audiomeditací, průvodní text; v seznamu 11 meditací (Vše je dobré … Meditace na „NIC“)",
+   "zdroj": "https://www.joga-mysli.cz/audiomeditace/",
+   "overeno": "2026-10-28"
+  },
+  {
+   "typ": "reference",
+   "text": "Svědectví: Lucie, 37 let; Karel, 65 let; Andrea, 53 let",
+   "zdroj": "https://www.joga-mysli.cz/",
+   "overeno": "2026-10-28"
+  }
+ ],
+ "chybi": [
+  "adresa prostor v Praze (na webu je jen „Praha a online“)",
+  "aktuální termíny a ceny retreatů v ČR i v zahraničí",
+  "cena balíčku audiomeditací (prodej přes externí odkaz)",
+  "stav online kurzu (zatím „Připravujeme“)",
+  "aktualizovat text GDPR (zmiňuje Forpsi, Digiverse, Automattic a zijemeslehkosti.cz)",
+  "potvrdit dvojice meditace/článek ↔ obraz z Obrazů z nitra",
+  "EN verze webu, pokud ji chce"
+ ],
+ "popis_webu": ""
 }

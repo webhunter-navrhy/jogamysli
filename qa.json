@@ -1,9 +1,9 @@
 {
-  "url": "https://webhunter-navrhy.github.io/jogamysli/",
+  "url": "http://localhost:8791/jogamysli/",
   "ok": true,
   "chyby": [],
   "varovani": [
-    "Dotykové cíle <40 px na mobilu: 2× (např. input \"\" 24×24; a \"Blog\" 32×43)"
+    "Web má noindex (u ostrého webu pravděpodobně chyba)"
   ],
   "metriky": {
     "sirky": {
@@ -32,18 +32,18 @@
         "pocet_pretekajicich": 0
       }
     },
-    "preneseno_PC_MB": 1.5,
+    "preneseno_PC_MB": 1.77,
     "nejvetsi_obrazek_PC": {
-      "kB": 352,
-      "url": "https://webhunter-navrhy.github.io/jogamysli/img/obraz-procesy-1280.webp"
+      "kB": 164,
+      "url": "http://localhost:8791/jogamysli/img/obraz-online-640.webp"
     },
-    "snimku_PC": 7,
-    "preneseno_mobil_MB": 1.7,
+    "snimku_PC": 11,
+    "preneseno_mobil_MB": 1.87,
     "nejvetsi_obrazek_mobil": {
-      "kB": 352,
-      "url": "https://webhunter-navrhy.github.io/jogamysli/img/obraz-procesy-1280.webp"
+      "kB": 164,
+      "url": "http://localhost:8791/jogamysli/img/obraz-online-640.webp"
     },
-    "snimku_mobil": 11,
+    "snimku_mobil": 14,
     "seo": {
       "title": "Jóga mysli – cesta do nitra k vnitřnímu klidu | Radana Makariusová",
       "description": "Jóga mysli PhDr. Radany Makariusové: individuální Akademie jógy mysli, transformační energetické pro",
@@ -58,12 +58,12 @@
       "canonical": true,
       "viewport": true
     },
-    "maly_dotykovy_cil": 2,
+    "maly_dotykovy_cil": 0,
     "font_nadpis": "Nyght",
     "font_text": "Nyght",
     "podstranky": {
       "stranek": 20,
-      "obrazku": 174
+      "obrazku": 161
     }
   }
 }
