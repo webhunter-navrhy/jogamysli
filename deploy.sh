@@ -38,7 +38,7 @@ git push -q "$PUSH_URL" HEAD:main
 echo "== gh-pages (dist/)"
 # Na existující gh-pages navazujeme (pushne se jen rozdíl); celý force-push velkého webu padal na HTTP 408.
 TMP="$(mktemp -d)"
-if git clone -q --single-branch -b gh-pages "$PUSH_URL" "$TMP" 2>/dev/null; then (cd "$TMP" && git rm -rq . >/dev/null); else git init -q -b gh-pages "$TMP"; fi
+if git clone -q --depth 1 --single-branch -b gh-pages "$PUSH_URL" "$TMP" 2>/dev/null; then (cd "$TMP" && git rm -rq . >/dev/null); else git init -q -b gh-pages "$TMP"; fi
 cp -R dist/. "$TMP/"; touch "$TMP/.nojekyll"
 ( cd "$TMP" && git add -A \
   && { git -c user.name="WebHunter" -c user.email="info@webhunter.cz" commit -q -m "build $(date +%F\ %H:%M)" || true; } \
