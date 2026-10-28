@@ -5,7 +5,7 @@
 {% set cesta = "online-kurz/" %}
 {% block obsah %}
 
-{% call m.hlava("Online kurz", "Můžete jógu mysli studovat i online u vás doma."|nbsp, "obraz-online.jpg", "Kruhový obraz Radany Makariusové v červených a zlatých tónech", "Připravujeme") %}
+{% call m.hlava("Online kurz", "Můžete jógu mysli studovat i online u vás doma."|nbsp, "obraz-online.jpg", "Kruhový obraz Radany Makariusové v červených a zlatých tónech", "Připravujeme", slovo="Online", foto="radana-u-stojanu.jpg", foto_alt="Radana Makariusová u stojanu s obrazem", foto_popis="10 lekcí u vás doma", nebe="ruda") %}
 <div class="hlava-akce">
   <a class="tlacitko" href="#formular">Dejte mi vědět o spuštění</a>
 </div>
@@ -24,7 +24,7 @@
   </div>
 </section>
 
-{{ m.formular(["Online kurz Akademie JM", "Akademie jógy mysli", "Informativní konzultace zdarma"], "Dejte mi vědět, až kurz spustím", "Odeslat") }}
+{{ m.formular(["Online kurz Akademie JM", "Akademie jógy mysli", "Informativní konzultace zdarma"], "Dejte mi vědět, až kurz spustím", "Odeslat", zapad="obraz-online.jpg", nebe="ruda") }}
 {{ m.faq([data.faq[4]]) }}
 {% endblock %}
 {% block head %}{{ faq_ld([data.faq[4]]) }}{% endblock %}

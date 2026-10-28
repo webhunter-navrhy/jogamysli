@@ -1,0 +1,31 @@
+/* Jóga mysli – „Cesta do nitra“. Písmo Nyght Serif (brand) + Albert Sans. Paleta z joga-mysli.cz. */
+@font-face { font-family: "Nyght"; src: url(../fonts/NyghtSerif-Light.woff2) format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "Nyght"; src: url(../fonts/NyghtSerif-LightItalic.woff2) format("woff2"); font-weight: 300; font-style: italic; font-display: swap; }
+@font-face { font-family: "Nyght"; src: url(../fonts/NyghtSerif-Regular.woff2) format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Nyght"; src: url(../fonts/NyghtSerif-RegularItalic.woff2) format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Albert Sans"; font-style: normal; font-weight: 300 600; font-display: swap; src: url(../fonts/AlbertSans-latin-ext.woff2) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Albert Sans"; font-style: normal; font-weight: 300 600; font-display: swap; src: url(../fonts/AlbertSans-latin.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+:root {
+  --krem: #fffbf3; --pisek: #f6efe2; --pisek2: #ecdecd;
+  --hneda: #73614c; --hneda-tm: #513a1c; --text: #3a2c1e; --tlumeny: #5f5040;
+  --zlata: #c6975d; --zlata-tm: #9a6f3c; --med: #e3a965; --noc: #2b2119;
+  --linka: rgba(115, 97, 76, .22);
+  --serif: "Nyght", "Times New Roman", serif;
+  --sans: "Albert Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --okraj: clamp(1rem, 4vw, 3rem);
+  --ease: cubic-bezier(.22, .61, .36, 1);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--krem); color: var(--text); font: 300 1.0625rem/1.65 var(--sans); -webkit-font-smoothing: antialiased; }
+img, svg { display: block; max-width: 100%; }
+img { height: auto; }
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 300; margin: 0; text-wrap: balance; letter-spacing: -.02em; }
+p { margin: 0; text-wrap: pretty; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+:focus-visible { outline: 2px solid var(--hneda-tm); outline-offset: 3px; }
+::selection { background: var(--zlata); color: var(--krem); }

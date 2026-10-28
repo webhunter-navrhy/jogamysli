@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Varianta C – Dech</title><meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="{{ asset('css/zaklad.css') }}">
+<style>
+.hl { position: absolute; inset: 0 0 auto; z-index: 20; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 1.4rem var(--okraj); }
+.logo { display: inline-flex; flex-direction: column; text-decoration: none; color: var(--hneda-tm); font: 400 1.4rem/1 var(--serif); text-transform: uppercase; }
+.logo-r2 { display: inline-flex; align-items: center; }
+.logo-slunce { width: .82em; height: .82em; margin: 0 .03em; }
+.hl ul { display: flex; gap: 1.8rem; list-style: none; margin: 0; padding: 0; }
+.hl ul a { text-decoration: none; font-size: .93rem; color: var(--hneda-tm); }
+.hl-cta { justify-self: end; text-decoration: none; font-weight: 500; border-bottom: 1px solid var(--zlata); padding-bottom: .2rem; color: var(--hneda-tm); }
+.hc { position: relative; height: max(100svh, 760px); overflow: clip; background: linear-gradient(180deg, var(--krem), #f5e6cf); }
+.slovo { position: absolute; margin: 0; font: 300 clamp(5rem, 15vw, 15rem)/.8 var(--serif); letter-spacing: -.045em; color: var(--hneda-tm); }
+.slovo.n { left: var(--okraj); top: 15vh; animation: n 10s var(--ease) infinite; }
+.slovo.v { right: var(--okraj); bottom: 9vh; font-style: italic; color: var(--zlata-tm); animation: v 10s var(--ease) infinite; }
+@keyframes n { 0%, 40% { opacity: 1; } 55%, 92% { opacity: .18; } 100% { opacity: 1; } }
+@keyframes v { 0%, 38% { opacity: .18; } 50%, 90% { opacity: 1; } 100% { opacity: .18; } }
+.dech { position: absolute; left: 50%; top: 53%; width: min(68vh, 46vw); aspect-ratio: 1; translate: -50% -50%; }
+.dech .zaric { position: absolute; inset: 0; border-radius: 50%; overflow: hidden; animation: dych 10s cubic-bezier(.45, 0, .55, 1) infinite; }
+.dech .zaric img { width: 100%; height: 100%; object-fit: cover; }
+.dech .tvar { position: absolute; inset: 17%; border-radius: 50%; overflow: hidden; background: #f3dcb9; box-shadow: 0 0 0 .6rem rgba(255, 251, 243, .7); }
+.dech .tvar img { width: 100%; height: 118%; object-fit: cover; object-position: 50% 8%; }
+@keyframes dych { 0% { transform: scale(.86); } 40% { transform: scale(1.04); } 100% { transform: scale(.86); } }
+.karta { position: absolute; right: 9vw; top: 24vh; width: 15rem; padding: 1.1rem 1.2rem; background: rgba(255, 251, 243, .85); backdrop-filter: blur(10px); border-radius: 1rem; box-shadow: 0 16px 36px rgba(81, 58, 28, .14); }
+.karta b { display: block; font: 400 1.3rem/1.15 var(--serif); color: var(--hneda-tm); margin-bottom: .35rem; }
+.karta p { font-size: .9rem; color: var(--tlumeny); }
+.text { position: absolute; left: var(--okraj); bottom: 9vh; width: min(24rem, 28vw); }
+.text h1 { font-size: clamp(1.8rem, 2.3vw, 2.5rem); line-height: 1.05; color: var(--hneda-tm); }
+.text a { display: inline-block; margin-top: 1.2rem; padding: .95rem 1.4rem; background: var(--hneda-tm); color: var(--krem); text-decoration: none; font-weight: 500; }
+.dal { height: 60vh; background: var(--pisek); }
+@media (max-width: 900px) {
+  .hl ul { display: none; } .hl { grid-template-columns: 1fr auto; }
+  .slovo.n { top: 7.5rem; font-size: 22vw; } .slovo.v { bottom: 13.5rem; font-size: 22vw; }
+  .dech { width: 86vw; top: 45%; }
+  .karta { display: none; }
+  .text { left: var(--okraj); right: var(--okraj); width: auto; bottom: 1.5rem; }
+}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+</head>
+<body>
+{% include "_slunce.html" %}
+<header class="hl">
+  <a href="#" class="logo" aria-label="Žijeme s lehkostí"><span>Žijeme</span><span class="logo-r2">S lehk<svg class="logo-slunce" aria-hidden="true"><use href="#slunce"/></svg>stí</span></a>
+  <nav aria-label="Hlavní"><ul>{% for n in site.nav[:5] %}<li><a href="#">{{ n.text }}</a></li>{% endfor %}</ul></nav>
+  <a class="hl-cta" href="#">Konzultace zdarma</a>
+</header>
+<main>
+<section class="hc">
+  <p class="slovo n" aria-hidden="true">nádech</p>
+  <p class="slovo v" aria-hidden="true">výdech</p>
+  <div class="dech">
+    <div class="zaric">{{ img("obraz-hero.jpg", "", "50vw", eager=True) }}</div>
+    <div class="tvar">{{ img("vyrez/radana-portret.png", "PhDr. Radana Makariusová, Ph.D.", "30vw", eager=True) }}</div>
+  </div>
+  <div class="karta"><b>Zkuste to teď</b><p>{{ "Nádech, když se obraz rozpíná. Výdech, když se stahuje."|nbsp }}</p></div>
+  <div class="text">
+    <h1>Cesta do nitra k&nbsp;vnitřnímu klidu a&nbsp;lehkosti</h1>
+    <a href="#">Informativní konzultace zdarma →</a>
+  </div>
+</section>
+<div class="dal"></div>
+</main>
+</body>
+</html>

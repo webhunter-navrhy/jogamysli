@@ -1,10 +1,10 @@
 {
-  "url": "http://localhost:8765/jogamysli/",
+  "url": "http://localhost:8766/jogamysli/",
   "ok": true,
   "chyby": [],
   "varovani": [
     "Web má noindex (u ostrého webu pravděpodobně chyba)",
-    "Dotykové cíle <40 px na mobilu: 6× (např. a \"O dobru\" 80×20; a \"radana@makarius.cz\" 350×27; a \"+420 777 223 188\" 350×27; input \"\" 18×18)"
+    "Dotykové cíle <40 px na mobilu: 2× (např. input \"\" 24×24; a \"Blog\" 32×43)"
   ],
   "metriky": {
     "sirky": {
@@ -33,18 +33,18 @@
         "pocet_pretekajicich": 0
       }
     },
-    "preneseno_PC_MB": 1.06,
+    "preneseno_PC_MB": 1.59,
     "nejvetsi_obrazek_PC": {
-      "kB": 139,
-      "url": "http://localhost:8765/jogamysli/img/promo-poster-1280.webp"
+      "kB": 351,
+      "url": "http://localhost:8766/jogamysli/img/obraz-procesy-1280.webp"
     },
-    "snimku_PC": 12,
-    "preneseno_mobil_MB": 1.27,
+    "snimku_PC": 7,
+    "preneseno_mobil_MB": 1.79,
     "nejvetsi_obrazek_mobil": {
-      "kB": 216,
-      "url": "http://localhost:8765/jogamysli/img/obraz-hero-1135.webp"
+      "kB": 351,
+      "url": "http://localhost:8766/jogamysli/img/obraz-procesy-1280.webp"
     },
-    "snimku_mobil": 14,
+    "snimku_mobil": 10,
     "seo": {
       "title": "Jóga mysli – cesta do nitra k vnitřnímu klidu | Radana Makariusová",
       "description": "Jóga mysli PhDr. Radany Makariusové: individuální Akademie jógy mysli, transformační energetické pro",
@@ -59,12 +59,12 @@
       "canonical": true,
       "viewport": true
     },
-    "maly_dotykovy_cil": 6,
+    "maly_dotykovy_cil": 2,
     "font_nadpis": "Nyght",
-    "font_text": "Albert Sans",
+    "font_text": "Nyght",
     "podstranky": {
       "stranek": 20,
-      "obrazku": 167
+      "obrazku": 174
     }
   }
 }

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Varianta B – Do středu</title><meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="{{ asset('css/zaklad.css') }}">
+<style>
+body { background: #f8efe0; }
+.hl { position: absolute; inset: 0 0 auto; z-index: 20; display: flex; align-items: flex-start; justify-content: space-between; padding: 1.4rem var(--okraj); }
+.logo { display: inline-flex; flex-direction: column; text-decoration: none; color: var(--hneda-tm); font: 400 1.4rem/1 var(--serif); text-transform: uppercase; }
+.logo-r2 { display: inline-flex; align-items: center; }
+.logo-slunce { width: .82em; height: .82em; margin: 0 .03em; }
+.rejstrik { list-style: none; margin: 0; padding: 0; display: grid; gap: .35rem; text-align: right; }
+.rejstrik a { display: inline-flex; align-items: center; gap: .7rem; text-decoration: none; font-size: .92rem; color: var(--hneda-tm); }
+.rejstrik a::after { content: ""; width: .55rem; height: .55rem; border-radius: 50%; border: 1px solid var(--zlata-tm); }
+.rejstrik a:hover::after, .rejstrik a[aria-current]::after { background: var(--zlata-tm); }
+.hb { position: relative; height: max(100svh, 760px); overflow: clip; display: grid; place-items: center;
+  background: radial-gradient(circle at 50% 52%, #fff6e6 0 18%, #f6e3c4 38%, #f1d6ad 60%, #f8efe0 80%); }
+.kruhy { position: absolute; left: 50%; top: 52%; translate: -50% -50%; width: min(150vh, 120vw); aspect-ratio: 1; pointer-events: none;
+  background: repeating-radial-gradient(circle, transparent 0 calc(8% - 1px), rgba(154, 111, 60, .22) calc(8% - 1px) 8%); border-radius: 50%;
+  -webkit-mask: radial-gradient(closest-side, transparent 34%, #000 36%, #000 70%, transparent 100%); mask: radial-gradient(closest-side, transparent 34%, #000 36%, #000 70%, transparent 100%); }
+.stred { position: relative; width: min(62vh, 44vw); aspect-ratio: 1; margin-top: 4vh; animation: priblizit linear both; animation-timeline: scroll(root); animation-range: 0 100vh; }
+@keyframes priblizit { to { transform: scale(2.6); opacity: .2; } }
+.stred img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; animation: tocit 200s linear infinite; box-shadow: 0 0 9vh rgba(198, 151, 93, .5); }
+.prsten { position: absolute; inset: -11%; animation: tocit 70s linear infinite; }
+.prsten text { font: 300 23px var(--serif); letter-spacing: .04em; fill: var(--hneda-tm); }
+@keyframes tocit { to { rotate: 360deg; } }
+.drahy { position: absolute; left: 50%; top: 54%; width: min(108vh, 78vw); aspect-ratio: 1; translate: -50% -50%; border-radius: 50%; border: 1px dashed rgba(154, 111, 60, .45); }
+.cesta { position: absolute; left: 50%; top: 50%; width: 0; height: 0; transform: rotate(var(--u)) translateX(calc(min(108vh, 78vw) / 2)) rotate(calc(-1 * var(--u))); }
+.cesta a { position: absolute; translate: -50% -50%; display: flex; align-items: center; gap: .8rem; text-decoration: none; white-space: nowrap; color: var(--hneda-tm); }
+.cesta img { width: 4.4rem; height: 4.4rem; border-radius: 50%; box-shadow: 0 10px 24px rgba(81, 58, 28, .2); transition: transform .6s var(--ease); }
+.cesta a:hover img { transform: scale(1.12); }
+.cesta span { font: 400 1.25rem/1.1 var(--serif); }
+.cesta small { display: block; font: 400 .78rem var(--sans); color: var(--tlumeny); }
+.cesta.vlevo a { flex-direction: row-reverse; text-align: right; }
+.hb-dole { position: absolute; left: var(--okraj); bottom: 2rem; width: min(26rem, 32vw); }
+.hb-dole p { font-size: 1rem; }
+.hb-dole a { display: inline-block; margin-top: 1rem; padding: .95rem 1.4rem; background: var(--hneda-tm); color: var(--krem); text-decoration: none; font-weight: 500; }
+.hb-stitek { position: absolute; right: var(--okraj); bottom: 2rem; text-align: right; font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 500; color: var(--zlata-tm); }
+.dal { height: 60vh; background: var(--krem); }
+@media (max-width: 900px) {
+  .rejstrik { display: none; }
+  .stred { width: 70vw; margin-top: -6vh; }
+  .drahy { width: 94vw; top: 46%; }
+  .cesta { transform: rotate(var(--u)) translateX(47vw) rotate(calc(-1 * var(--u))); }
+  .cesta img { width: 3rem; height: 3rem; }
+  .cesta span { font-size: .95rem; } .cesta small { display: none; }
+  .hb-dole { left: var(--okraj); right: var(--okraj); width: auto; bottom: 1.5rem; }
+  .hb-stitek { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+</head>
+<body>
+{% include "_slunce.html" %}
+<header class="hl">
+  <a href="#" class="logo" aria-label="Žijeme s lehkostí"><span>Žijeme</span><span class="logo-r2">S lehk<svg class="logo-slunce" aria-hidden="true"><use href="#slunce"/></svg>stí</span></a>
+  <nav aria-label="Hlavní"><ul class="rejstrik">{% for n in site.nav %}<li><a href="#"{% if loop.first %} aria-current="page"{% endif %}>{{ n.text }}</a></li>{% endfor %}</ul></nav>
+</header>
+<main>
+<section class="hb">
+  <div class="kruhy" aria-hidden="true"></div>
+  <div class="drahy">
+    {% set uhly = [-150, -30, 18, 162, 200] %}
+    {% for s in data.sluzby %}
+    <div class="cesta{{ ' vlevo' if uhly[loop.index0] in [-150, 162, 200] }}" style="--u: {{ uhly[loop.index0] }}deg">
+      <a href="#">{{ img(s.obraz, "", "5rem", eager=False) }}<span>{{ s.nazev }}<small>{{ s.akce }}</small></span></a>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="stred">
+    <svg class="prsten" viewBox="0 0 500 500" aria-hidden="true"><defs><path id="kr" d="M250,250 m-228,0 a228,228 0 1,1 456,0 a228,228 0 1,1 -456,0"/></defs><text><textPath href="#kr">Cesta do nitra k vnitřnímu klidu a lehkosti · Jóga mysli · Žijeme s lehkostí ·</textPath></text></svg>
+    {{ img("obrazy/nitro-je-poklad.jpg", "Obraz Nitro je poklad se soustřednými kruhy", "50vw", eager=True) }}
+  </div>
+  <h1 class="sr">Jóga mysli – cesta do nitra k vnitřnímu klidu a lehkosti</h1>
+  <div class="hb-dole">
+    <p>{{ "Pět cest jógy mysli. Každá vede z jiné strany do stejného středu: k tichu nitra."|nbsp }}</p>
+    <a href="#">Informativní konzultace zdarma →</a>
+  </div>
+  <p class="hb-stitek">PhDr. Radana Makariusová, Ph.D.<br>Praha a online</p>
+</section>
+<div class="dal"></div>
+</main>
+</body>
+</html>

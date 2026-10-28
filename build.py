@@ -76,12 +76,13 @@ class Obrazky:
         varianty = []
         for w in sirky:
             vyska = round(h0 * w / w0)
-            cache = os.path.join(CACHE, f"{h}-{w}.webp")
+            q = 80 if w < 1280 else 66  # velké varianty: detailní malby jinak přes 400 kB
+            cache = os.path.join(CACHE, f"{h}-{w}-q{q}.webp")
             if not os.path.exists(cache):
                 r = im.resize((w, vyska), Image.LANCZOS) if w != w0 else im
                 if r.mode not in ("RGB", "RGBA"):
                     r = r.convert("RGBA" if "A" in r.getbands() else "RGB")
-                r.save(cache, "WEBP", quality=80, method=6)
+                r.save(cache, "WEBP", quality=q, method=6)
             out = f"{stem}-{w}.webp"
             shutil.copy(cache, os.path.join(cil_dir, out))
             varianty.append((w, vyska, f"img/{out}"))

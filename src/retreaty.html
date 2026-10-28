@@ -7,7 +7,7 @@
 {% block obsah %}
 
 {% set perex %}<p>Cestování, které se stává vnitřní proměnou.</p><p>{{ "Nabízím jedinečné a transformační retreaty na místa, která v sobě uchovávají silnou transformační energii. Každá z těchto cest je pozvánkou k vnitřní proměně, novým vhledům a inspiraci, kterou si odnesete i do každodenního života."|nbsp }}</p>{% endset %}
-{% call m.hlava("Retreaty", perex, "obraz-retreaty.jpg", "Bílý kruhový obraz Radany Makariusové", "Transformativní cestování") %}
+{% call m.hlava("Retreaty", perex, "obraz-retreaty.jpg", "Bílý kruhový obraz Radany Makariusové", "Transformativní cestování", slovo="Retreaty", foto="retreat-kruh.jpg", foto_alt="Účastníci retreatu v kruhu na písku", foto_popis="Sahara, kruh v písku", nebe="bila") %}
 <ul class="rejstrik">
   <li><a href="#zahranici">Zahraniční retreaty</a></li>
   <li><a href="#cr">Jógové retreaty v ČR</a></li>
@@ -42,31 +42,24 @@
   </div>
 </section>
 
-<section class="sekce pruh" id="cr" aria-labelledby="cr-h">
-  <div class="wrap dvoj">
-    <figure class="foto r">{{ img("retreat-kruh.jpg", "Skupina účastníků retreatu v kruhu", "(min-width: 860px) 45vw, 90vw") }}</figure>
-    <div class="text">
-      <h2 class="h2 r" id="cr-h">Jógové retreaty v&nbsp;ČR</h2>
+<section class="sekce pruh" aria-label="Retreaty v ČR a na míru">
+  <div class="wrap dva-sloupy">
+    <div class="text" id="cr">
+      <h2 class="h2 r">Jógové retreaty v&nbsp;ČR</h2>
       <p class="r">{{ "Nabízím retreaty v zahraničí a v České republice. Na retreatech se pracuje s principy jógy mysli a tělesnými procesy podle Vašeho individuálního přání."|nbsp }}</p>
       <p class="r">{{ "Prosím vyplňte formulář a obratem Vám zašlu kompletní nabídku."|nbsp }}</p>
       <a class="odkaz r" href="#formular" data-zajem="Jógové retreaty v ČR">Chci nabídku retreatu v ČR {{ m.sipka() }}</a>
     </div>
-  </div>
-</section>
-
-<section class="sekce" id="na-miru" aria-labelledby="miru-h">
-  <div class="wrap dvoj obracene">
-    <div>{{ m.obraz_tema("o-spolupraci", "Obraz k retreatům na míru") }}</div>
-    <div class="text">
-      <h2 class="h2 r" id="miru-h">Retreaty na míru</h2>
-      <p class="velky r">{{ "Mohu Vám také vytvořit a naplánovat retreat na míru podle Vašeho přání jen pro Vás a Vaši skupinu."|nbsp }}</p>
+    <div class="text" id="na-miru">
+      <h2 class="h2 r">Retreaty na míru</h2>
+      <p class="r">{{ "Mohu Vám také vytvořit a naplánovat retreat na míru podle Vašeho přání jen pro Vás a Vaši skupinu."|nbsp }}</p>
       <p class="r">{{ "Retreaty jsou organizovány v zemích a oblastech, kde speciální očkování není bezpodmínečně nutné, záleží jen na Vašem individuálním rozhodnutí."|nbsp }}</p>
       <a class="odkaz r" href="#formular" data-zajem="Retreaty na míru">Naplánovat retreat na míru {{ m.sipka() }}</a>
     </div>
   </div>
 </section>
 
-{{ m.formular(["Zahraniční retreaty", "Jógové retreaty v ČR", "Retreaty na míru"], "Retreaty – zjistit více informací", "Zjistit více") }}
+{{ m.formular(["Zahraniční retreaty", "Jógové retreaty v ČR", "Retreaty na míru"], "Retreaty – zjistit více informací", "Zjistit více", zapad="obraz-retreaty.jpg", nebe="bila") }}
 {{ m.faq([data.faq[3]]) }}
 {% endblock %}
 {% block head %}{{ faq_ld([data.faq[3]]) }}{% endblock %}

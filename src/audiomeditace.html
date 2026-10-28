@@ -6,7 +6,7 @@
 {% set md = data.meditace %}
 {% block obsah %}
 
-{% call m.hlava("Meditace do uší", "Chvíle jen pro vás – relaxační i mentální cvičení pro vnitřní pohodu, klid a lehkost."|nbsp, "obraz-meditace.jpg", "Zlatý obraz Radany Makariusové se třemi propletenými kruhy", "Audiomeditace") %}
+{% call m.hlava("Meditace do uší", "Chvíle jen pro vás – relaxační i mentální cvičení pro vnitřní pohodu, klid a lehkost."|nbsp, "obraz-meditace.jpg", "Zlatý obraz Radany Makariusové se třemi propletenými kruhy", "Audiomeditace", slovo="Meditace", foto="proces-lehatko.jpg", foto_alt="Klidná místnost s lehátkem a Radaniným obrazem", foto_popis="Chvíle jen pro vás", nebe="oranz") %}
 <ul class="body4" style="max-width: 34rem">{% for b in md.prinosy %}<li>{{ b|capitalize }}</li>{% endfor %}</ul>
 <div class="hlava-akce">
   <a class="tlacitko" href="#ukazka">Poslechnout ukázku zdarma</a>
@@ -60,6 +60,6 @@
 </section>
 
 {{ m.faq([data.faq[2]]) }}
-{{ m.formular(["Audiomeditace", "Informativní konzultace zdarma", "Akademie jógy mysli"], "Máte k&nbsp;meditacím otázku?"|safe, "Odeslat") }}
+{{ m.formular(["Audiomeditace", "Informativní konzultace zdarma", "Akademie jógy mysli"], "Máte k&nbsp;meditacím otázku?"|safe, "Odeslat", zapad="obraz-meditace.jpg", nebe="oranz") }}
 {% endblock %}
 {% block head %}{{ faq_ld([data.faq[2]]) }}{% endblock %}

@@ -4,8 +4,8 @@
 {% set popis = "Informativní konzultace zdarma k Akademii jógy mysli, energetickým procesům, audiomeditacím i retreatům. Praha a online." %}
 {% set cesta = "konzultace/" %}
 {% block obsah %}
-{% call m.hlava("Informativní konzultace zdarma", "Pojďme společně objevit osvobozující umění vnitřní vědomé pozornosti a nechme, ať nás radost provází."|nbsp, "obraz-hero.jpg", "Kruhový energetický obraz Radany Makariusové", "Konzultace") %}
+{% call m.hlava("Informativní konzultace zdarma", "Pojďme společně objevit osvobozující umění vnitřní vědomé pozornosti a nechme, ať nás radost provází."|nbsp, "obraz-hero.jpg", "Kruhový energetický obraz Radany Makariusové", "Konzultace", slovo="Konzultace", foto="radana-zahrada-rozhovor.jpg", foto_alt="Radana Makariusová při rozhovoru v zahradě", foto_popis="Rozhovor zdarma", nebe="salvej") %}
 <div class="hlava-akce"><a class="tlacitko" href="#formular">Napsat Radaně</a></div>
 {% endcall %}
-{{ m.formular(["Informativní konzultace zdarma", "Akademie jógy mysli", "Transformační energetické procesy", "Audiomeditace", "Retreaty", "Online kurz Akademie JM"], "Kontaktujte mě pro více informací", "Odeslat", "Informativní konzultace zdarma") }}
+{{ m.formular(["Informativní konzultace zdarma", "Akademie jógy mysli", "Transformační energetické procesy", "Audiomeditace", "Retreaty", "Online kurz Akademie JM"], "Kontaktujte mě pro více informací", "Odeslat", "Informativní konzultace zdarma", zapad="obrazy/o-propojeni.jpg", nebe="salvej") }}
 {% endblock %}

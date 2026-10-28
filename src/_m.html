@@ -25,12 +25,13 @@
 {% endmacro %}
 
 {# Přehrávač ukázky meditace. Obraz se při přehrávání otáčí, kolem něj běží kruh průběhu. #}
-{% macro prehravac(m, uvod="") %}
+{% macro prehravac(m, uvod="", nadpis_tag="h2") %}
 {% set o = data.obrazy[m.obraz] %}
 <div class="prehravac" data-prehravac>
   <div class="prehravac-obraz">
-    <svg class="prubeh" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="48.5" class="prubeh-dráha"/><circle cx="50" cy="50" r="48.5" class="prubeh-cara" pathLength="100"/></svg>
+    <svg class="prubeh" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="48.5" class="prubeh-draha"/><circle cx="50" cy="50" r="48.5" class="prubeh-cara" pathLength="100"/></svg>
     {{ kruh(o.img, "Obraz " ~ o.nazev ~ " od Radany Makariusové", "(min-width: 800px) 30rem, 80vw", "toci") }}
+    <span class="drazky" aria-hidden="true"></span>
     <button class="prehrat" type="button" aria-label="Přehrát ukázku meditace {{ m.nazev }}">
       <svg class="ikona-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
       <svg class="ikona-pauza" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 5.5h3v13h-3zM13.5 5.5h3v13h-3z" fill="currentColor"/></svg>
@@ -47,30 +48,40 @@
     </div>
     <p class="obraz-k">Při poslechu se otáčí obraz <a href="{{ o.url }}" target="_blank" rel="noopener">{{ o.nazev }} {{ ven() }}</a></p>
     <audio preload="none" src="{{ base }}media/vse-je-dobre.mp3"></audio>
+    {% if caller is defined %}{{ caller() }}{% endif %}
   </div>
 </div>
 {% endmacro %}
 
-{# Hlavička podstránky: text vlevo, kruhový obraz u pravého okraje, otáčí se se scrollem. #}
-{% macro hlava(nadpis, perex, obraz, alt, kicker="") %}
-<section class="hlava">
-  <div class="wrap hlava-grid">
-    <div class="hlava-text">
+{# Hlavička podstránky: svítání. Obraz služby vychází nad obzorem, za ním obří slovo,
+   před ním plovoucí fotka z praxe (foto) nebo Radanin výřez (postava). #}
+{% macro hlava(nadpis, perex, obraz, alt, kicker="", slovo="", foto="", foto_alt="", foto_popis="", postava="", nebe="med") %}
+<section class="hlava nebe-{{ nebe }}{% if postava %} s-postavou{% endif %}">
+  <div class="hlava-vizual">
+    <div class="paprsky" aria-hidden="true"></div>
+    <div class="slunce">{{ img(obraz, alt, "(min-width: 900px) 44vw, 92vw", eager=True) }}</div>
+    {% if slovo %}<p class="obri-slovo" aria-hidden="true">{{ slovo }}</p>{% endif %}
+    {% if postava %}{{ img(postava, "PhDr. Radana Makariusová, Ph.D.", "(min-width: 900px) 34vw, 70vw", cls="hlava-postava", eager=True) }}{% endif %}
+    {% if foto %}<figure class="hlava-foto">{{ img(foto, foto_alt, "(min-width: 900px) 16rem, 40vw", eager=True) }}{% if foto_popis %}<figcaption>{{ foto_popis|nbsp }}</figcaption>{% endif %}</figure>{% endif %}
+  </div>
+  <div class="wrap hlava-dole">
+    <div>
       <p class="stitek">{{ kicker or "Jóga mysli" }}</p>
       <h1>{{ nadpis|nbsp }}</h1>
+    </div>
+    <div>
       <div class="hlava-perex">{{ perex }}</div>
       {% if caller is defined %}{{ caller() }}{% endif %}
-    </div>
-    <div class="hlava-obraz">
-      {{ kruh(obraz, alt, "(min-width: 800px) 38vw, 70vw", "otacet-scroll", eager=True) }}
     </div>
   </div>
 </section>
 {% endmacro %}
 
 {# Formulář. volby = seznam možností „Mám zájem o“. #}
-{% macro formular(volby, nadpis="Kontaktujte mě pro více informací", tlacitko="Odeslat", vybrano="", text="") %}
-<section class="sekce kontakt" id="formular">
+{% macro formular(volby, nadpis="Kontaktujte mě pro více informací", tlacitko="Odeslat", vybrano="", text="", zapad="obraz-hero.jpg", nebe="med") %}
+<section class="sekce kontakt nebe-{{ nebe }}" id="formular">
+  <div class="slunce" aria-hidden="true">{{ img(zapad, "", "(min-width: 900px) 36rem, 90vw", eager=False) }}</div>
+  <div class="zem" aria-hidden="true"></div>
   <div class="wrap kontakt-grid">
     <div class="kontakt-text">
       <h2 class="h2">{{ nadpis|nbsp }}</h2>

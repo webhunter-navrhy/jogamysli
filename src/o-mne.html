@@ -5,17 +5,9 @@
 {% set cesta = "o-mne/" %}
 {% block obsah %}
 
-<section class="wrap omne-uvod">
-  <figure class="foto">{{ img("radana-zahrada.jpg", "PhDr. Radana Makariusová, Ph.D. v zahradě", "(min-width: 860px) 40vw, 90vw", eager=True) }}</figure>
-  <div>
-    <p class="stitek">O mně</p>
-    <h1>Skutečná síla spočívá v&nbsp;tichu mysli</h1>
-    <p class="velky">{{ "Jmenuji se Radana Makariusová a ráda Vás budu doprovázet na Vaší cestě do nitra k vnitřnímu klidu a lehkosti."|nbsp }}</p>
-    <p class="paticka-jmeno" style="color: var(--tlumeny); margin-top: 1.5rem">PhDr. Radana Makariusová, Ph.D.</p>
-  </div>
-</section>
+{% call m.hlava("Skutečná síla spočívá v tichu mysli", "Jmenuji se Radana Makariusová a ráda Vás budu doprovázet na Vaší cestě do nitra k vnitřnímu klidu a lehkosti."|nbsp, "obrazy/nitro-je-poklad.jpg", "Obraz Nitro je poklad od Radany Makariusové", "O mně · PhDr. Radana Makariusová, Ph.D.", slovo="ticho", postava="vyrez/radana-portret.png", nebe="zlata") %}{% endcall %}
 
-<section class="sekce" style="padding-top: 0">
+<section class="sekce">
   <div class="wrap">
     <div class="sloupec">
       <p class="r">{{ "Od dětství jsem toužila být lékařkou, vynalézt lék na rakovinu a zachraňovat svět. Později mě má mysl zavedla k úvahám stát se první českou prezidentkou. Díky těmto myšlenkám jsem se pustila do studia mezinárodních vztahů, abych té záchraně světa mohla lépe porozumět. To byly však jen dětské a teenagerovské sny. I když se mezinárodní vztahy staly mým celoživotně milovaným oborem, život to pak zařídil tak, že mě inspirace zavedla k jinému léku, a to k „léku“ na vnitřní pohodu, klid, lehkost a svobodu."|nbsp }}</p>
@@ -61,5 +53,5 @@
   </div>
 </section>
 
-{{ m.formular(["Informativní konzultace zdarma", "Akademie jógy mysli", "Transformační energetické procesy", "Audiomeditace", "Retreaty", "Online kurz Akademie JM"], "Kontaktujte mě pro více informací") }}
+{{ m.formular(["Informativní konzultace zdarma", "Akademie jógy mysli", "Transformační energetické procesy", "Audiomeditace", "Retreaty", "Online kurz Akademie JM"], "Kontaktujte mě pro více informací", zapad="obrazy/o-radosti.jpg", nebe="zlata") }}
 {% endblock %}

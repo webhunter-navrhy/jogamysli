@@ -26,24 +26,21 @@
 {% include "_slunce.html" %}
 <a class="skip" href="#obsah">Přeskočit na obsah</a>
 <header class="hlavicka">
-  <div class="wrap hlavicka-in">
+  <div class="hlavicka-in">
     <a href="{{ url('') }}" class="logo" aria-label="Žijeme s lehkostí – Jóga mysli, úvod">
       <span class="logo-r1">Žijeme</span>
       <span class="logo-r2">S lehk<svg class="logo-slunce" aria-hidden="true"><use href="#slunce"/></svg>stí</span>
     </a>
     <nav class="menu" id="menu" aria-label="Hlavní">
       <ul>
-      {% for n in site.nav %}<li><a href="{{ url(n.href) }}"{% if cesta == n.href ~ '/' %} aria-current="page"{% endif %}>{{ n.text }}</a></li>{% endfor %}
+      {% for n in site.nav %}{% set sl = (data.sluzby|selectattr("href", "equalto", n.href)|list or [none])[0] %}<li><a href="{{ url(n.href) }}"{% if cesta == n.href ~ '/' %} aria-current="page"{% endif %}>{% if sl %}<span class="m-obraz">{{ img(sl.obraz, "", "3rem", eager=False) }}</span>{% else %}<span class="m-obraz prazdne"></span>{% endif %}{{ n.text }}</a></li>{% endfor %}
       </ul>
       <div class="menu-mobil">
         <a class="tlacitko" href="{{ url('konzultace') }}">Konzultace zdarma</a>
         <a class="sestra" href="{{ site.obrazy_url }}" target="_blank" rel="noopener">Obrazy z nitra ↗</a>
       </div>
     </nav>
-    <div class="hlavicka-akce">
-      <a class="sestra" href="{{ site.obrazy_url }}" target="_blank" rel="noopener">Obrazy z nitra <span aria-hidden="true">↗</span></a>
-      <a class="tlacitko maly" href="{{ url('konzultace') }}">Konzultace zdarma</a>
-    </div>
+    <a class="hl-cta" href="{{ url('konzultace') }}" aria-label="Informativní konzultace zdarma"><svg aria-hidden="true"><use href="#slunce"/></svg><span>Konzultace zdarma</span></a>
     <button class="burger" type="button" aria-expanded="false" aria-controls="menu"><span></span><span></span><span class="sr">Menu</span></button>
   </div>
 </header>
@@ -54,12 +51,15 @@
   <div class="wrap">
     <div class="paticka-sestra r">
       <a href="{{ site.obrazy_url }}" target="_blank" rel="noopener" class="sestra-karta">
-        <span class="kruh otacet">{{ img("obrazy/o-propojeni.jpg", "", "7rem", eager=False) }}</span>
+        <span class="sestra-obrazy" aria-hidden="true">
+          {% for s in ["o-propojeni", "o-radosti", "nitro-je-poklad", "o-odvaze"] %}<span class="kruh">{{ img(data.obrazy[s].img, "", "6rem", eager=False) }}</span>{% endfor %}
+        </span>
         <span>
-          <span class="stitek">Sesterský web</span>
-          <span class="sestra-nazev">Obrazy z nitra <span aria-hidden="true">↗</span></span>
+          <span class="stitek">Sesterský web · Radaniny obrazy</span>
+          <span class="sestra-nazev">Obrazy z nitra</span>
           <span class="sestra-text">{{ "Energetické obrazy s poselstvími, které Radana maluje. Každý je zářičem na jedno téma: o radosti, o přijetí, o odvaze…"|nbsp }}</span>
         </span>
+        <span class="sestra-sipka" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 16 16 8M9 8h7v7" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
     </div>
     <div class="paticka-grid">
@@ -81,6 +81,7 @@
           <li><a href="mailto:{{ site.kontakt.email }}">{{ site.kontakt.email }}</a></li>
           <li><a href="tel:{{ site.kontakt.telefon|replace(' ', '') }}">{{ site.kontakt.telefon }}</a></li>
           <li><a href="{{ url('konzultace') }}">Informativní konzultace zdarma</a></li>
+          <li><a href="{{ site.obrazy_url }}" target="_blank" rel="noopener">obrazy-z-nitra.cz ↗</a></li>
         </ul>
       </div>
     </div>

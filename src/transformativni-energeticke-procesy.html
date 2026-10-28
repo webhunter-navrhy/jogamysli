@@ -6,7 +6,7 @@
 {% set p = data.procesy %}
 {% block obsah %}
 
-{% call m.hlava("Transformační energetické procesy", "Unikátní transformační energetická péče. V průběhu procesu dochází k aktivaci energie, která uzdravuje, přináší úlevu a nové vhledy, odstraňuje tlak, únavu i stres. Přijďte energetický proces vyzkoušet a zažijte nové možnosti regenerace."|nbsp, "obraz-procesy.jpg", "Kruhový obraz Radany Makariusové v okrových tónech", "Energetická péče") %}
+{% call m.hlava("Transformační energetické procesy", "Unikátní transformační energetická péče. V průběhu procesu dochází k aktivaci energie, která uzdravuje, přináší úlevu a nové vhledy, odstraňuje tlak, únavu i stres. Přijďte energetický proces vyzkoušet a zažijte nové možnosti regenerace."|nbsp, "obraz-procesy.jpg", "Kruhový obraz Radany Makariusové v okrových tónech", "Energetická péče", slovo="Procesy", foto="proces-dotek.jpg", foto_alt="Radana Makariusová při energetickém procesu", foto_popis="Vědomě vedený dotek", nebe="med") %}
 <div class="hlava-akce">
   <a class="tlacitko" href="#formular">Objednat se</a>
   <a class="odkaz" href="{{ p.voucher }}" target="_blank" rel="noopener">Koupit jako dárkový voucher {{ m.ven() }}</a>
@@ -58,7 +58,7 @@
   </div>
 </section>
 
-{{ m.formular(["Proces 90 minut", "Proces 120 minut", "Komplexní proces (3–4 hodiny)", "Celodenní workshop", "Dárkový voucher", "Informativní konzultace zdarma"], "Objednat se", "Odeslat") }}
+{{ m.formular(["Proces 90 minut", "Proces 120 minut", "Komplexní proces (3–4 hodiny)", "Celodenní workshop", "Dárkový voucher", "Informativní konzultace zdarma"], "Objednat se", "Odeslat", zapad="obraz-procesy.jpg") }}
 {{ m.faq([data.faq[1]]) }}
 {% endblock %}
 {% block head %}{{ faq_ld([data.faq[1]]) }}{% endblock %}
