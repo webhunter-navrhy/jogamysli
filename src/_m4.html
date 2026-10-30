@@ -41,25 +41,31 @@
 </div>
 {% endmacro %}
 
-{# v5 (30. 10. 2026): klidná hlavička podstránky – text vlevo, jedna fotka ze služby vpravo, ceny jako prostý seznam.
-   Klientka odmítla v4 (paprsky + plovoucí štítky) jako „crazy, infantilní“. Parametry obraz/svetlost zůstávají kvůli kompatibilitě. #}
-{% macro hlava(nadpis, perex, obraz, foto, foto_alt, stitky, kicker="Jóga mysli", foto_pos="50% 40%", svetlost=0) %}
-<section class="klid">
-  <div class="wrap klid-in">
-    <div class="klid-text">
-      <p class="kicker">{{ kicker }}</p>
-      <h1 class="h1 klid-h">{{ nadpis|nbsp }}</h1>
-      <div class="perex">{{ perex }}</div>
-      {% if caller is defined %}{{ caller() }}{% endif %}
-      {% if stitky %}
-      <ul class="klid-seznam">
-        {% for s in stitky %}<li><a href="{{ s.href }}"><span>{{ s.nazev|nbsp }}</span><b>{{ s.cena|nbsp }}</b></a></li>{% endfor %}
-      </ul>
-      {% endif %}
-    </div>
-    <figure class="klid-foto">{{ img(foto, foto_alt, "(max-width: 860px) 92vw, 600px", eager=True, styl="object-position:" ~ foto_pos) }}</figure>
+{# v6 (30. 10. 2026): sesterský styl Obrazů z nitra – obraz služby přes celou šířku, nadpis uprostřed,
+   pod ním řada karet s cenami (jako kategorie obrazů na obrazy-z-nitra.cz). foto/svetlost se nepoužívají. #}
+{% macro obraz_hero(obraz, kicker, nadpis, podtitul="", h="h1", cls="", hid="") %}
+<section class="oh {{ cls }}">
+  <div class="oh-obraz" aria-hidden="true">{{ img(obraz, "", "100vw", eager=True) }}</div>
+  <div class="oh-in">
+    {% if kicker %}<p class="oh-kicker">{{ kicker }}</p>{% endif %}
+    <{{ h }} class="oh-h"{% if hid %} id="{{ hid }}"{% endif %}>{{ nadpis|nbsp }}</{{ h }}>
+    {% if podtitul %}<p class="oh-pod">{{ podtitul|nbsp }}</p>{% endif %}
+    {% if caller is defined %}{{ caller() }}{% endif %}
   </div>
 </section>
+{% endmacro %}
+
+{% macro hlava(nadpis, perex, obraz, foto, foto_alt, stitky, kicker="Jóga mysli", foto_pos="50% 40%", svetlost=0) %}
+{% set c = caller if caller is defined else None %}
+{% call obraz_hero(obraz, kicker, nadpis, cls="oh-stranka") %}
+  <div class="oh-perex">{{ perex }}</div>
+  {% if c %}{{ c() }}{% endif %}
+{% endcall %}
+{% if stitky %}
+<div class="karty-cest wrap">
+  {% for s in stitky %}<a class="karta-cesty" href="{{ s.href }}"><b>{{ s.nazev|nbsp }}</b><span>{{ s.cena|nbsp }}</span></a>{% endfor %}
+</div>
+{% endif %}
 {% endmacro %}
 
 {# Prodejní lišta pod hero: pět cest s cenou + konzultace zdarma #}
@@ -202,15 +208,11 @@
 </article>
 {% endmacro %}
 
-{# Jednoduchá světlá hlavička (blog, článek, GDPR, 404): titulek vlevo, obraz vychází vpravo #}
+{# Textová hlavička (blog, článek, GDPR, 404) – v6 stejně jako ostatní: obraz přes celou šířku, nadpis uprostřed #}
 {% macro hlava_text(nadpis, kicker="", perex="", obraz="obraz-akademie.jpg", h="h1") %}
-<section class="hlava-text">
-  <span class="ht-slunce" aria-hidden="true">{{ img(obraz, "", "(max-width: 860px) 70vw, 560px", eager=True) }}</span>
-  <div class="wrap ht-in">
-    {% if kicker %}<p class="kicker">{{ kicker }}</p>{% endif %}
-    <{{ h }} class="h1 ht-h">{{ nadpis|nbsp }}</{{ h }}>
-    {% if perex %}<p class="perex">{{ perex|nbsp }}</p>{% endif %}
-    {% if caller is defined %}{{ caller() }}{% endif %}
-  </div>
-</section>
+{% set c = caller if caller is defined else None %}
+{% call obraz_hero(obraz, kicker, nadpis, h=h, cls="oh-text") %}
+  {% if perex %}<p class="oh-perex">{{ perex|nbsp }}</p>{% endif %}
+  {% if c %}<div class="oh-meta">{{ c() }}</div>{% endif %}
+{% endcall %}
 {% endmacro %}

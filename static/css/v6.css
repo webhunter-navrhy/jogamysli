@@ -1,0 +1,130 @@
+/* Jóga mysli v6 (30. 10. 2026) – sesterský styl k obrazy-z-nitra.cz (Rafael: „inspiruj se stylem Obrazů z nitra“).
+   Playfair Display + Source Sans 3, zlatá #c9a84c, krém #faf6f0, obraz přes celou šířku s nadpisem uprostřed,
+   zlatá oblá tlačítka verzálkami. Nad v4.css; v5 (klidné hlavičky) nahrazena. */
+@font-face { font-family: "Playfair Display"; font-style: normal; font-weight: 400 500; font-display: swap; src: url(../fonts/PlayfairDisplay-normal-400-latin-ext.woff2) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Playfair Display"; font-style: normal; font-weight: 400 500; font-display: swap; src: url(../fonts/PlayfairDisplay-normal-400-latin.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Playfair Display"; font-style: italic; font-weight: 400; font-display: swap; src: url(../fonts/PlayfairDisplay-italic-400-latin-ext.woff2) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Playfair Display"; font-style: italic; font-weight: 400; font-display: swap; src: url(../fonts/PlayfairDisplay-italic-400-latin.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 300 600; font-display: swap; src: url(../fonts/SourceSans3-normal-300-600-latin-ext.woff2) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 300 600; font-display: swap; src: url(../fonts/SourceSans3-normal-300-600-latin.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+:root {
+  --krem: #faf6f0;
+  --pisek: #f5edd8;
+  --pudr: #fbf5f0;
+  --broskev: #efe1bd;
+  --hneda: #403626;
+  --hneda2: #6b5c45;
+  --zlato: #c9a84c;
+  --zlato-tm: #8a6d22;
+  --akcent: #8a6d22;
+  --akcent-h: #6f5718;
+  --linka: rgba(64, 54, 38, .14);
+  --cerna: #0d0b08;
+  --serif: "Playfair Display", Georgia, serif;
+  --sans: "Source Sans 3", system-ui, sans-serif;
+}
+body { font-family: var(--sans); font-size: 17.5px; }
+h1, h2, h3, h4 { letter-spacing: 0; }
+.h2 { font-size: clamp(34px, 3.4vw, 50px); line-height: 1.15; }
+.h3 { line-height: 1.2; }
+::selection { background: var(--broskev); }
+
+/* drobné nadpisy verzálkami se zlatou jako na Obrazech z nitra */
+.kicker, h2.kicker { font: 600 12.5px/1.5 var(--sans); letter-spacing: .24em; text-transform: uppercase; color: var(--zlato-tm); }
+
+/* tlačítka: zlatá oblá, verzálky */
+.tl, .hl-tl, .lista-cta { background: var(--zlato); color: var(--cerna); border-radius: 999px; text-transform: uppercase; letter-spacing: .1em; font-weight: 600; font-size: 14.5px; }
+.tl { padding: 16px 30px; }
+.tl:hover, .hl-tl:hover, .lista-cta:hover { background: #b8963b; color: var(--cerna); }
+.tl .sipka { display: none; }
+.tl-svetle { background: rgba(255, 255, 255, .14); color: #fff; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .7); }
+.tl-svetle:hover { background: rgba(255, 255, 255, .26); color: #fff; }
+.hl-tl { box-shadow: none; padding: 12px 22px; font-size: 13px; }
+.hl-tl svg { display: none; }
+.odkaz { color: var(--zlato-tm); }
+
+/* hlavička nad obrazem: světlé písmo, logo jako na Obrazech z nitra */
+.hl .logo, .hl .nav ul a { color: #fff; }
+.hl .nav ul a { text-transform: uppercase; font-size: 13.5px; letter-spacing: .06em; }
+.hl .nav ul a:hover, .hl .nav a[aria-current] { color: var(--zlato); }
+.logo-slunce { color: var(--zlato); }
+.burger span:not(.sr) { background: #fff; }
+.burger { background: rgba(255, 255, 255, .12); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .6); }
+@media (max-width: 1180px) {
+  .hl .nav ul a { color: var(--hneda); font-family: var(--serif); text-transform: none; font-size: 32px; letter-spacing: 0; }
+  .nav.otevreno ~ .burger span:not(.sr), .burger[aria-expanded="true"] span:not(.sr) { background: var(--hneda); }
+  body:has(.nav.otevreno) .hl .logo { color: var(--hneda); }
+}
+
+/* hero: obraz přes celou šířku, nadpis uprostřed */
+.oh { position: relative; display: grid; place-items: center; text-align: center; min-height: 64svh; padding: 150px 24px 110px; color: #fff; isolation: isolate; overflow: hidden; background: #6b5a2c; }
+.oh-uvod { min-height: 100svh; padding-bottom: 170px; }
+.oh-text { min-height: 52svh; }
+.oh-obraz { position: absolute; inset: 0; z-index: -1; }
+.oh-obraz img { width: 100%; height: 100%; object-fit: cover; }
+.oh-obraz::after { content: ""; position: absolute; inset: 0; background: radial-gradient(70% 60% at 50% 50%, rgba(30, 22, 8, .42), rgba(30, 22, 8, .58)); }
+.oh-in { max-width: 860px; }
+.oh-kicker { font: 600 13.5px/1.5 var(--sans); letter-spacing: .3em; text-transform: uppercase; margin-bottom: 22px; text-shadow: 0 1px 12px rgba(0, 0, 0, .35); }
+.oh-h { font: 400 clamp(44px, 5.4vw, 76px)/1.1 var(--serif); letter-spacing: .02em; text-shadow: 0 2px 24px rgba(0, 0, 0, .3); }
+.oh-uvod .oh-h { font-size: clamp(54px, 7vw, 100px); }
+.oh-pod { font: italic 400 clamp(21px, 2vw, 27px)/1.4 var(--serif); margin-top: 16px; text-shadow: 0 1px 16px rgba(0, 0, 0, .35); }
+.oh-perex { font-size: 19px; line-height: 1.6; margin: 22px auto 0; max-width: 640px; color: rgba(255, 255, 255, .92); text-shadow: 0 1px 14px rgba(0, 0, 0, .35); }
+.oh .akce, .oh-akce { justify-content: center; margin-top: 36px; display: flex; flex-wrap: wrap; gap: 14px 16px; }
+.oh .odkaz { color: #fff; }
+.oh-meta, .oh-meta .meta { color: rgba(255, 255, 255, .85); margin-top: 18px; }
+.oh-kontakt { position: absolute; left: 0; right: 0; bottom: 84px; display: flex; justify-content: center; flex-wrap: wrap; gap: 6px 22px; font-size: 14.5px; font-weight: 500; }
+.oh-kontakt a { color: #fff; text-decoration: none; }
+.oh-kontakt span { opacity: .5; }
+
+/* karty s cenami pod hero (jako kategorie obrazů) */
+.karty-cest { position: relative; z-index: 3; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; margin-top: -56px; }
+.karta-cesty { background: #fff; border-radius: 14px; padding: 24px 20px; text-align: center; text-decoration: none; box-shadow: 0 14px 40px rgba(64, 54, 38, .1); transition: transform .4s var(--ease), box-shadow .4s; }
+.karta-cesty:hover { transform: translateY(-3px); box-shadow: 0 20px 50px rgba(64, 54, 38, .15); }
+.karta-cesty b { display: block; font: 400 21px/1.25 var(--serif); color: var(--zlato-tm); }
+.karta-cesty span { display: block; margin-top: 6px; font-size: 14.5px; color: var(--hneda2); }
+
+/* lišta cest pod úvodem: bílá karta na hraně obrazu */
+.lista { margin-top: -50px; border-radius: 16px; }
+.lista li span { color: var(--zlato-tm); }
+.lista-t { font-family: var(--serif); }
+.lista-cta { border-radius: 12px; }
+
+/* sekce: nadpisy uprostřed jako na Obrazech z nitra */
+.sekce-hlava { flex-direction: column; align-items: center; text-align: center; justify-content: center; gap: 14px; }
+.sekce-hlava .h2 { max-width: 20ch; }
+.sekce-hlava .velky { flex: none; max-width: 640px; }
+.pudr { background: linear-gradient(180deg, var(--pisek), var(--pudr)); }
+.vitejte { background: linear-gradient(180deg, var(--pisek), var(--pudr) 60%, var(--krem)); }
+.slova { background: var(--zlato); }
+.slova .kicker, .slova figcaption, .slova .odkaz, .slova summary { color: var(--cerna); }
+.kontakt { background: linear-gradient(180deg, var(--pudr), var(--pisek)); }
+.paticka { background: var(--krem); border-top: 1px solid var(--linka); }
+.cenik li.top, .oblibene { border-color: var(--zlato); }
+
+/* bez točení, záře a koleček přes fotky (z v5) */
+.toci img, .pecet-obraz img, .pecet-text, .kontakt-slunce img { animation: none; }
+.vitejte-foto .zar, .cesta-obraz { display: none; }
+.kontakt-slunce { opacity: .18; }
+.slova-obraz .kruh { max-width: 380px; margin-left: 0; box-shadow: 0 24px 60px rgba(60, 40, 0, .25); }
+
+@media (max-width: 860px) {
+  .oh { min-height: 0; padding: 120px 18px 84px; }
+  .oh-uvod { min-height: 92svh; padding-bottom: 120px; }
+  .oh-h, .oh-uvod .oh-h { font-size: clamp(40px, 11vw, 54px); }
+  .oh-perex { font-size: 17px; }
+  .oh-akce .tl, .oh .akce .tl { width: 100%; justify-content: center; }
+  .oh-kontakt { bottom: 28px; font-size: 13.5px; gap: 4px 12px; }
+  .karty-cest { grid-template-columns: 1fr 1fr; margin-top: -40px; gap: 10px; padding: 0 16px; }
+  .karta-cesty { padding: 18px 12px; }
+  .karta-cesty b { font-size: 18px; }
+  .karta-cesty span { font-size: 13.5px; }
+  .lista { margin-top: 18px; }
+  .slova-obraz .kruh { width: 56vw; margin: 0 auto; }
+}

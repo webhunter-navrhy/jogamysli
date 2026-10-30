@@ -5,21 +5,14 @@
 {% block telo %}uvod{% endblock %}
 {% block obsah %}
 
-{# 1 · v5: klidný úvod – Radana u stojanu, nadpis a dvě cesty dál #}
-<section class="klid klid-uvod" aria-labelledby="h1">
-  <div class="wrap klid-in">
-    <div class="klid-text">
-      <p class="kicker">Jóga mysli · PhDr. Radana Makariusová, Ph.D.</p>
-      <h1 class="h1 klid-h" id="h1">Cesta do nitra</h1>
-      <p class="perex">{{ "k vnitřnímu klidu a lehkosti. Individuální doprovázení v Praze i online, energetické procesy, meditace a retreaty."|nbsp }}</p>
-      <div class="akce">
-        <a class="tl" href="{{ url('konzultace') }}">Konzultace zdarma {{ m.sipka() }}</a>
-        <a class="odkaz" href="#dvoji-h">Kudy se můžeme vydat {{ m.sipka() }}</a>
-      </div>
-    </div>
-    <figure class="klid-foto">{{ img("radana-u-stojanu.jpg", "PhDr. Radana Makariusová u stojanu s obrazem, který právě maluje", "(max-width: 860px) 92vw, 600px", eager=True, styl="object-position:46% 30%") }}</figure>
+{# 1 · v6: jako Obrazy z nitra – její obraz přes celou obrazovku, nadpis uprostřed, zlatá tlačítka #}
+{% call m.obraz_hero("obraz-hero.jpg", "Jóga mysli · Radana Makariusová", "Cesta do nitra", "k vnitřnímu klidu a lehkosti", cls="oh-uvod", hid="h1") %}
+  <div class="oh-akce">
+    <a class="tl" href="{{ url('konzultace') }}">Konzultace zdarma</a>
+    <a class="tl tl-svetle" href="#dvoji-h">Kudy se vydat</a>
   </div>
-</section>
+  <p class="oh-kontakt"><a href="tel:{{ site.kontakt.telefon|replace(' ', '') }}">{{ site.kontakt.telefon }}</a><span aria-hidden="true">|</span><a href="mailto:{{ site.kontakt.email }}">{{ site.kontakt.email }}</a><span aria-hidden="true">|</span>Praha a online</p>
+{% endcall %}
 {{ m.lista() }}
 
 {# 2 · Vítejte: Radana maluje v zahradě – jak vznikají obrazy, které nesou její cesty #}
