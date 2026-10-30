@@ -5,16 +5,19 @@
 {% block telo %}uvod{% endblock %}
 {% block obsah %}
 
-{# 1 · Světlo z nitra: obraz paprsků přes celou plochu, ve středu Radana u stojanu, z ní paprsky k pěti cestám #}
-{% set ceny = {"akademie": "roční, půlroční i zkušební program", "procesy": "90 minut za 1 999 Kč", "meditace": "10 + 1 meditací, ukázka zdarma", "retreaty": "Havaj, Sahara, Maledivy, Česko", "online": "10 lekcí · připravujeme"} %}
-{% set mista = {"akademie": (-372, -104, "l"), "procesy": (300, -178, "p"), "meditace": (404, 0, "p"), "retreaty": (300, 178, "p"), "online": (-372, 104, "l")} %}
-{% set st = [] %}
-{% for s in data.sluzby %}{% set _ = st.append({"href": url(s.href), "nazev": s.nazev|replace("Transformační energetické procesy", "Energetické procesy"), "cena": ceny[s.klic], "obraz": s.obraz, "x": mista[s.klic][0], "y": mista[s.klic][1], "strana": mista[s.klic][2]}) %}{% endfor %}
-<section class="hero hero-uvod" aria-labelledby="h1">
-  {{ m.pole("obraz-retreaty.jpg", "radana-u-stojanu.jpg", "PhDr. Radana Makariusová u stojanu s obrazem, který právě maluje", st, "46% 30%", pecet=True) }}
-  <div class="claim">
-    <h1 class="h1 h1-uvod" id="h1">Cesta do nitra</h1>
-    <p class="perex">{{ "k vnitřnímu klidu a lehkosti. Jóga mysli PhDr. Radany Makariusové, Ph.D., v Praze, online a na retreatech."|nbsp }}</p>
+{# 1 · v5: klidný úvod – Radana u stojanu, nadpis a dvě cesty dál #}
+<section class="klid klid-uvod" aria-labelledby="h1">
+  <div class="wrap klid-in">
+    <div class="klid-text">
+      <p class="kicker">Jóga mysli · PhDr. Radana Makariusová, Ph.D.</p>
+      <h1 class="h1 klid-h" id="h1">Cesta do nitra</h1>
+      <p class="perex">{{ "k vnitřnímu klidu a lehkosti. Individuální doprovázení v Praze i online, energetické procesy, meditace a retreaty."|nbsp }}</p>
+      <div class="akce">
+        <a class="tl" href="{{ url('konzultace') }}">Konzultace zdarma {{ m.sipka() }}</a>
+        <a class="odkaz" href="#dvoji-h">Kudy se můžeme vydat {{ m.sipka() }}</a>
+      </div>
+    </div>
+    <figure class="klid-foto">{{ img("radana-u-stojanu.jpg", "PhDr. Radana Makariusová u stojanu s obrazem, který právě maluje", "(max-width: 860px) 92vw, 600px", eager=True, styl="object-position:46% 30%") }}</figure>
   </div>
 </section>
 {{ m.lista() }}

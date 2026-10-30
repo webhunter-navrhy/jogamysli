@@ -1,0 +1,59 @@
+/* Jóga mysli v5 (30. 10. 2026) – zklidnění nad v4. Klientka: v4 „hodně crazy, na dalších stranách až infantilní“.
+   Pryč: paprsky, plovoucí štítky, světelné pole přes celý úvod, točící se obrazy, záře. Tlumenější akcent. */
+:root {
+  --akcent: #a4532c;
+  --akcent-h: #8a4423;
+}
+
+/* klidný úvod stránky: text vlevo, jedna fotka vpravo */
+.klid { padding: 150px 0 clamp(64px, 8vw, 110px); background: linear-gradient(180deg, var(--pisek), var(--krem)); }
+.klid-in { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(40px, 6vw, 100px); align-items: center; }
+.klid-text { max-width: 600px; }
+.klid-h { font-size: clamp(52px, 6vw, 92px); line-height: .98; margin-bottom: 26px; }
+.klid-uvod .klid-h { font-size: clamp(60px, 7.4vw, 118px); }
+.klid .perex { font-size: 20px; line-height: 1.55; max-width: 34em; }
+.klid-foto { margin: 0; border-radius: 18px; overflow: hidden; aspect-ratio: 4 / 5; background: var(--pisek); max-height: 76svh; justify-self: end; width: 100%; max-width: 600px; }
+.klid-foto img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ceny a varianty: prostý seznam s linkami místo štítků */
+.klid-seznam { list-style: none; margin: 40px 0 0; padding: 0; border-top: 1px solid var(--linka); }
+.klid-seznam li { border-bottom: 1px solid var(--linka); }
+.klid-seznam a { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; padding: 14px 2px; text-decoration: none; transition: color .3s; }
+.klid-seznam span { font: 400 21px/1.25 var(--serif); letter-spacing: -.01em; }
+.klid-seznam b { font-size: 15px; font-weight: 600; color: var(--hneda2); text-align: right; white-space: nowrap; }
+.klid-seznam a:hover span { color: var(--akcent); }
+
+/* lišta pěti cest pod úvodem už nepřekrývá fotku */
+.klid-uvod + .lista { margin-top: 0; }
+
+/* bez točení, dýchání a záře */
+.toci img, .pecet-obraz img, .pecet-text, .kontakt-slunce img, .ht-slunce img { animation: none; }
+.vitejte-foto .zar { display: none; }
+
+/* kolečka obrazů přes fotky cest pryč, obraz u svědectví menší a bez záře */
+.cesta-obraz { display: none; }
+.slova-obraz .kruh { max-width: 380px; margin-left: 0; box-shadow: none; }
+
+/* textové hlavičky (blog, otázky, článek): bez velkého obrazu za nadpisem */
+.hlava-text { background: linear-gradient(180deg, var(--pisek), var(--krem)); padding: 170px 0 70px; }
+.ht-slunce { display: none; }
+
+/* kontakt: obraz jen jako tichý doprovod */
+.kontakt-slunce { opacity: .22; }
+
+@media (max-width: 1100px) {
+  .klid-seznam span { font-size: 19px; }
+}
+@media (max-width: 860px) {
+  .klid { padding: 104px 0 56px; }
+  .klid-in { grid-template-columns: 1fr; gap: 32px; }
+  .klid-h, .klid-uvod .klid-h { font-size: clamp(46px, 13vw, 64px); margin-bottom: 18px; }
+  .klid .perex { font-size: 18px; }
+  .klid-foto { justify-self: stretch; max-width: none; aspect-ratio: 4 / 4.4; max-height: none; border-radius: 14px; }
+  .klid-seznam { margin-top: 30px; }
+  .klid-seznam a { flex-direction: column; gap: 2px; padding: 12px 0; }
+  .klid-seznam b { text-align: left; white-space: normal; }
+  .klid-uvod + .lista { margin-top: 0; }
+  .hlava-text { padding: 110px 0 48px; }
+  .slova-obraz .kruh { width: 56vw; margin: 0 auto; }
+}

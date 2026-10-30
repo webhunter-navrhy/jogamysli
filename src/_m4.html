@@ -41,22 +41,23 @@
 </div>
 {% endmacro %}
 
-{# Hlavička podstránky ve stejném jazyce jako úvod: obraz služby jako světelné pole, fotka z té služby ve středu.
-   stitky = 3 kotvy (x/y se doplní automaticky). #}
+{# v5 (30. 10. 2026): klidná hlavička podstránky – text vlevo, jedna fotka ze služby vpravo, ceny jako prostý seznam.
+   Klientka odmítla v4 (paprsky + plovoucí štítky) jako „crazy, infantilní“. Parametry obraz/svetlost zůstávají kvůli kompatibilitě. #}
 {% macro hlava(nadpis, perex, obraz, foto, foto_alt, stitky, kicker="Jóga mysli", foto_pos="50% 40%", svetlost=0) %}
-{% set mista = [(-360, -120, "l"), (330, -150, "p"), (360, 110, "p"), (-360, 110, "l")] %}
-{% set st = [] %}{% for s in stitky %}{% set _ = st.append(dict(s, x=mista[loop.index0][0], y=mista[loop.index0][1], strana=mista[loop.index0][2])) %}{% endfor %}
-<section class="hero hero-pod">
-  {{ pole(obraz, foto, foto_alt, st, foto_pos, svetlost=svetlost) }}
-  <div class="claim">
-    <div class="claim-l">
+<section class="klid">
+  <div class="wrap klid-in">
+    <div class="klid-text">
       <p class="kicker">{{ kicker }}</p>
-      <h1 class="h1 h1-pod">{{ nadpis|nbsp }}</h1>
-    </div>
-    <div class="claim-p">
+      <h1 class="h1 klid-h">{{ nadpis|nbsp }}</h1>
       <div class="perex">{{ perex }}</div>
       {% if caller is defined %}{{ caller() }}{% endif %}
+      {% if stitky %}
+      <ul class="klid-seznam">
+        {% for s in stitky %}<li><a href="{{ s.href }}"><span>{{ s.nazev|nbsp }}</span><b>{{ s.cena|nbsp }}</b></a></li>{% endfor %}
+      </ul>
+      {% endif %}
     </div>
+    <figure class="klid-foto">{{ img(foto, foto_alt, "(max-width: 860px) 92vw, 600px", eager=True, styl="object-position:" ~ foto_pos) }}</figure>
   </div>
 </section>
 {% endmacro %}
