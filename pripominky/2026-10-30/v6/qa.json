@@ -1,12 +1,10 @@
 {
   "url": "http://localhost:8793/jogamysli/",
-  "ok": false,
-  "chyby": [
-    "Horizontální přetečení na šířce 360: scrollWidth 374 > 360. Prvky: nav#menu.nav (pravý okraj 374); button.burger (pravý okraj 374)"
-  ],
+  "ok": true,
+  "chyby": [],
   "varovani": [
     "Web má noindex (u ostrého webu pravděpodobně chyba)",
-    "Dotykové cíle <40 px na mobilu: 21× (např. a.skip \"Přeskočit na obsah\" 138×28; a \"+420 777 223 188\" 97×22; a \"radana@makarius.cz\" 121×22; a.odkaz \"Více o mně\" 102×29)"
+    "Dotykové cíle <40 px na mobilu: 22× (např. a.skip \"Přeskočit na obsah\" 138×28; a.hl-tl \"Konzultace zdarma\" 144×38; a \"+420 777 223 188\" 97×22; a \"radana@makarius.cz\" 121×22)"
   ],
   "metriky": {
     "sirky": {
@@ -31,8 +29,8 @@
         "pocet_pretekajicich": 0
       },
       "360": {
-        "scrollWidth": 374,
-        "pocet_pretekajicich": 2
+        "scrollWidth": 360,
+        "pocet_pretekajicich": 0
       }
     },
     "preneseno_PC_MB": 1.25,
@@ -61,7 +59,7 @@
       "canonical": true,
       "viewport": true
     },
-    "maly_dotykovy_cil": 21,
+    "maly_dotykovy_cil": 22,
     "font_nadpis": "Playfair Display",
     "font_text": "Source Sans 3",
     "podstranky": {

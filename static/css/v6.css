@@ -128,3 +128,7 @@ h1, h2, h3, h4 { letter-spacing: 0; }
   .lista { margin-top: 18px; }
   .slova-obraz .kruh { width: 56vw; margin: 0 auto; }
 }
+@media (max-width: 400px) {
+  .hl-tl { padding: 10px 12px; font-size: 11.5px; letter-spacing: .06em; }
+  .hl-in { gap: 10px; }
+}
