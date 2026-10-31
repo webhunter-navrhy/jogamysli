@@ -1,10 +1,10 @@
-{% extends "_v4.html" %}
-{% import "_m4.html" as m with context %}
+{% extends "_v7.html" %}
+{% import "_m7.html" as m with context %}
 {% set titulek = "Stránka nenalezena – " ~ site.nazev %}
 {% set noindex = true %}
 {% block telo %}pod{% endblock %}
 {% block obsah %}
-{% call m.hlava_text("Tuto stránku jsme nenašli", "404", "Adresa se možná změnila. Nechte to plynout a pokračujte na úvod.", "obraz-meditace.jpg") %}
-<div class="akce"><a class="tl" href="{{ url('') }}">Zpět na úvod {{ m.sipka() }}</a></div>
+{% call m.hlava_text("Tuto stránku jsme nenašli", "404", "Adresa se možná změnila. Nechte to plynout a pokračujte na úvod.") %}
+<div class="akce akce-stred"><a class="tl" href="{{ url('') }}">Zpět na úvod</a></div>
 {% endcall %}
 {% endblock %}

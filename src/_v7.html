@@ -1,0 +1,82 @@
+{% import "_m7.html" as m with context %}<!doctype html>
+<html lang="{{ site.lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ titulek or site.nazev }}</title>
+<meta name="description" content="{{ popis or site.popis }}">
+{% if site.navrh or noindex %}<meta name="robots" content="noindex, nofollow">{% endif %}
+<meta name="theme-color" content="#faf6ef">
+<link rel="canonical" href="{{ site.url }}{{ cesta or '' }}">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:title" content="{{ titulek or site.nazev }}">
+<meta property="og:description" content="{{ popis or site.popis }}">
+<meta property="og:url" content="{{ site.url }}{{ cesta or '' }}">
+{% if og_url %}<meta property="og:image" content="{{ og_url }}">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">{% endif %}
+<link rel="icon" href="{{ base }}img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="{{ base }}fonts/PlayfairDisplay-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ base }}fonts/SourceSans3-normal-300-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ asset('css/v7.css') }}">
+{% block head %}{% endblock %}
+{% if jsonld %}<script type="application/ld+json">{{ jsonld|safe }}</script>{% endif %}
+</head>
+<body class="{% block telo %}{% endblock %}">
+{% include "_slunce.html" %}
+<a class="skip" href="#obsah">Přeskočit na obsah</a>
+<header class="hl">
+  <div class="wrap hl-in">
+    {{ m.logo() }}
+    <nav class="nav" id="menu" aria-label="Hlavní">
+      <ul>{% for n in site.nav %}<li><a href="{{ url(n.href) }}"{% if cesta == n.href ~ '/' %} aria-current="page"{% endif %}>{{ n.text }}</a></li>{% endfor %}</ul>
+      <div class="nav-mobil">
+        <a class="tl" href="{{ url('konzultace') }}">Konzultace zdarma</a>
+        <p><a href="mailto:{{ site.kontakt.email }}">{{ site.kontakt.email }}</a><br><a href="tel:{{ site.kontakt.telefon|replace(' ', '') }}">{{ site.kontakt.telefon }}</a></p>
+      </div>
+    </nav>
+    <a class="tl tl-maly hl-tl" href="{{ url('konzultace') }}">Konzultace zdarma</a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="menu"><span></span><span></span><span class="sr">Menu</span></button>
+  </div>
+</header>
+<main id="obsah">
+{% block obsah %}{% endblock %}
+</main>
+<footer class="paticka">
+  <div class="wrap">
+    <div class="paticka-grid">
+      <div class="paticka-znacka">
+        {{ m.logo("logo-svetle") }}
+        <p>PhDr. Radana Makariusová, Ph.D.<br>Jóga mysli · Praha a online</p>
+      </div>
+      <nav aria-label="Patička">
+        <p class="paticka-t">Jóga mysli</p>
+        <ul>{% for n in site.nav %}<li><a href="{{ url(n.href) }}">{{ n.text }}</a></li>{% endfor %}
+          <li><a href="{{ url('nejcastejsi-otazky') }}">Nejčastější otázky</a></li></ul>
+      </nav>
+      <div>
+        <p class="paticka-t">Kontakt</p>
+        <ul>
+          <li><a href="mailto:{{ site.kontakt.email }}">{{ site.kontakt.email }}</a></li>
+          <li><a href="tel:{{ site.kontakt.telefon|replace(' ', '') }}">{{ site.kontakt.telefon }}</a></li>
+          <li><a href="{{ url('konzultace') }}">Informativní konzultace zdarma</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="paticka-t">Sesterský web</p>
+        <a class="paticka-obrazy" href="{{ site.obrazy_url }}" target="_blank" rel="noopener">
+          <span class="paticka-obraz">{{ img(data.obrazy["o-radosti"].img, "", "64px", eager=False) }}</span>
+          <span><b>Obrazy z nitra</b>{{ "Energetické obrazy s poselstvími, které Radana maluje"|nbsp }}</span>
+        </a>
+      </div>
+    </div>
+    <div class="paticka-spodek">
+      <p>© 2026 PhDr. Radana Makariusová, Ph.D.{% if site.ico %} · IČO {{ site.ico }}{% endif %}</p>
+      <p><a href="{{ url('gdpr') }}">Ochrana osobních údajů</a></p>
+    </div>
+  </div>
+</footer>
+<script src="{{ asset('js/v7.js') }}" defer></script>
+</body>
+</html>

@@ -526,6 +526,26 @@
    "text": "Svědectví: Lucie, 37 let; Karel, 65 let; Andrea, 53 let",
    "zdroj": "https://www.joga-mysli.cz/",
    "overeno": "2026-10-28"
+  },
+  {
+   "typ": "cena",
+   "text": "Akademie jógy mysli – ceník programů (roční 99 000/79 000, půlroční 46 000/36 000, zkušební 3 500/2 500 Kč): Akademie jógy mysli je nastavena na dlouhodobou spolupráci, aby bylo možné umění vědomé pozornosti vnitřně pojmout/zapracovat. Pokud byste si práli přístup jógy mysli vyzkoušet, vytvořila jsem i možnost kratší zkušební spolupráce. | Ceník | OSOBNĚ | ONLINE | Roční program: | 1. rok | 99 000,– | 79 000,– | 2. rok | 89 000,– | 74 000,– | 3. rok a další roky | 79 000,– | 69 000,– | Půlroční program | 46 000,– | 36 000,– | Zkušební program bez závazkuna období až 4 měsíce / 1 setkání | 3 500,– | 2 500,– | Přihlásit se do Akademie",
+   "zdroj": "https://www.joga-mysli.cz/akademie-jogy-mysli/ (WP export podklady/texty/pages-akademie-jogy-mysli.txt)"
+  },
+  {
+   "typ": "fakt",
+   "text": "Délky audiomeditací: Vše je dobré (6:03), O uzdravení (8:22), O přijímání pocitů (14:24), Meditace pro každý den (7:10), O emocích (11:08), Nevěnuj tomu pozornost (10:13), O výdechu a nechat plynout (8:15), Mezi dvěma myšlenkami (16:40), O vědomé pozornosti (11:20), O radosti (9:22), Meditace na „NIC“ (8:15)",
+   "zdroj": "https://www.joga-mysli.cz/meditace-do-usi/ (podklady/texty/pages-audiomeditace.txt)"
+  },
+  {
+   "typ": "fakt",
+   "text": "Zahraniční retreaty: Havaj (Big Island), Sahara, Maledivy, Vietnam · Laos · Taiwan",
+   "zdroj": "https://www.joga-mysli.cz/retreaty/"
+  },
+  {
+   "typ": "fakt",
+   "text": "Rozměry obrazů (např. 100 × 100 cm, průměr 80 cm) a názvy podle galerie Obrazy z nitra",
+   "zdroj": "https://obrazy-z-nitra.cz/galerie/ (podklady/obrazy/paintings.json, pole size_en)"
   }
  ],
  "chybi": [

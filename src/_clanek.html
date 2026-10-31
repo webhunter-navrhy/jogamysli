@@ -1,30 +1,28 @@
-{% extends "_v4.html" %}
-{% import "_m4.html" as m with context %}
+{% extends "_v7.html" %}
+{% import "_m7.html" as m with context %}
 {% set titulek = clanek.nazev ~ " | Jóga mysli – Radana Makariusová" %}
 {% set popis = clanek.perex[:155] %}
 {% block telo %}pod{% endblock %}
 {% block obsah %}
 <article>
-  {% call m.hlava_text(clanek.nazev, "", "", data.obrazy[clanek.obraz].img) %}
+  {% call m.hlava_text(clanek.nazev, "Blog") %}
   <p class="meta"><time datetime="{{ clanek.datum }}">{{ clanek.datum_text }}</time> · {{ clanek.minut }} min čtení · Radana Makariusová</p>
   {% endcall %}
-  <div class="wrap clanek-grid" style="padding-bottom: 110px">
+  <div class="wrap clanek-grid">
     <div>
-      <a class="zpet" href="{{ url('blog') }}">{{ m.sipka() }} Všechny články</a>
+      <a class="zpet" href="{{ url('blog') }}"><span aria-hidden="true">←</span> Všechny články</a>
       <div class="prose">{{ clanek.obsah|safe }}</div>
     </div>
     <div class="clanek-bok">{{ m.obraz_tema(clanek.obraz, "Obraz k článku") }}</div>
   </div>
 </article>
-<section class="sekce pruh" aria-labelledby="dalsi-h">
+<section class="sekce pisek" aria-labelledby="dalsi-h">
   <div class="wrap">
-    <div class="sekce-hlava">
-      <h2 class="h2" id="dalsi-h">Další články</h2>
-      <a class="odkaz" href="{{ url('blog') }}">Všechny články {{ m.sipka() }}</a>
-    </div>
+    {{ m.nadpis("Další články", "", "", "dalsi-h") }}
     <div class="clanky-3">
       {% for c in (data.blog|rejectattr("slug", "equalto", clanek.slug)|list)[:3] %}{{ m.clanek_karta(c) }}{% endfor %}
     </div>
+    <p class="stred"><a class="odkaz" href="{{ url('blog') }}">Všechny články {{ m.sipka() }}</a></p>
   </div>
 </section>
 {{ m.formular(["Informativní konzultace zdarma", "Akademie jógy mysli", "Transformační energetické procesy", "Audiomeditace", "Retreaty", "Online kurz Akademie JM"], "Kontaktujte mě pro více informací") }}

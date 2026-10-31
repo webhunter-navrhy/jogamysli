@@ -1,5 +1,5 @@
-{% extends "_v4.html" %}
-{% import "_m4.html" as m with context %}
+{% extends "_v7.html" %}
+{% import "_m7.html" as m with context %}
 {% set titulek = "Transformační retreaty – Havaj, Sahara, Maledivy, Indočína | Radana Makariusová" %}
 {% set popis = "Transformační retreaty s jógou mysli: Havaj a Big Island, trek na Sahaře, plavba podél Malediv, spiritualita Indočíny. Retreaty v ČR i na míru pro vaši skupinu." %}
 {% set cesta = "retreaty/" %}
@@ -7,46 +7,40 @@
 {% block telo %}pod{% endblock %}
 {% block obsah %}
 
-{% set st = [] %}
-{% for d in rt.zahranici %}{% set _ = st.append({"href": "#retreat-" ~ loop.index, "nazev": d.misto, "cena": ["Big Island · aloha", "trek s velbloudí karavanou", "plavba s jógou podél atolů", "za spiritualitou Indočíny"][loop.index0], "obraz": d.foto2 or d.foto}) %}{% endfor %}
-{% call m.hlava("Retreaty", "Cestování, které se stává vnitřní proměnou. Jedinečné transformační retreaty na místa, která v sobě uchovávají silnou transformační energii."|nbsp, "obraz-retreaty.jpg", "retreat-kruh.jpg", "Účastníci retreatu v kruhu na písku", st, "Transformativní cestování", "50% 50%") %}
+{% set ceny = [] %}
+{% for d in rt.zahranici %}{% set _ = ceny.append({"href": "#retreat-" ~ loop.index, "nazev": d.misto, "cena": ["Big Island · aloha", "trek s velbloudí karavanou", "plavba s jógou podél atolů", "za spiritualitou Indočíny"][loop.index0]}) %}{% endfor %}
+{% call m.hlava("Retreaty", "Cestování, které se stává vnitřní proměnou. Jedinečné transformační retreaty na místa, která v sobě uchovávají silnou transformační energii.", "obraz-retreaty.jpg", "Transformativní cestování", ceny, "Bílozlatý energetický obraz Radany Makariusové") %}
 <div class="akce">
-  <a class="tl" href="#formular" data-zajem="Zahraniční retreaty">Zjistit více {{ m.sipka() }}</a>
-  <a class="odkaz" href="#cr">Retreaty v ČR i na míru</a>
+  <a class="tl" href="#formular" data-zajem="Zahraniční retreaty">Zjistit více</a>
+  <a class="odkaz" href="#cr">Retreaty v ČR i na míru {{ m.sipka() }}</a>
 </div>
 {% endcall %}
 
 <section class="sekce" id="zahranici" aria-labelledby="zahr-h">
   <div class="wrap">
-    <div class="sekce-hlava">
-      <h2 class="h2" id="zahr-h">Zahraniční retreaty</h2>
-      <p class="velky">{{ "Každá z těchto cest je pozvánkou k vnitřní proměně, novým vhledům a inspiraci, kterou si odnesete i do každodenního života."|nbsp }}</p>
-    </div>
-    <div>
+    {{ m.nadpis("Zahraniční retreaty", "", "Každá z těchto cest je pozvánkou k vnitřní proměně, novým vhledům a inspiraci, kterou si odnesete i do každodenního života.", "zahr-h") }}
     {% for d in rt.zahranici %}
-      <article class="destinace" id="retreat-{{ loop.index }}">
-        <figure class="destinace-foto r">
-          {{ img(d.foto, "Retreat " ~ d.misto, "(max-width: 860px) 92vw, 700px", eager=False) }}
-          {% if d.foto2 %}<span class="druha">{{ img(d.foto2, "", "(max-width: 860px) 46vw, 300px", eager=False) }}</span>{% endif %}
-        </figure>
-        <div class="text">
-          <p class="misto-nadpis">{{ d.misto }}</p>
-          <h3 class="h3">{{ d.nazev|nbsp }}</h3>
-          <p>{{ d.text|nbsp }}</p>
-          <div class="akce">
-            <a class="tl{{ ' tl-svetle' if not loop.first }}" href="#formular" data-zajem="Zahraniční retreaty">Zjistit více {{ m.sipka() }}</a>
-            {% if d.ebook %}<a class="odkaz" href="{{ rt.ebook }}" target="_blank" rel="noopener">Havaj e-book {{ m.ven() }}</a>{% endif %}
-          </div>
-          {% if d.obraz %}{{ m.obraz_tema(d.obraz, "Obraz k retreatu") }}{% endif %}
-          {% if d.misto == "Sahara" %}{{ m.svedectvi(data.reference[1]) }}{% endif %}
+    <article class="destinace{{ ' destinace-obracene' if loop.index is even }}" id="retreat-{{ loop.index }}">
+      <div class="destinace-foto">
+        <figure class="foto">{{ img(d.foto, "Retreat " ~ d.misto, "(max-width: 860px) 92vw, 560px", eager=False) }}</figure>
+      </div>
+      <div class="text">
+        <p class="kicker">{{ d.misto }}</p>
+        <h3 class="h2">{{ d.nazev|nbsp }}</h3>
+        <p>{{ d.text|nbsp }}</p>
+        <div class="akce">
+          <a class="tl{{ ' tl-obrys' if not loop.first }}" href="#formular" data-zajem="Zahraniční retreaty">Zjistit více</a>
+          {% if d.ebook %}<a class="odkaz" href="{{ rt.ebook }}" target="_blank" rel="noopener">Havaj e-book {{ m.ven() }}</a>{% endif %}
         </div>
-      </article>
+        {% if d.obraz %}{{ m.obraz_tema(d.obraz, "Obraz k retreatu") }}{% endif %}
+        {% if d.misto == "Sahara" %}{{ m.svedectvi(data.reference[1], "svedectvi-mala") }}{% endif %}
+      </div>
+    </article>
     {% endfor %}
-    </div>
   </div>
 </section>
 
-<section class="sekce pudr" aria-label="Retreaty v ČR a na míru">
+<section class="sekce pisek" aria-label="Retreaty v ČR a na míru">
   <div class="wrap dva-sloupy">
     <div id="cr">
       <p class="kicker">Česko</p>
@@ -65,7 +59,7 @@
   </div>
 </section>
 
-{{ m.formular(["Zahraniční retreaty", "Jógové retreaty v ČR", "Retreaty na míru"], "Retreaty – zjistit více informací", "Zjistit více", obraz="obraz-retreaty.jpg") }}
+{{ m.formular(["Zahraniční retreaty", "Jógové retreaty v ČR", "Retreaty na míru"], "Retreaty – zjistit více informací", "Zjistit více") }}
 {{ m.faq([data.faq[3]], "Otázky k retreatům") }}
 {% endblock %}
 {% block head %}{{ faq_ld([data.faq[3]]) }}{% endblock %}

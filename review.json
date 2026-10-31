@@ -1,16 +1,18 @@
 {
-  "znamka": 8,
+  "znamka": 7,
   "slabiny": [
-    "PC svědectví (buňka 10): dvě menší citace (Andrea, Karel) jsou kvůli margin-left: auto u .slova-dalsi odsazené doprava. Levá třetina zůstává prázdná a citace se odtrhávají od hlavní citace Lucie, která stojí vlevo. Zarovnat .slova-dalsi k levému okraji .wrap (margin-left: 0), aby tvořily sloupec pod hlavní citací.",
-    "PC úvod (buňka 1): perex „Pojďme společně objevit…“ vlevo dole je drobný (1,05rem), tmavě hnědý na oranžové záři a vedle tlačítka skoro zaniká. Zvětšit ho na ~1,2rem a na PC mu dát krémovou barvu (#fff4e4 s jemným stínem) nebo stejný poloprůhledný podklad, jaký má přehrávač vpravo.",
-    "Mobil Pět cest (buňky 4–7): kruhové obrazy služeb přesahují okraj obrazovky střídavě o 16vw. U Retreatů (buňka 6) je obraz z poloviny mimo obrazovku a u Akademie se dva obrazy těsně potkávají, takže sled působí jako uříznutý. Zmenšit přesah .cesta-mobil na ~8vw a mezi službami nechat aspoň 3rem vzduchu."
+    "Hero (PC buňka 1, mobil 1): nadpis i fotka Radany u plátna zabírají každý jen polovinu šířky a pod nimi zůstává prázdný pás s osamělou linkou. Je to stejný slabý vzorec „rámeček s jednou fotkou v béžové“, který Rafael odmítl u Metelky. Oprava: postavit úvod na obraze. Jeden velký výřez Radanina obrazu (mandala z Obrazů z nitra má rozlišení na plnou šířku) dát jako pozadí nebo velký kruh přes 60 % šířky, fotku s plátnem zmenšit jako doplněk, H1 zvětšit asi na 64–72 px a prázdný pás s linkou odstranit.",
+    "Rytmus sekcí (PC buňky 3, 6, 7 a 9): úvody sekcí Kudy se můžeme vydat, Obrazy z nitra i Retreaty mají stejnou kostru (středový zlatý nadpisek, Playfair h2, linka, středový perex). Před sekcemi Kudy se můžeme vydat a Obrazy z nitra a kolem tlačítka Celá galerie zůstávají prázdné béžové pásy vysoké asi 150–250 px. Oprava: zmenšit svislé mezery mezi sekcemi asi na polovinu. Retreaty zarovnat vlevo s jednou velkou fotkou (Sahara) a třemi menšími. Obrazy z nitra udělat jako vodorovný pás obrazů přes celou šířku bez středového úvodu.",
+    "Typografie a kontrast (PC buňka 2: text 15 let práce s myslí, buňka 4: řádky ceníku, všechny nadpisky): základní text na PC je jen asi 13–14 px a drobné zlaté verzálkové nadpisky mají na béžové slabý kontrast. Oprava: zvětšit text na 17–18 px s řádkem nejvýš 65 znaků, nadpisky přebarvit na brandovou #73614c a dát jim aspoň 12 px. Při té úpravě zvětšit i dotykové cíle na mobilu, které QA hlásí: checkbox ve formuláři má 24 px, odkaz Akademie jógy mysli 38 px a Blog v patičce 29 px, vše na ≥ 44 px."
   ],
   "zavazne": [],
   "silne": [
-    "Výtky z minulého kola jsou opravené. Neaktivní položky rejstříku „Kudy se můžeme vydat“ mají opacity 0,58 a barvu #73614c, na PC jsou čitelné (buňky 3 a 5). Obraz vlevo je jen sticky a scroll se nepinuje. Logo v hlavičce má rezervu 4 px a line-height 1,12 a nic ho neořezává. Cena 1 999 Kč, balíček 10+1 / 11 meditací i věk u svědectví jsou teď v brief.json jako fakta se zdrojem z podstránek joga-mysli.cz.",
-    "Silný koncept z oboru: Radaniny vlastní energetické obrazy jako vycházející slunce a zářiče. Celý web jde od svítání v úvodu přes noc u meditace a souhvězdí obrazů až k západu v kontaktu, takže nápad je vidět v každé sekci, ne jen v úvodu.",
-    "Brand i obsah sedí: logo „Žijeme s lehkostí“ vlevo, paleta #73614c / #ecdecd s teplým oranžovým akcentem, skutečná fotka Radany u stojanu a její obrazy, reálné texty a citace. Kontakt (e-mail, telefon, formulář, konzultace zdarma) je v hlavičce i v kontaktní sekci. QA bez chyb a bez přetečení na všech šířkách."
+    "Brand sedí: v hlavičce vlevo je logo Žijeme s lehkostí a paleta vychází z klientovy hnědé #73614c a béžové #ecdecd, žádná cizí paleta.",
+    "Web má vlastní nápad z oboru: Radaniny obrazy z Obrazů z nitra jsou vizuální systém celého webu (karty služeb, meditace, galerie, patička se sesterským webem), takže nevypadá jako stock šablona.",
+    "Obsah sedí s podklady: ceny Akademie i energetických procesů, štítek „nejoblíbenější“, počty setkání, délky meditací, svědectví Lucie, Andrey a Karla i destinace retreatů mají zdroj v briefu nebo v textech starého webu.",
+    "Ukázka meditace s přehrávačem v tmavě hnědé sekci dává tmavé ploše důvod a nabízí konkrétní akci.",
+    "Kontakt je jasný: telefon a e-mail v hero, CTA Konzultace zdarma v hlavičce, formulář s fotkou a kontakty v patičce. Nic nepřetéká v žádné ze 6 šířek, web má 20 podstránek a žádný marquee, zrno ani číslování 01/02/03."
   ],
-  "verdikt": "odeslat – všechny tři minulé výtky jsou opravené a nová závažná vada tu není. Atmosférický, konceptuálně jednolitý redesign postavený na Radaniných obrazech je na úrovni k odeslání, zbývají jen drobnosti v kompozici.",
-  "_hash": "6824965975120171dceb1cdb27af71a51bf9b41a"
+  "verdikt": "Web je poctivý, drží klientčin brand a nemá žádnou závažnou vadu, ale béžový editorial se slabým hero a stejnými středovými sekcemi se blíží odmítnuté Metelce. Před odesláním přestavět hero na velký obraz a zkrátit prázdné pásy mezi sekcemi (verdikt: opravit).",
+  "_hash": "841c493f29af7300e00a6dffdf95c9530a4a4ed0"
 }

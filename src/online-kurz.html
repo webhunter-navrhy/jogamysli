@@ -1,41 +1,39 @@
-{% extends "_v4.html" %}
-{% import "_m4.html" as m with context %}
+{% extends "_v7.html" %}
+{% import "_m7.html" as m with context %}
 {% set titulek = "Online kurz jógy mysli – připravujeme | Radana Makariusová" %}
 {% set popis = "Online kurz jógy mysli: 10 lekcí, 10 témat práce s myslí a 10 mentálních technik. Kurz připravujeme, napište si o upozornění na spuštění." %}
 {% set cesta = "online-kurz/" %}
 {% block telo %}pod{% endblock %}
 {% block obsah %}
 
-{% set st = [
-  {"href": "#kurz", "nazev": "10 lekcí", "cena": "u vás doma, vlastním tempem", "obraz": "obrazy/tady-a-ted.jpg"},
-  {"href": "#kurz", "nazev": "10 témat", "cena": "práce s myslí", "obraz": "obrazy/o-zmene.jpg"},
-  {"href": "#kurz", "nazev": "10 technik", "cena": "mentálních, krok za krokem", "obraz": "obrazy/o-rozhodnuti.jpg"},
-  {"href": "#formular", "nazev": "Upozornění", "cena": "dám vědět o spuštění", "obraz": "obrazy/je-cas-vyjit-z-ulity.jpg"}
+{% set ceny = [
+  {"href": "#kurz", "nazev": "10 lekcí", "cena": "u vás doma, vlastním tempem"},
+  {"href": "#kurz", "nazev": "10 témat", "cena": "práce s myslí"},
+  {"href": "#kurz", "nazev": "10 technik", "cena": "mentálních, krok za krokem"},
+  {"href": "#formular", "nazev": "Upozornění", "cena": "dám vědět o spuštění"}
 ] %}
-{% call m.hlava("Online kurz", "Můžete jógu mysli studovat i online u vás doma. Kurz připravujeme."|nbsp, "obraz-online.jpg", "radana-u-stojanu.jpg", "Radana Makariusová u stojanu s obrazem", st, "Připravujeme", "46% 30%", svetlost=0.3) %}
-<div class="akce">
-  <a class="tl" href="#formular">Dejte mi vědět o spuštění {{ m.sipka() }}</a>
-</div>
+{% call m.hlava("Online kurz", "Můžete jógu mysli studovat i online u vás doma. Kurz připravujeme.", "obraz-online.jpg", "Připravujeme", ceny, "Bílozlatý energetický obraz Radany Makariusové") %}
+<div class="akce"><a class="tl" href="#formular">Dejte mi vědět o spuštění</a></div>
 {% endcall %}
 
 <section class="sekce" id="kurz">
   <div class="wrap dvoj">
+    <figure class="foto foto-vysoka">{{ img("radana-obraz.jpg", "Radana Makariusová s jedním ze svých obrazů", "(max-width: 860px) 92vw, 520px", eager=False, styl="object-position:50% 25%") }}</figure>
     <div class="text">
       <p class="kicker">Online kurz jógy mysli</p>
       <h2 class="h2">Co si můžete představit pod online kurzem?</h2>
-      <p class="velky">{{ "Online kurz obsahuje základní seznámení s principem jógy mysli."|nbsp }}</p>
-      <ul class="body4" style="margin-top: 30px">
+      <p class="perex">{{ "Online kurz obsahuje základní seznámení s principem jógy mysli."|nbsp }}</p>
+      <ul class="body">
         <li>10 lekcí</li><li>10 témat práce s&nbsp;myslí</li><li>10 mentálních technik</li>
       </ul>
-      <p style="margin-top: 26px">{{ "Obsahuje 10 lekcí, přičemž zpracovává 10 témat práce s myslí společně s 10 mentálními technikami, kterými vás pečlivě provedu."|nbsp }}</p>
+      <p>{{ "Obsahuje 10 lekcí, přičemž zpracovává 10 témat práce s myslí společně s 10 mentálními technikami, kterými vás pečlivě provedu."|nbsp }}</p>
       <p>{{ "Kurz připravujeme. Napište mi a dám Vám vědět, až bude spuštěn. Jógu mysli můžete mezitím poznat osobně nebo online v Akademii."|nbsp }}</p>
-      <div class="akce"><a class="tl tl-svetle" href="{{ url('akademie-jogy-mysli') }}">Akademie jógy mysli {{ m.sipka() }}</a></div>
+      <div class="akce"><a class="odkaz" href="{{ url('akademie-jogy-mysli') }}">Akademie jógy mysli {{ m.sipka() }}</a></div>
     </div>
-    <figure class="foto foto-vysoka r">{{ img("radana-obraz.jpg", "Radana Makariusová s jedním ze svých obrazů", "(max-width: 860px) 92vw, 640px", eager=False, styl="object-position:50% 25%") }}</figure>
   </div>
 </section>
 
-{{ m.formular(["Online kurz Akademie JM", "Akademie jógy mysli", "Informativní konzultace zdarma"], "Dejte mi vědět, až kurz spustím", "Odeslat", "Online kurz Akademie JM", obraz="obrazy/je-cas-vyjit-z-ulity.jpg") }}
+{{ m.formular(["Online kurz Akademie JM", "Akademie jógy mysli", "Informativní konzultace zdarma"], "Dejte mi vědět, až kurz spustím", "Odeslat", "Online kurz Akademie JM") }}
 {{ m.faq([data.faq[4]], "Otázky k online kurzu") }}
 {% endblock %}
 {% block head %}{{ faq_ld([data.faq[4]]) }}{% endblock %}

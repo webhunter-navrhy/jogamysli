@@ -1,9 +1,9 @@
-{% extends "_v4.html" %}
-{% import "_m4.html" as m with context %}
+{% extends "_v7.html" %}
+{% import "_m7.html" as m with context %}
 {% set titulek = "Ochrana osobních údajů | Jóga mysli – Radana Makariusová" %}
 {% set cesta = "gdpr/" %}
 {% block telo %}pod{% endblock %}
 {% block obsah %}
-{{ m.hlava_text(data.gdpr.nadpis, "GDPR", "", "obrazy/o-spolupraci.jpg") }}
-<section class="sekce" style="padding-top: 20px"><div class="wrap"><div class="prose-pravni">{{ data.gdpr.obsah|safe }}</div></div></section>
+{{ m.hlava_text(data.gdpr.nadpis, "GDPR") }}
+<section class="sekce sekce-tesna"><div class="wrap uzky"><div class="prose-pravni">{{ data.gdpr.obsah|safe }}</div></div></section>
 {% endblock %}

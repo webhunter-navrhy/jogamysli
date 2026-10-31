@@ -1,12 +1,12 @@
-{% extends "_v4.html" %}
-{% import "_m4.html" as m with context %}
+{% extends "_v7.html" %}
+{% import "_m7.html" as m with context %}
 {% set titulek = "Nejčastější otázky – Jóga mysli | Radana Makariusová" %}
 {% set popis = "Odpovědi na časté otázky k Akademii jógy mysli, energetickým procesům, audiomeditacím, retreatům a online kurzu." %}
 {% set cesta = "nejcastejsi-otazky/" %}
 {% block head %}{{ faq_ld(data.faq) }}{% endblock %}
 {% block telo %}pod{% endblock %}
 {% block obsah %}
-{% call m.hlava_text("Nejčastější otázky", "Jóga mysli", "Odpovědi k Akademii, energetickým procesům, meditacím, retreatům i online kurzu.", "obrazy/o-vnitrnim-vedomem-klidu.jpg") %}
+{% call m.hlava_text("Nejčastější otázky", "Jóga mysli", "Odpovědi k Akademii, energetickým procesům, meditacím, retreatům i online kurzu.") %}
 <ul class="rejstrik">{% for s in data.faq %}<li><a href="#{{ s.href }}">{{ s.tema }}</a></li>{% endfor %}</ul>
 {% endcall %}
 {{ m.faq(data.faq, "Odpovědi") }}
