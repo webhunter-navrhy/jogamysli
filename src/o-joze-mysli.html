@@ -1,0 +1,64 @@
+{% extends "_v8.html" %}
+{% import "_m8.html" as m with context %}
+{% set titulek = "O Józe mysli – vlastní přístup k práci s myslí | Radana Makariusová" %}
+{% set popis = "Jóga mysli je přístup k práci s myslí, který Radana Makariusová vytvořila sama během zhruba 15 let. Nepodléhá jinému systému a není koučinkovým modulem." %}
+{% set cesta = "o-joze-mysli/" %}
+{% set volby = ["Úvodní setkání", "Akademie Jógy mysli", "Transformační energetické procesy", "Meditace do uší", "Retreaty", "Online kurz"] %}
+{% block telo %}pod{% endblock %}
+{% block obsah %}
+
+{% call m.hlava("O Józe mysli", "Umění vnitřní vědomé pozornosti. Přístup k práci s myslí, který vede k životní proměně skrze vlastní vnitřní práci.", data.obrazy["nitro-je-poklad"].img, "Vlastní přístup Radany Makariusové") %}
+<div class="akce"><a class="tl" href="#formular" data-zajem="Úvodní setkání">Domluvit úvodní setkání</a><a class="tl tl-obrys" href="{{ url('akademie-jogy-mysli') }}">Akademie Jógy mysli</a></div>
+{% endcall %}
+
+<section class="sekce prechod" aria-labelledby="vznik-h">
+  <div class="wrap uzky">
+    <p class="kicker">Jak Jóga mysli vznikla</p>
+    <h2 class="h2" id="vznik-h">{{ "Z inspirace, během patnácti let"|nbsp }}</h2>
+    <p>{{ "Jóga mysli je přístup, který jsem v průběhu zhruba 15 let poskládala dohromady jako moderní postup práce s myslí zaměřený na vnitřní transformaci. Celý program jsem vytvořila od základu sama, na základě přicházející inspirace – ať už z knih, nebo z meditace."|nbsp }}</p>
+    <p>{{ "Učí nás vnitřní vědomé pozornosti a jejím cílem je harmonie, lehkost a osvobození od úzkosti a tlaku."|nbsp }}</p>
+    <blockquote class="vlastni">
+      <p>{{ "Jóga mysli nepodléhá žádnému jinému systému a nejedná se o koučinkový modul. Je to přístup k práci s myslí, který vede k životní transformaci na základě vlastní vnitřní práce a převzetí odpovědnosti za svůj život."|nbsp }}</p>
+      <cite>Radana Makariusová</cite>
+    </blockquote>
+  </div>
+</section>
+
+<section class="sekce" aria-labelledby="uceni-h">
+  <div class="wrap">
+    {{ m.nadpis("Co se v Józe mysli učíme", "Vnitřní práce", hid="uceni-h") }}
+    <ul class="uceni">
+      {% for u in data.akademie.uceni %}<li><b>{{ u[0] }}</b> {{ u[1]|nbsp }}</li>{% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="sekce sv-pisek" aria-labelledby="neni-h">
+  <div class="wrap">
+    {{ m.nadpis("Čím Jóga mysli je a čím není", "Pro jasnost", hid="neni-h") }}
+    <div class="neni">
+      <div>
+        <h3 class="h3">Je</h3>
+        <p>{{ "Vlastní přístup k práci s myslí, který vznikal z inspirace a z praxe. Praktická cesta k větší vnitřní svobodě, vědomému prožívání a lehkosti v životě. Proměna přichází z vaší vlastní vnitřní práce a z převzetí odpovědnosti za svůj život."|nbsp }}</p>
+      </div>
+      <div>
+        <h3 class="h3">Není</h3>
+        <p>{{ "Převzatý systém ani jeho odnož. Není to koučinkový modul se sadou hotových kroků. Nikdo za vás vaši cestu neudělá – průvodkyně vás na ní laskavě a trpělivě doprovází."|nbsp }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sekce" aria-labelledby="poskytuje-h">
+  <div class="wrap">
+    {{ m.nadpis("Co Akademie Jógy mysli poskytuje", "Akademie Jógy mysli", hid="poskytuje-h") }}
+    <ol class="principy">
+      {% for p in data.akademie.poskytuje %}<li><h3>{{ p[0] }}</h3><p>{{ p[1]|nbsp }}</p></li>{% endfor %}
+    </ol>
+    <p class="stred"><a class="tl tl-obrys" href="{{ url('akademie-jogy-mysli') }}">Průběh, programy a ceny Akademie</a></p>
+  </div>
+</section>
+
+{{ m.formular(volby, "Vaše cesta může začít právě teď", "Domluvit úvodní setkání", "Úvodní setkání") }}
+
+{% endblock %}

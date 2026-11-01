@@ -1,0 +1,206 @@
+{# Makra webu Jóga mysli v8 (1. 11. 2026): sesterská značka Obrazů z nitra. Obrazy bez rámečků, jako jemné pozadí pod textem.
+   Import: {% import "_m8.html" as m with context %} #}
+
+{% macro logo(cls="") %}<a href="{{ url('') }}" class="logo {{ cls }}" aria-label="Žijeme s lehkostí – Jóga mysli, úvod">
+  <span class="logo-r1">Žijeme</span>
+  <span class="logo-r2">S lehk<svg class="logo-slunce" aria-hidden="true"><use href="#slunce"/></svg>stí</span>
+</a>{% endmacro %}
+
+{% macro sipka() %}<svg class="sipka" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>{% endmacro %}
+{% macro ven() %}<svg class="ven" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 16 16 8M9 8h7v7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>{% endmacro %}
+
+{# Obraz pod textem: malba přes celou plochu rodiče, prosvětlená do krému. Rodič potřebuje třídu .s-malbou. #}
+{% macro podmalba(soubor, pos="50% 50%", sila="", eager=False) %}
+<div class="podmalba{{ ' podmalba-' ~ sila if sila }}" aria-hidden="true">{{ img(soubor, "", "100vw", eager=eager, styl="object-position:" ~ pos) }}</div>
+{% endmacro %}
+
+{# Obraz jako dílo: celé plátno bez rámečku a bez stínu, volitelně název pod ním #}
+{% macro dilo(soubor, alt, sizes, cls="", nazev="", pod="", eager=False) %}
+<figure class="dilo {{ cls }}">
+  <span class="dilo-pasparta">{{ img(soubor, alt, sizes, eager=eager) }}</span>
+  {% if nazev %}<figcaption><b>{{ nazev }}</b>{% if pod %}<span>{{ pod }}</span>{% endif %}</figcaption>{% endif %}
+</figure>
+{% endmacro %}
+
+{# Hlavička podstránky. Malba: obraz pod textem přes celou šířku, text na středu (jako úvod).
+   Foto: text vlevo, fotka vpravo, pod tím jemně obraz. Pod hlavičkou volitelně řádek cen. #}
+{% macro hlava(nadpis, perex, obraz, kicker="", ceny=[], obraz_alt="", nazev_obrazu="", foto=False, foto_pos="50% 30%", malba="obraz-akademie.jpg") %}
+{% set c = caller if caller is defined else None %}
+{% if foto %}
+<section class="hlava hlava-foto-sekce s-malbou">
+  {{ podmalba(malba, sila="slaba", eager=False) }}
+  <div class="wrap hlava-in">
+    <div class="hlava-text">
+      {% if kicker %}<p class="kicker">{{ kicker|nbsp }}</p>{% endif %}
+      <h1 class="h1">{{ nadpis|nbsp }}</h1>
+      <p class="podtitul">{{ perex|nbsp }}</p>
+      {% if c %}{{ c() }}{% endif %}
+    </div>
+    <figure class="foto hlava-foto">{{ img(obraz, obraz_alt, "(max-width: 860px) 88vw, 440px", eager=True, styl="object-position:" ~ foto_pos) }}</figure>
+  </div>
+{% else %}
+<section class="hlava hlava-malba s-malbou">
+  {{ podmalba(obraz, eager=True) }}
+  <div class="wrap hlava-in">
+    <div class="hlava-text">
+      {% if kicker %}<p class="kicker">{{ kicker|nbsp }}</p>{% endif %}
+      <h1 class="h1">{{ nadpis|nbsp }}</h1>
+      <p class="podtitul">{{ perex|nbsp }}</p>
+      {% if c %}{{ c() }}{% endif %}
+    </div>
+  </div>
+{% endif %}
+  {% if ceny %}
+  <div class="wrap">
+    <ul class="prehled">
+      {% for s in ceny %}<li><a href="{{ s.href }}"><span>{{ s.nazev|nbsp }}</span><b>{{ s.cena|nbsp }}</b></a></li>{% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+</section>
+{% endmacro %}
+
+{# Textová hlavička (blog, otázky, článek, GDPR, 404): typografie na středu, jemný obraz pod ní #}
+{% macro hlava_text(nadpis, kicker="", perex="", h="h1") %}
+{% set c = caller if caller is defined else None %}
+<section class="hlava hlava-stred">
+  <div class="wrap uzky">
+    {% if kicker %}<p class="kicker">{{ kicker }}</p>{% endif %}
+    <{{ h }} class="h1">{{ nadpis|nbsp }}</{{ h }}>
+    {% if perex %}<p class="podtitul">{{ perex|nbsp }}</p>{% endif %}
+    <span class="ornament" aria-hidden="true"><svg><use href="#slunce"/></svg></span>
+    {% if c %}{{ c() }}{% endif %}
+  </div>
+</section>
+{% endmacro %}
+
+{% macro nadpis(text, kicker="", perex="", hid="", h="h2") %}
+<div class="sekce-hlava">
+  {% if kicker %}<p class="kicker">{{ kicker }}</p>{% endif %}
+  <{{ h }} class="h2"{% if hid %} id="{{ hid }}"{% endif %}>{{ text|nbsp }}</{{ h }}>
+  {% if perex %}<p class="perex">{{ perex|nbsp }}</p>{% endif %}
+</div>
+{% endmacro %}
+
+{# Ukázka meditace: obraz bez rámečku, tlačítko a lineární průběh #}
+{% macro prehravac(m_, uvod="", nadpis_tag="h2") %}
+{% set o = data.obrazy[m_.obraz] %}
+<div class="prehravac" data-prehravac>
+  {{ dilo(o.img, "Obraz " ~ o.nazev ~ " od Radany Makariusové", "(max-width: 860px) 80vw, 420px", "prehravac-dilo", o.nazev, "obraz k meditaci") }}
+  <div class="prehravac-text">
+    <p class="kicker">Ukázka zdarma · {{ m_.delka }} min</p>
+    <{{ nadpis_tag }} class="h2">{{ m_.nazev }}</{{ nadpis_tag }}>
+    <p class="perex">{{ m_.popis|nbsp }}</p>
+    {% if uvod %}<p>{{ uvod|nbsp }}</p>{% endif %}
+    <div class="ovladani">
+      <button class="hrat" type="button" data-hrat aria-label="Přehrát ukázku meditace {{ m_.nazev }}">
+        <svg class="ikona-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+        <svg class="ikona-pauza" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 5.5h3v13h-3zM13.5 5.5h3v13h-3z" fill="currentColor"/></svg>
+      </button>
+      <div class="stopa">
+        <span class="stopa-popis" data-popis>Přehrát ukázku</span>
+        <span class="stopa-cara"><span data-prubeh></span></span>
+        <span class="stopa-cas"><span data-ted>0:00</span> / {{ m_.delka }}</span>
+      </div>
+    </div>
+    <audio preload="none" src="{{ base }}media/vse-je-dobre.mp3"></audio>
+    {% if caller is defined %}{{ caller() }}{% endif %}
+  </div>
+</div>
+{% endmacro %}
+
+{# Pozvání a jednoduchý formulář (jméno, e-mail, zpráva) na obrazu pod textem #}
+{% macro formular(volby, nadpis="Vaše cesta může začít právě teď", tlacitko="Odeslat zprávu", vybrano="", text="", malba="obraz-retreaty.jpg") %}
+<section class="kontakt s-malbou" id="formular" aria-labelledby="formular-h">
+  {{ podmalba(malba, sila="slaba") }}
+  <div class="wrap kontakt-grid">
+    <div class="kontakt-text">
+      <p class="kicker">Úvodní setkání · Praha a online</p>
+      <h2 class="h2" id="formular-h">{{ nadpis|nbsp }}</h2>
+      <p class="podtitul">{{ (text or "Každá skutečná změna začíná rozhodnutím věnovat pozornost sobě.")|nbsp }}</p>
+      <p>{{ "Napište mi pár slov o tom, co vás ke mně přivádí. Ozvu se vám a domluvíme úvodní setkání, na kterém se společně podíváme, zda je Jóga mysli tou správnou cestou právě pro vás. Úvodní informativní konzultace je zdarma."|nbsp }}</p>
+      <ul class="kontakty">
+        <li><span>E-mail</span><a href="mailto:{{ site.kontakt.email }}">{{ site.kontakt.email }}</a></li>
+        <li><span>Telefon</span><a href="tel:{{ site.kontakt.telefon|replace(' ', '') }}">{{ site.kontakt.telefon }}</a></li>
+      </ul>
+    </div>
+    <form class="formular" method="post" data-endpoint="{{ site.formular.endpoint }}" data-demo="{{ 1 if site.formular.demo or not site.formular.endpoint else 0 }}">
+      <label>Jméno <input name="jmeno" autocomplete="name" required></label>
+      <label>E-mail <input name="email" type="email" autocomplete="email" required></label>
+      <label>Krátká zpráva <textarea name="zprava" rows="4" placeholder="S čím přicházíte, nebo co vás zajímá"></textarea></label>
+      <input type="hidden" name="zajem" value="{{ vybrano or volby[0] }}">
+      <label class="souhlas"><input type="checkbox" name="souhlas" required> <span>Souhlasím se zpracováním údajů pro účely odpovědi (<a href="{{ url('gdpr') }}">zásady</a>).</span></label>
+      <div class="past" aria-hidden="true"><label>Nevyplňovat <input name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+      <input type="hidden" name="_subject" value="{{ site.formular.predmet }}">
+      <button class="tl" type="submit">{{ tlacitko }}</button>
+      <p class="formular-stav" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+{% endmacro %}
+
+{% macro faq(skupiny, nadpis="Nejčastější otázky") %}
+<section class="sekce faq">
+  <div class="wrap faq-grid">
+    <div class="faq-bok">
+      <h2 class="h2">{{ nadpis }}</h2>
+      <a class="odkaz" href="{{ url('nejcastejsi-otazky') }}">Všechny otázky {{ sipka() }}</a>
+    </div>
+    <div>
+    {% for s in skupiny %}
+      {% if skupiny|length > 1 %}<h3 class="faq-tema" id="{{ s.href }}">{{ s.tema }}</h3>{% endif %}
+      {% for q in s.otazky %}
+      <details class="otazka"><summary>{{ q[0]|nbsp }}<span class="plus" aria-hidden="true"></span></summary><div class="odpoved"><p>{{ q[1]|nbsp }}</p></div></details>
+      {% endfor %}
+    {% endfor %}
+    </div>
+  </div>
+</section>
+{% endmacro %}
+
+{# Svědectví: citát, celé svědectví rozbalovací #}
+{% macro svedectvi(r, cls="", h="") %}
+<figure class="svedectvi {{ cls }}">
+  <blockquote><p>„{{ r.citat|nbsp }}“</p></blockquote>
+  <figcaption>{{ r.jmeno }}, {{ r.vek }} let</figcaption>
+  <details class="cele"><summary>Celé svědectví</summary><div class="odpoved">{% for p in r.text %}<p>{{ p|nbsp }}</p>{% endfor %}</div></details>
+</figure>
+{% endmacro %}
+
+{# Obraz k tématu: most na Obrazy z nitra #}
+{% macro obraz_tema(slug, nadpis="Obraz k tématu") %}
+{% set o = data.obrazy[slug] %}
+<aside class="tema" aria-label="{{ nadpis }}: {{ o.nazev }}">
+  <a class="tema-obraz" href="{{ o.url }}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span class="dilo-pasparta">{{ img(o.img, "", "(max-width: 860px) 7rem, 9rem", eager=False) }}</span></a>
+  <div>
+    <p class="kicker">{{ nadpis }}</p>
+    <p class="tema-nazev"><a href="{{ o.url }}" target="_blank" rel="noopener">{{ o.nazev }}</a></p>
+    <p class="tema-verse">{% for v in o.verse %}{{ v|nbsp }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>
+    <a class="odkaz" href="{{ o.url }}" target="_blank" rel="noopener">Celé poselství v galerii {{ ven() }}</a>
+  </div>
+</aside>
+{% endmacro %}
+
+{% macro clanek_karta(c, h="h3") %}
+{% set o = data.obrazy[c.obraz] %}
+<article class="karta-clanek">
+  <a href="{{ url(c.slug) }}">
+    <span class="dilo-pasparta">{{ img(o.img, "", "(max-width: 860px) 40vw, 300px", eager=False) }}</span>
+    <p class="meta"><time datetime="{{ c.datum }}">{{ c.datum_text }}</time> · {{ c.minut }} min čtení</p>
+    <{{ h }} class="karta-nazev">{{ c.nazev|nbsp }}</{{ h }}>
+    <span class="odkaz">Číst článek {{ sipka() }}</span>
+  </a>
+</article>
+{% endmacro %}
+
+{# Cesta s obrazem pod textem (Další možnosti) – jako karty na současném joga-mysli.cz #}
+{% macro cesta_malba(s, pozn="") %}
+<a class="cesta-malba s-malbou" href="{{ url(s.href) }}">
+  {{ podmalba(s.obraz) }}
+  <span class="cesta-malba-in">
+    <span class="cesta-malba-nazev">{{ s.nazev|nbsp }}</span>
+    <span class="cesta-malba-text">{{ s.veta|nbsp }}</span>
+    {% if pozn %}<span class="cesta-malba-pozn">{{ pozn|nbsp }}</span>{% endif %}
+  </span>
+</a>
+{% endmacro %}

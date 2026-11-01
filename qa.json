@@ -1,10 +1,10 @@
 {
-  "url": "http://localhost:8794/jogamysli/",
+  "url": "http://localhost:8791/jogamysli/",
   "ok": true,
   "chyby": [],
   "varovani": [
     "Web má noindex (u ostrého webu pravděpodobně chyba)",
-    "Dotykové cíle <40 px na mobilu: 2× (např. a \"Akademie jógy mysli\" 263×38; input \"\" 24×24)"
+    "Dotykové cíle <40 px na mobilu: 1× (např. input \"\" 24×24)"
   ],
   "metriky": {
     "sirky": {
@@ -33,21 +33,21 @@
         "pocet_pretekajicich": 0
       }
     },
-    "preneseno_PC_MB": 0.76,
+    "preneseno_PC_MB": 0.99,
     "nejvetsi_obrazek_PC": {
-      "kB": 104,
-      "url": "http://localhost:8794/jogamysli/img/promo-poster-1280.webp"
+      "kB": 137,
+      "url": "http://localhost:8791/jogamysli/img/obraz-online-1200.webp"
     },
-    "snimku_PC": 11,
-    "preneseno_mobil_MB": 1.03,
+    "snimku_PC": 8,
+    "preneseno_mobil_MB": 0.89,
     "nejvetsi_obrazek_mobil": {
-      "kB": 104,
-      "url": "http://localhost:8794/jogamysli/img/promo-poster-1280.webp"
+      "kB": 94,
+      "url": "http://localhost:8791/jogamysli/img/obrazy-nitro-je-poklad-960.webp"
     },
-    "snimku_mobil": 16,
+    "snimku_mobil": 14,
     "seo": {
-      "title": "Jóga mysli – cesta do nitra k vnitřnímu klidu | Radana Makariusová",
-      "description": "Jóga mysli PhDr. Radany Makariusové: individuální Akademie jógy mysli, transformační energetické pro",
+      "title": "Jóga mysli – práce s myslí a Akademie | Radana Makariusová",
+      "description": "Jóga mysli je vlastní přístup PhDr. Radany Makariusové k práci s myslí. Individuální Akademie Jógy m",
       "lang": "cs",
       "h1": 1,
       "jsonld": [
@@ -59,12 +59,12 @@
       "canonical": true,
       "viewport": true
     },
-    "maly_dotykovy_cil": 2,
+    "maly_dotykovy_cil": 1,
     "font_nadpis": "Playfair Display",
     "font_text": "Source Sans 3",
     "podstranky": {
-      "stranek": 20,
-      "obrazku": 223
+      "stranek": 22,
+      "obrazku": 197
     }
   }
 }

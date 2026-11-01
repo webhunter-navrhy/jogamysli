@@ -1,5 +1,5 @@
-{% extends "_v7.html" %}
-{% import "_m7.html" as m with context %}
+{% extends "_v8.html" %}
+{% import "_m8.html" as m with context %}
 {% set titulek = "Meditace do uší – audiomeditace 10+1 | Radana Makariusová" %}
 {% set popis = "Audiomeditace Radany Makariusové: 11 meditací a mentálních cvičení pro klid, uvolnění a vědomou pozornost. Ukázka Vše je dobré zdarma, balíček 10+1 i jako dárkový voucher." %}
 {% set cesta = "audiomeditace/" %}
@@ -64,6 +64,6 @@
 </section>
 
 {{ m.faq([data.faq[2]], "Otázky k meditacím") }}
-{{ m.formular(["Audiomeditace", "Informativní konzultace zdarma", "Akademie jógy mysli"], "Máte k meditacím otázku?", "Odeslat") }}
+{{ m.formular(["Audiomeditace", "Informativní konzultace zdarma", "Akademie Jógy mysli"], "Máte k meditacím otázku?", "Odeslat") }}
 {% endblock %}
 {% block head %}{{ faq_ld([data.faq[2]]) }}{% endblock %}

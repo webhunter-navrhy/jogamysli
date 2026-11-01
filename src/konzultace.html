@@ -1,7 +1,7 @@
-{% extends "_v7.html" %}
-{% import "_m7.html" as m with context %}
+{% extends "_v8.html" %}
+{% import "_m8.html" as m with context %}
 {% set titulek = "Informativní konzultace zdarma | Jóga mysli – Radana Makariusová" %}
-{% set popis = "Informativní konzultace zdarma k Akademii jógy mysli, energetickým procesům, audiomeditacím i retreatům. Praha a online." %}
+{% set popis = "Informativní konzultace zdarma k Akademii Jógy mysli, energetickým procesům, audiomeditacím i retreatům. Praha a online." %}
 {% set cesta = "konzultace/" %}
 {% block telo %}pod{% endblock %}
 {% block obsah %}
@@ -11,8 +11,8 @@
   {"href": url("retreaty"), "nazev": "Retreaty", "cena": "kam a kdy se jede"},
   {"href": "#formular", "nazev": "Osobně i online", "cena": "zdarma a nezávazně"}
 ] %}
-{% call m.hlava("Konzultace zdarma", "Pojďme společně objevit osvobozující umění vnitřní vědomé pozornosti a nechme, ať nás radost provází.", "proces-rozhovor.jpg", "Informativní konzultace", ceny, "Rozhovor během konzultace jógy mysli", foto=True, foto_pos="50% 40%") %}
+{% call m.hlava("Úvodní setkání", "Pojďme společně objevit osvobozující umění vnitřní vědomé pozornosti a nechme, ať nás radost provází.", "proces-rozhovor.jpg", "Kontakt · informativní konzultace zdarma", ceny, "Rozhovor během konzultace Jógy mysli", foto=True, foto_pos="50% 40%") %}
 <div class="akce"><a class="tl" href="#formular">Napsat Radaně</a></div>
 {% endcall %}
-{{ m.formular(["Informativní konzultace zdarma", "Akademie jógy mysli", "Transformační energetické procesy", "Audiomeditace", "Retreaty", "Online kurz Akademie JM"], "Kontaktujte mě pro více informací", "Odeslat", "Informativní konzultace zdarma") }}
+{{ m.formular(["Informativní konzultace zdarma", "Akademie Jógy mysli", "Transformační energetické procesy", "Audiomeditace", "Retreaty", "Online kurz"], "Vaše cesta může začít právě teď", "Odeslat", "Informativní konzultace zdarma") }}
 {% endblock %}

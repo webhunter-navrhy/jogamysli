@@ -1,5 +1,5 @@
-{% extends "_v7.html" %}
-{% import "_m7.html" as m with context %}
+{% extends "_v8.html" %}
+{% import "_m8.html" as m with context %}
 {% set titulek = clanek.nazev ~ " | Jóga mysli – Radana Makariusová" %}
 {% set popis = clanek.perex[:155] %}
 {% block telo %}pod{% endblock %}
@@ -25,5 +25,5 @@
     <p class="stred"><a class="odkaz" href="{{ url('blog') }}">Všechny články {{ m.sipka() }}</a></p>
   </div>
 </section>
-{{ m.formular(["Informativní konzultace zdarma", "Akademie jógy mysli", "Transformační energetické procesy", "Audiomeditace", "Retreaty", "Online kurz Akademie JM"], "Kontaktujte mě pro více informací") }}
+{{ m.formular(["Informativní konzultace zdarma", "Akademie Jógy mysli", "Transformační energetické procesy", "Audiomeditace", "Retreaty", "Online kurz"], "Vaše cesta může začít právě teď") }}
 {% endblock %}

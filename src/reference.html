@@ -1,0 +1,28 @@
+{% extends "_v8.html" %}
+{% import "_m8.html" as m with context %}
+{% set titulek = "Reference – zkušenosti klientů s Jógou mysli | Radana Makariusová" %}
+{% set popis = "Zkušenosti klientů s Akademií Jógy mysli a s retreaty Radany Makariusové." %}
+{% set cesta = "reference/" %}
+{% set volby = ["Úvodní setkání", "Akademie Jógy mysli", "Transformační energetické procesy", "Meditace do uší", "Retreaty", "Online kurz"] %}
+{% block telo %}pod{% endblock %}
+{% block obsah %}
+
+{{ m.hlava_text("Jak Jógu mysli prožívají ostatní", "Reference", "Zkušenosti lidí, kteří prošli Akademií Jógy mysli.") }}
+
+<section class="sekce reference-cele" aria-label="Zkušenosti klientů">
+  <div class="wrap uzky">
+    {% for r in data.reference %}
+    <figure class="reference-jedna">
+      <blockquote>
+        <p class="reference-citat">„{{ r.citat|nbsp }}“</p>
+        {% for p in r.text %}<p>{{ p|nbsp }}</p>{% endfor %}
+      </blockquote>
+      <figcaption>{{ r.jmeno }}, {{ r.vek }} let</figcaption>
+    </figure>
+    {% endfor %}
+  </div>
+</section>
+
+{{ m.formular(volby, "Vaše cesta může začít právě teď", "Domluvit úvodní setkání", "Úvodní setkání") }}
+
+{% endblock %}

@@ -1,0 +1,106 @@
+{% import "_m8.html" as m with context %}<!doctype html>
+<html lang="{{ site.lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ titulek or site.nazev }}</title>
+<meta name="description" content="{{ popis or site.popis }}">
+{% if site.navrh or noindex %}<meta name="robots" content="noindex, nofollow">{% endif %}
+<meta name="theme-color" content="#faf6f0">
+<link rel="canonical" href="{{ site.url }}{{ cesta or '' }}">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:title" content="{{ titulek or site.nazev }}">
+<meta property="og:description" content="{{ popis or site.popis }}">
+<meta property="og:url" content="{{ site.url }}{{ cesta or '' }}">
+{% if og_url %}<meta property="og:image" content="{{ og_url }}">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">{% endif %}
+<link rel="icon" href="{{ base }}img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="{{ base }}fonts/PlayfairDisplay-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ base }}fonts/SourceSans3-normal-300-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ asset('css/v8.css') }}">
+{% block head %}{% endblock %}
+{% if jsonld %}<script type="application/ld+json">{{ jsonld|safe }}</script>{% endif %}
+</head>
+<body class="{% block telo %}{% endblock %}">
+{% include "_slunce.html" %}
+<a class="skip" href="#obsah">Přeskočit na obsah</a>
+<header class="hl">
+  <div class="wrap hl-in">
+    {{ m.logo() }}
+    <nav class="nav" id="menu" aria-label="Hlavní">
+      <ul class="nav-hlavni">
+        {% for n in site.nav %}
+        {% if n.get("pod") %}
+        <li class="ma-pod">
+          <button class="nav-pod-tl" type="button" aria-expanded="false" aria-controls="pod-{{ loop.index }}">{{ n.text }}<svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></button>
+          <ul class="nav-pod" id="pod-{{ loop.index }}">
+            {% for p in n.pod %}<li><a href="{{ url(p.href) }}"{% if cesta == p.href ~ '/' %} aria-current="page"{% endif %}>{{ p.text }}{% if p.get("pozn") %}<small>{{ p.pozn }}</small>{% endif %}</a></li>{% endfor %}
+          </ul>
+        </li>
+        {% else %}
+        <li><a href="{{ url(n.href) }}"{% if cesta == n.href ~ '/' %} aria-current="page"{% endif %}>{{ n.text }}</a></li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+      <div class="nav-mobil">
+        <a class="tl" href="{{ url('konzultace') }}#formular">Domluvit úvodní setkání</a>
+        <p><a href="mailto:{{ site.kontakt.email }}">{{ site.kontakt.email }}</a><br><a href="tel:{{ site.kontakt.telefon|replace(' ', '') }}">{{ site.kontakt.telefon }}</a></p>
+      </div>
+    </nav>
+    <a class="tl tl-maly hl-tl" href="{{ url('konzultace') }}#formular">Úvodní setkání</a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="menu"><span></span><span></span><span class="sr">Menu</span></button>
+  </div>
+</header>
+<main id="obsah">
+{% block obsah %}{% endblock %}
+</main>
+<footer class="paticka">
+  <div class="wrap">
+    <div class="paticka-grid">
+      <div class="paticka-znacka">
+        {{ m.logo() }}
+        <p>{{ "Jóga mysli · PhDr. Radana Makariusová, Ph.D." }}<br>Praha a online</p>
+      </div>
+      <nav aria-label="Patička">
+        <p class="paticka-t">Jóga mysli</p>
+        <ul>
+          <li><a href="{{ url('akademie-jogy-mysli') }}">Akademie Jógy mysli</a></li>
+          <li><a href="{{ url('o-joze-mysli') }}">O Józe mysli</a></li>
+          <li><a href="{{ url('o-mne') }}">O mně</a></li>
+          <li><a href="{{ url('reference') }}">Reference</a></li>
+          <li><a href="{{ url('blog') }}">Blog</a></li>
+          <li><a href="{{ url('nejcastejsi-otazky') }}">Nejčastější otázky</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Další možnosti">
+        <p class="paticka-t">Další možnosti</p>
+        <ul>
+          <li><a href="{{ url('audiomeditace') }}">Meditace do uší</a></li>
+          <li><a href="{{ url('transformativni-energeticke-procesy') }}">Transformativní procesy</a></li>
+          <li><a href="{{ url('retreaty') }}">Retreaty</a></li>
+          <li><a href="{{ url('online-kurz') }}">Online kurz</a></li>
+        </ul>
+      </nav>
+      <div>
+        <p class="paticka-t">Kontakt</p>
+        <ul>
+          <li><a href="mailto:{{ site.kontakt.email }}">{{ site.kontakt.email }}</a></li>
+          <li><a href="tel:{{ site.kontakt.telefon|replace(' ', '') }}">{{ site.kontakt.telefon }}</a></li>
+        </ul>
+        <a class="paticka-obrazy" href="{{ site.obrazy_url }}" target="_blank" rel="noopener">
+          <span class="paticka-obraz">{{ img(data.obrazy["o-radosti"].img, "", "64px", eager=False) }}</span>
+          <span><b>Obrazy z nitra</b>{{ "Sesterská značka: energetické obrazy s poselstvími"|nbsp }}</span>
+        </a>
+      </div>
+    </div>
+    <div class="paticka-spodek">
+      <p>© 2026 PhDr. Radana Makariusová, Ph.D.{% if site.ico %} · IČO {{ site.ico }}{% endif %} · Žijeme s lehkostí</p>
+      <p><a href="{{ url('gdpr') }}">Ochrana osobních údajů</a></p>
+    </div>
+  </div>
+</footer>
+<script src="{{ asset('js/v8.js') }}" defer></script>
+</body>
+</html>

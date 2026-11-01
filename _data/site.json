@@ -5,7 +5,7 @@
  "url": "https://webhunter-navrhy.github.io/jogamysli/",
  "base": "/jogamysli/",
  "lang": "cs",
- "popis": "Jóga mysli PhDr. Radany Makariusové: individuální Akademie jógy mysli, transformační energetické procesy, audiomeditace a retreaty. Praha i online.",
+ "popis": "Jóga mysli: vlastní přístup PhDr. Radany Makariusové k práci s myslí. Individuální Akademie Jógy mysli osobně v Praze i online, meditace, transformativní procesy a retreaty.",
  "navrh": true,
  "domena": "joga-mysli.cz",
  "og_image": "og.jpg",
@@ -36,32 +36,47 @@
  "obrazy_url": "https://obrazy-z-nitra.cz/",
  "nav": [
   {
-   "text": "Akademie",
+   "text": "Akademie Jógy mysli",
    "href": "akademie-jogy-mysli"
   },
   {
-   "text": "Energetické procesy",
-   "href": "transformativni-energeticke-procesy"
-  },
-  {
-   "text": "Meditace",
-   "href": "audiomeditace"
-  },
-  {
-   "text": "Retreaty",
-   "href": "retreaty"
-  },
-  {
-   "text": "Online kurz",
-   "href": "online-kurz"
-  },
-  {
-   "text": "Blog",
-   "href": "blog"
+   "text": "O Józe mysli",
+   "href": "o-joze-mysli"
   },
   {
    "text": "O mně",
    "href": "o-mne"
+  },
+  {
+   "text": "Další možnosti",
+   "href": "",
+   "pod": [
+    {
+     "text": "Meditace do uší",
+     "href": "audiomeditace"
+    },
+    {
+     "text": "Transformativní procesy",
+     "href": "transformativni-energeticke-procesy"
+    },
+    {
+     "text": "Retreaty",
+     "href": "retreaty"
+    },
+    {
+     "text": "Online kurz",
+     "href": "online-kurz",
+     "pozn": "připravujeme"
+    }
+   ]
+  },
+  {
+   "text": "Reference",
+   "href": "reference"
+  },
+  {
+   "text": "Kontakt",
+   "href": "konzultace"
   }
  ]
 }

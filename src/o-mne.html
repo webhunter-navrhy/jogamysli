@@ -1,5 +1,5 @@
-{% extends "_v7.html" %}
-{% import "_m7.html" as m with context %}
+{% extends "_v8.html" %}
+{% import "_m8.html" as m with context %}
 {% set titulek = "O mně – PhDr. Radana Makariusová, Ph.D. | Jóga mysli" %}
 {% set popis = "Radana Makariusová: autorka přístupu Jóga mysli, energetických transformačních procesů a energetických obrazů s poselstvími. Skutečná síla spočívá v tichu mysli." %}
 {% set cesta = "o-mne/" %}
@@ -7,7 +7,7 @@
 {% block obsah %}
 
 {% call m.hlava("Síla v tichu mysli", "Jmenuji se Radana Makariusová a ráda Vás budu doprovázet na Vaší cestě do nitra k vnitřnímu klidu a lehkosti.", "radana-u-stojanu.jpg", "O mně · PhDr. Radana Makariusová, Ph.D.", [], "Radana Makariusová u stojanu se svým obrazem", foto=True, foto_pos="50% 25%") %}
-<div class="akce"><a class="tl" href="{{ url('konzultace') }}">Konzultace zdarma</a><a class="odkaz" href="#obrazy">Obrazy z nitra {{ m.sipka() }}</a></div>
+<div class="akce"><a class="tl" href="#formular" data-zajem="Úvodní setkání">Domluvit úvodní setkání</a><a class="odkaz" href="#obrazy">Obrazy z nitra {{ m.sipka() }}</a></div>
 {% endcall %}
 
 <section class="sekce clanek-o-mne">
@@ -63,5 +63,5 @@
   </div>
 </section>
 
-{{ m.formular(["Informativní konzultace zdarma", "Akademie jógy mysli", "Transformační energetické procesy", "Audiomeditace", "Retreaty", "Online kurz Akademie JM"], "Kontaktujte mě pro více informací") }}
+{{ m.formular(["Informativní konzultace zdarma", "Akademie Jógy mysli", "Transformační energetické procesy", "Audiomeditace", "Retreaty", "Online kurz"], "Vaše cesta může začít právě teď") }}
 {% endblock %}

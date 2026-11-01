@@ -1,18 +1,17 @@
 {
   "znamka": 7,
   "slabiny": [
-    "Hero (PC buňka 1, mobil 1): nadpis i fotka Radany u plátna zabírají každý jen polovinu šířky a pod nimi zůstává prázdný pás s osamělou linkou. Je to stejný slabý vzorec „rámeček s jednou fotkou v béžové“, který Rafael odmítl u Metelky. Oprava: postavit úvod na obraze. Jeden velký výřez Radanina obrazu (mandala z Obrazů z nitra má rozlišení na plnou šířku) dát jako pozadí nebo velký kruh přes 60 % šířky, fotku s plátnem zmenšit jako doplněk, H1 zvětšit asi na 64–72 px a prázdný pás s linkou odstranit.",
-    "Rytmus sekcí (PC buňky 3, 6, 7 a 9): úvody sekcí Kudy se můžeme vydat, Obrazy z nitra i Retreaty mají stejnou kostru (středový zlatý nadpisek, Playfair h2, linka, středový perex). Před sekcemi Kudy se můžeme vydat a Obrazy z nitra a kolem tlačítka Celá galerie zůstávají prázdné béžové pásy vysoké asi 150–250 px. Oprava: zmenšit svislé mezery mezi sekcemi asi na polovinu. Retreaty zarovnat vlevo s jednou velkou fotkou (Sahara) a třemi menšími. Obrazy z nitra udělat jako vodorovný pás obrazů přes celou šířku bez středového úvodu.",
-    "Typografie a kontrast (PC buňka 2: text 15 let práce s myslí, buňka 4: řádky ceníku, všechny nadpisky): základní text na PC je jen asi 13–14 px a drobné zlaté verzálkové nadpisky mají na béžové slabý kontrast. Oprava: zvětšit text na 17–18 px s řádkem nejvýš 65 znaků, nadpisky přebarvit na brandovou #73614c a dát jim aspoň 12 px. Při té úpravě zvětšit i dotykové cíle na mobilu, které QA hlásí: checkbox ve formuláři má 24 px, odkaz Akademie jógy mysli 38 px a Blog v patičce 29 px, vše na ≥ 44 px."
+    "Sekce Možná právě teď nastal váš čas (PC buňky 4–5, mobil buňka 7) se nezměnila: pořád má středový zlatý nadpisek, vycentrovaný Playfair h2, vycentrovaný text a krátkou linku nad citátem. Mezi větou Nemusíte čekat na životní krizi a fotkou Radany zůstal prázdný pás asi 200 px. Oprava: nadpis dát do levého sloupce a text do pravého, linku odstranit a svislé odsazení sekce i mezeru před sekcí Jsem Radana Makariusová zmenšit na nejvýš 96 px.",
+    "Sekce Jak Jógu mysli prožívají ostatní (PC buňka 6, mobil buňka 9) má pořád starou kostru: středový nadpisek, vycentrovaný h2 a krátkou linku pod ním. Další možnosti (PC buňka 7) mají nadpis vlevo správně, ale stojí nad kartami, ne vedle nich. Oprava: linku pod h2 ve svědectvích odstranit a nadpis zarovnat vlevo jako v sekci Váš vnitřní svět. V sekci Další možnosti na PC dát nadpis s úvodní větou do levého sloupce a karty 2×2 vpravo.",
+    "Dotykové cíle a drobné písmo: QA pořád hlásí checkbox souhlasu ve formuláři 22×22 px (PC buňka 9, mobil buňka 13). Popisky čtyř karet v sekci Váš vnitřní svět (PC buňka 3) zůstaly na PC zhruba 13–14 px. Oprava: checkbox zvětšit na 24 px a celý řádek s popiskem zabalit do labelu s min-height 44 px. Texty karet nastavit na 17 px."
   ],
   "zavazne": [],
   "silne": [
-    "Brand sedí: v hlavičce vlevo je logo Žijeme s lehkostí a paleta vychází z klientovy hnědé #73614c a béžové #ecdecd, žádná cizí paleta.",
-    "Web má vlastní nápad z oboru: Radaniny obrazy z Obrazů z nitra jsou vizuální systém celého webu (karty služeb, meditace, galerie, patička se sesterským webem), takže nevypadá jako stock šablona.",
-    "Obsah sedí s podklady: ceny Akademie i energetických procesů, štítek „nejoblíbenější“, počty setkání, délky meditací, svědectví Lucie, Andrey a Karla i destinace retreatů mají zdroj v briefu nebo v textech starého webu.",
-    "Ukázka meditace s přehrávačem v tmavě hnědé sekci dává tmavé ploše důvod a nabízí konkrétní akci.",
-    "Kontakt je jasný: telefon a e-mail v hero, CTA Konzultace zdarma v hlavičce, formulář s fotkou a kontakty v patičce. Nic nepřetéká v žádné ze 6 šířek, web má 20 podstránek a žádný marquee, zrno ani číslování 01/02/03."
+    "Chybný údaj o zkušebním programu je opravený: Akademie v kostce teď uvádí „Zkušební program bez závazku, až 4 měsíce, od 2 500 Kč za setkání“, což odpovídá ceníku. Četnost 1× za 2 týdny i informativní konzultace zdarma jsou doložené v podkladech (pages-akademie-jogy-mysli.txt a formulář v pages-domu.txt).",
+    "Sekce Váš vnitřní svět má teď nadpis vlevo a karty vpravo s jemnými linkami. Rozbila tím opakující se středovou kostru a působí redakčně.",
+    "Koncept „vnitřní světlo“ drží celý web: zářivé zlaté plochy z Radaniných obrazů, mandala Nitro je poklad, světlá teplá paleta a logo Žijeme s lehkostí vlevo v hlavičce. Fotku Radany web používá v rozumné velikosti a nikde ji nepřetahuje.",
+    "Kontakt je jasný v hero, ve formuláři i v patičce. Mobil nikde nepřetéká a pořadí obsahu dává smysl."
   ],
-  "verdikt": "Web je poctivý, drží klientčin brand a nemá žádnou závažnou vadu, ale béžový editorial se slabým hero a stejnými středovými sekcemi se blíží odmítnuté Metelce. Před odesláním přestavět hero na velký obraz a zkrátit prázdné pásy mezi sekcemi (verdikt: opravit).",
-  "_hash": "841c493f29af7300e00a6dffdf95c9530a4a4ed0"
+  "verdikt": "Závažná faktická chyba v Akademii je opravená a ostatní údaje sedí s podklady. Rytmus sekcí (Možná právě teď a svědectví) a velikost checkboxu ale zůstaly opravené jen napůl, takže web zatím nedosahuje na 8.",
+  "_hash": "a3621ee15a2358f9e467188aa8db66fc8140fe8d"
 }
