@@ -1,10 +1,9 @@
-{% extends "_v8.html" %}
-{% import "_m8.html" as m with context %}
+{% extends "_v9.html" %}
+{% import "_m9.html" as m with context %}
 {% set titulek = "Stránka nenalezena – " ~ site.nazev %}
 {% set noindex = true %}
-{% block telo %}pod{% endblock %}
 {% block obsah %}
-{% call m.hlava_text("Tuto stránku jsme nenašli", "404", "Adresa se možná změnila. Nechte to plynout a pokračujte na úvod.") %}
-<div class="akce akce-stred"><a class="tl" href="{{ url('') }}">Zpět na úvod</a></div>
+{% call m.hlava("Tuto stránku jsme nenašli", "Adresa se možná změnila. Nechte to plynout a pokračujte na úvod.", "", "404") %}
+<div class="akce"><a class="tl" href="{{ url('') }}">Zpět na úvod</a></div>
 {% endcall %}
 {% endblock %}

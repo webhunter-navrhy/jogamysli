@@ -10,7 +10,7 @@
  "domena": "joga-mysli.cz",
  "og_image": "og.jpg",
  "logo": "",
- "theme_color": "#fffbf3",
+ "theme_color": "#512B39",
  "typ": "ProfessionalService",
  "ico": "61023442",
  "kontakt": {
@@ -36,7 +36,7 @@
  "obrazy_url": "https://obrazy-z-nitra.cz/",
  "nav": [
   {
-   "text": "Akademie Jógy mysli",
+   "text": "Akademie",
    "href": "akademie-jogy-mysli"
   },
   {

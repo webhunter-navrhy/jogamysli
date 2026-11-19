@@ -1,64 +1,35 @@
-{% extends "_v8.html" %}
-{% import "_m8.html" as m with context %}
+{% extends "_v9.html" %}
+{% import "_m9.html" as m with context %}
 {% set titulek = "Meditace do uší – audiomeditace 10+1 | Radana Makariusová" %}
 {% set popis = "Audiomeditace Radany Makariusové: 11 meditací a mentálních cvičení pro klid, uvolnění a vědomou pozornost. Ukázka Vše je dobré zdarma, balíček 10+1 i jako dárkový voucher." %}
 {% set cesta = "audiomeditace/" %}
 {% set md = data.meditace %}
-{% block telo %}pod{% endblock %}
+{% block head %}{{ faq_ld([data.faq[2]]) }}{% endblock %}
 {% block obsah %}
 
-{% set ceny = [
-  {"href": "#ukazka", "nazev": "Ukázka Vše je dobré · 6:03", "cena": "zdarma"},
-  {"href": "#seznam", "nazev": "Balíček 10 + 1 audiomeditací", "cena": "s průvodním textem"},
-  {"href": "#balicek", "nazev": "Dárkový voucher", "cena": "pro vaše blízké"}
-] %}
-{% call m.hlava("Meditace do uší", "Chvíle jen pro vás – relaxační i mentální cvičení pro vnitřní pohodu, klid a lehkost. Balíček 10 + 1 audiomeditací s průvodním textem.", "obraz-meditace.jpg", "Audiomeditace", ceny, "Žlutozlatý energetický obraz Radany Makariusové") %}
-<div class="akce">
-  <a class="tl" href="#ukazka">Poslechnout ukázku zdarma</a>
-  <a class="odkaz" href="{{ md.koupit }}" target="_blank" rel="noopener">Koupit balíček {{ m.ven() }}</a>
-</div>
+{% call m.hlava("Meditace do uší", "Chvíle jen pro vás. Balíček 10 + 1 audiomeditací s průvodním textem.", "o-dobru", "Audiomeditace") %}
+<div class="akce"><a class="tl" href="#ukazka">Ukázka zdarma</a><a class="tl tl-obrys" href="{{ md.koupit }}" target="_blank" rel="noopener">Koupit balíček</a></div>
 {% endcall %}
 
-<section class="sekce meditace" id="ukazka">
-  <div class="wrap">
-    {% call m.prehravac(md.seznam[0], "Vyzkoušejte ukázku zdarma, jestli vám bude vyhovovat hlas, téma, atmosféra.") %}
-    <ul class="prinosy" aria-label="Co meditace přinášejí">
-      {% for b in md.prinosy %}<li>{{ b|capitalize }}</li>{% endfor %}
-    </ul>
-    {% endcall %}
-  </div>
+<section class="sekce" id="ukazka">
+  <div class="wrap">{{ m.prehravac(md.seznam[0], "Poslechněte si, jestli vám sedí hlas, téma i atmosféra.") }}</div>
 </section>
 
-<section class="sekce pisek" id="seznam" aria-labelledby="seznam-h">
+<section class="sekce sekce-bila" id="seznam" aria-labelledby="seznam-h">
   <div class="wrap">
-    {{ m.nadpis("Meditace v balíčku", "", "Ke každé meditaci jsme vybrali obraz s poselstvím z galerie Obrazy z nitra. Klikněte na obraz a přečtěte si celé poselství.", "seznam-h") }}
+    {{ m.nadpis("Meditace v balíčku", "10 + 1", "Ke každé meditaci patří obraz s poselstvím z galerie Obrazy z nitra.", "seznam-h") }}
     <ol class="meditace-seznam">
       {% for x in md.seznam %}{% set o = data.obrazy[x.obraz] %}
       <li>
-        <a class="m-obraz" href="{{ o.url }}" target="_blank" rel="noopener" aria-label="Obraz {{ o.nazev }} v galerii Obrazy z nitra"><span class="dilo-pasparta">{{ img(o.img, "", "(max-width: 860px) 72px, 96px", eager=False) }}</span></a>
-        <div>
-          <h3 class="h4">{{ x.nazev }}</h3>
-          <p>{{ x.popis|nbsp }}</p>
-          <a class="m-obraz-odkaz" href="{{ o.url }}" target="_blank" rel="noopener">Obraz: {{ o.nazev }} {{ m.ven() }}</a>
-        </div>
-        <span class="m-delka">{{ x.delka }}</span>
+        <a href="{{ o.url }}" target="_blank" rel="noopener" aria-label="Obraz {{ o.nazev }} v galerii Obrazy z nitra">{{ img(o.img, "", "64px", eager=False) }}</a>
+        <div><h3>{{ x.nazev }}</h3><p>{{ x.popis|nbsp }}</p></div>
+        <span class="delka">{{ x.delka }}</span>
       </li>
       {% endfor %}
     </ol>
-  </div>
-</section>
-
-<section class="sekce" id="balicek" aria-labelledby="balicek-h">
-  <div class="wrap dvoj">
-    {{ m.dilo("obraz-meditace.jpg", "", "(max-width: 860px) 70vw, 380px", "balicek-dilo") }}
-    <div class="text">
-      <p class="kicker">Dárkový balíček audiomeditací</p>
-      <h2 class="h2" id="balicek-h">10 + 1 audiomeditací a&nbsp;průvodní text</h2>
-      <p class="perex">{{ "V případě, že budete chtít balíček audiomeditací někomu darovat, můžete si zakoupit dárkový voucher."|nbsp }}</p>
-      <div class="akce">
-        <a class="tl" href="{{ md.koupit }}" target="_blank" rel="noopener">Koupit audiomeditace {{ m.ven() }}</a>
-        <a class="odkaz" href="{{ md.voucher }}" target="_blank" rel="noopener">Koupit jako dárkový voucher {{ m.ven() }}</a>
-      </div>
+    <div class="akce">
+      <a class="tl" href="{{ md.koupit }}" target="_blank" rel="noopener">Koupit audiomeditace</a>
+      <a class="tl tl-okr" href="{{ md.voucher }}" target="_blank" rel="noopener">Dárkový voucher</a>
     </div>
   </div>
 </section>
@@ -66,4 +37,3 @@
 {{ m.faq([data.faq[2]], "Otázky k meditacím") }}
 {{ m.formular(["Audiomeditace", "Informativní konzultace zdarma", "Akademie Jógy mysli"], "Máte k meditacím otázku?", "Odeslat") }}
 {% endblock %}
-{% block head %}{{ faq_ld([data.faq[2]]) }}{% endblock %}

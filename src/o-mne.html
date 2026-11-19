@@ -1,67 +1,45 @@
-{% extends "_v8.html" %}
-{% import "_m8.html" as m with context %}
+{% extends "_v9.html" %}
+{% import "_m9.html" as m with context %}
 {% set titulek = "O mně – PhDr. Radana Makariusová, Ph.D. | Jóga mysli" %}
-{% set popis = "Radana Makariusová: autorka přístupu Jóga mysli, energetických transformačních procesů a energetických obrazů s poselstvími. Skutečná síla spočívá v tichu mysli." %}
+{% set popis = "Radana Makariusová: autorka Jógy mysli, průvodkyně Akademií a malířka energetických obrazů s poselstvími. Praha a online." %}
 {% set cesta = "o-mne/" %}
-{% block telo %}pod{% endblock %}
 {% block obsah %}
 
-{% call m.hlava("Síla v tichu mysli", "Jmenuji se Radana Makariusová a ráda Vás budu doprovázet na Vaší cestě do nitra k vnitřnímu klidu a lehkosti.", "radana-u-stojanu.jpg", "O mně · PhDr. Radana Makariusová, Ph.D.", [], "Radana Makariusová u stojanu se svým obrazem", foto=True, foto_pos="50% 25%") %}
-<div class="akce"><a class="tl" href="#formular" data-zajem="Úvodní setkání">Domluvit úvodní setkání</a><a class="odkaz" href="#obrazy">Obrazy z nitra {{ m.sipka() }}</a></div>
+{% call m.hlava("Síla v tichu mysli", "Jmenuji se Radana Makariusová a ráda vás budu doprovázet na cestě k vnitřnímu klidu a lehkosti.", "o-radosti", "O mně · PhDr. Radana Makariusová, Ph.D.") %}
+<div class="akce"><a class="tl" href="#formular" data-zajem="Úvodní setkání">Domluvit úvodní setkání</a></div>
 {% endcall %}
 
-<section class="sekce clanek-o-mne">
+<section class="sekce" aria-label="Můj příběh">
+  <div class="wrap dvoj">
+    <figure class="foto foto-vysoka">{{ img("radana-u-stojanu.jpg", "Radana Makariusová u stojanu se svým obrazem", "(max-width: 900px) 88vw, 560px", eager=False, styl="object-position:50% 25%") }}</figure>
+    <div class="dvoj-text">
+      <p class="velky-text">{{ "Od dětství jsem chtěla zachraňovat svět. Studovala jsem mezinárodní vztahy – a život mě nakonec zavedl k jinému „léku“: k vnitřní pohodě, klidu a lehkosti."|nbsp }}</p>
+      <p>{{ "S příchodem dětí jsem pochopila, že skutečná proměna začíná u nás samotných, v našem vnitřním světě. Meditace a soustředění se prohlubovaly a začala přicházet inspirace."|nbsp }}</p>
+      <blockquote class="citat"><p>{{ "Když pustíme otěže a necháme plynout bez zasahování, přijde něco, co bychom vůbec nečekali, a úplně samo."|nbsp }}</p></blockquote>
+      <p>{{ "Tak postupně vznikly energetické procesy, Jóga mysli – a z čista jasna i obrazy s poselstvími."|nbsp }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="sekce sekce-bila" id="obrazy" aria-labelledby="obrazy-h">
   <div class="wrap">
-    <div class="sloupec">
-      <p class="kicker">Skutečná síla spočívá v&nbsp;tichu mysli</p>
-      <p class="uvod-velky">{{ "Od dětství jsem toužila být lékařkou, vynalézt lék na rakovinu a zachraňovat svět. Později mě má mysl zavedla k úvahám stát se první českou prezidentkou."|nbsp }}</p>
-      <p>{{ "Díky těmto myšlenkám jsem se pustila do studia mezinárodních vztahů, abych té záchraně světa mohla lépe porozumět. To byly však jen dětské a teenagerovské sny. I když se mezinárodní vztahy staly mým celoživotně milovaným oborem, život to pak zařídil tak, že mě inspirace zavedla k jinému léku, a to k „léku“ na vnitřní pohodu, klid, lehkost a svobodu."|nbsp }}</p>
-      <p>{{ "Velmi brzy jsem se stala maminkou, a to byl hlavní, jak se říká, gamechanger. Do té doby jsem byla přesvědčená, že vše je odvislé od námi vyvinutého úsilí, a nepopírám, že v mém případě nebylo malé, ale s příchodem dětí jsem pochopila, že jsou situace, věci a okolnosti, které vůbec ovlivnit nemůžeme."|nbsp }}</p>
-      <p>{{ "Pochopila jsem, že opravdová proměna může přijít jen proměnou našeho přístupu. Pokud chceme něco změnit, musíme zkrátka začít u sebe – a tím měnit zejména svůj vnitřní svět. Postupně se mé vnitřní zaměření nebo řekněme soustředění (meditace, koncentrace) začalo proměňovat a prohlubovat. Průběhem času mi v rámci vnitřní práce začala přicházet inspirace."|nbsp }}</p>
-    </div>
-
-    <blockquote class="velky-citat"><p>{{ "„Když pustíme otěže a necháme plynout bez zasahování, přijde něco, co bychom vůbec nečekali, a úplně samo.“"|nbsp }}</p></blockquote>
-
-    <div class="sloupec">
-      <p>{{ "A to bylo to největší životní překvapení. Nikdo mě na to nepřipravil, nikdo mě dopředu neučil, že když pustíme otěže a necháme plynout bez zasahování, přijde něco, co bychom vůbec nečekali, a úplně samo. Zjistila jsem, že když odevzdáme své chtění, které nám přináší ego a mysl, že něco nějak chceme a potřebujeme, tak přichází neočekávané, překvapivé a krásné. Pak cítíme to skutečné bytí, které je v nás a kterým jsme."|nbsp }}</p>
-      <p>{{ "Začala jsem vnímat jemné energie, o kterých jsem do té doby nevěděla. Zjistila jsem, že my všichni jsme energií, kterou je možné vědomým přístupem transformovat tak, abychom se cítili lehce, abychom byli zdraví. Jen nás to nikdo neučí, a přitom je to naše podstata – být svobodní, naplnění a zdraví. Cítila jsem, že i vědomě vedený dotek má obrovskou transformační sílu."|nbsp }}</p>
-    </div>
-
-    <figure class="foto siroka" id="obrazy">
-      {{ img("malba-zahrada.jpg", "Radana Makariusová maluje v rozkvetlé zahradě velký bílo-zlatý obraz", "(max-width: 860px) 92vw, 1100px", eager=False) }}
-      <figcaption>{{ "Tak vznikají obrazy z nitra: v zahradě, s velkým plátnem na stojanu"|nbsp }}</figcaption>
-    </figure>
-
-    <div class="sloupec">
-      <p>{{ "To vše mě postupně a bez nějakého „plánu“ navedlo na energetické transformační procesy, které ke mně přišly postupně vnitřní inspirací. Najednou jsem z čista jasna začala malovat energetické obrazy s poselstvími, které jsou nedílnou součástí tohoto webu. Jsou to energetické zářiče na dané téma a mé velké životní překvapení."|nbsp }}</p>
-    </div>
-    <ul class="stena stena-3">
-      {% for slug in ["nitro-je-poklad", "o-radosti", "o-odvaze"] %}{% set o = data.obrazy[slug] %}
-      <li><a href="{{ o.url }}" target="_blank" rel="noopener">{{ m.dilo(o.img, "Obraz " ~ o.nazev, "(max-width: 860px) 42vw, 300px", nazev=o.nazev, pod=o.rozmer) }}</a></li>
+    {{ m.nadpis("Obrazy z nitra", "Energetické obrazy s poselstvími", "Maluji v zahradě, na velká plátna. Každý obraz je zářičem na jedno téma.", "obrazy-h") }}
+    <ul class="tri-obrazy">
+      {% for slug in ["o-duvere-ve-vyssi-ja", "o-radosti", "nitro-je-poklad"] %}{% set o = data.obrazy[slug] %}
+      <li><a href="{{ o.url }}" target="_blank" rel="noopener">{{ m.dilo(o.img, "Obraz " ~ o.nazev, "(max-width: 640px) 44vw, (max-width: 900px) 30vw, 360px", nazev=o.nazev, pod=o.rozmer) }}</a></li>
       {% endfor %}
     </ul>
-    <p class="stred"><a class="odkaz" href="{{ site.obrazy_url }}" target="_blank" rel="noopener">Všechny obrazy na obrazy-z-nitra.cz {{ m.ven() }}</a></p>
-    <div class="sloupec">
-      <p>{{ "Vnitřní inspirace je nevyčerpatelná, napojení na nekonečné vědomí a přenechání vedení je životním milníkem. Když si dovolíme věci nechat vědomě přirozeně plynout a přestaneme vyvíjet nekonečné úsilí, věci se začnou odvíjet samy. Vnitřní inspirací jsem tak průběhem času poskládala přístup osvobozujícího myšlení vnitřní vědomé pozornosti, který jsem nazvala Jóga mysli."|nbsp }}</p>
-      <p>{{ "Bude mi potěšením se s Vámi podělit o to, co jsem v rámci celoživotní vnitřní praxe pochopila, objevila, poznala a co jsem se naučila. Přece si to nenechám jen tak pro sebe."|nbsp }}</p>
-      <p>{{ "Vytvářím prostor pro druhé, aby objevili svůj vlastní klid, rovnováhu a sílu, neboť je úžasné pozorovat hloubku vnitřního klidu a poznání, které praxe vnitřní vědomé pozornosti přináší. Všichni máme v sobě ten největší poklad, stačí jen jej v sobě objevit a poznat se v něm."|nbsp }}</p>
-    </div>
+    <div class="akce" style="margin-top:40px"><a class="tl tl-okr" href="{{ site.obrazy_url }}" target="_blank" rel="noopener">Všechny obrazy {{ m.ven() }}</a></div>
   </div>
 </section>
 
-<section class="sekce pisek">
-  <div class="wrap dvoj">
-    <figure class="foto foto-vysoka">{{ img("radana-obraz.jpg", "Radana Makariusová s jedním ze svých obrazů", "(max-width: 860px) 92vw, 520px", eager=False, styl="object-position:50% 25%") }}</figure>
-    <div class="text">
-      <p class="kicker">P.S.</p>
-      <p class="perex">{{ "Kdybych mohla popsat několika slovy svůj život, tak jsou to pestrost, plnost, překvapení, a kdybych je propojila s pocity, tak jsou to vděčnost, odvaha, nebojácnost, a protože jsem Radana, tak také radost."|nbsp }}</p>
-      <p>{{ "Mám přirozeně hodně energie a entuziasmu, už vím, že zmobilizovaná odvaha nakonec přemůže všechny překážky a pak ještě přijde odměna formou nějaké inspirace. Následování zažitých systémů mi nikdy moc nešlo, a co mi nedává smysl, transformuji na pro mě lehké a srozumitelné, které se mi pak s jakousi přirozenou lehkostí daří vysvětlit."|nbsp }}</p>
-      <p>{{ "Moc ráda cestuji a věnuji se transformativnímu cestování, které odpoutává od každodenních aktivit a přináší nové vhledy."|nbsp }} <a href="{{ url('retreaty') }}">Retreaty</a></p>
-      <p>{{ "S manželem máme tři skvělé dospělé děti, a to považuji za životní požehnání."|nbsp }}</p>
-      <blockquote class="citat"><p>{{ "Hluboký význam spočívá právě v tom jen tak být sami sebou. A proto dnes zkrátka jsem. Vše je naplňující svoboda existence bytí."|nbsp }}</p></blockquote>
-    </div>
+<section class="sekce" aria-label="P.S.">
+  <div class="wrap uzky pribeh">
+    <p class="kicker">P.S.</p>
+    <p class="velky-text">{{ "Kdybych měla svůj život popsat několika slovy: pestrost, plnost, překvapení. A protože jsem Radana, také radost."|nbsp }}</p>
+    <p>{{ "Ráda cestuji – odtud i retreaty. S manželem máme tři dospělé děti a to považuji za životní požehnání."|nbsp }}</p>
   </div>
 </section>
 
-{{ m.formular(["Informativní konzultace zdarma", "Akademie Jógy mysli", "Transformační energetické procesy", "Audiomeditace", "Retreaty", "Online kurz"], "Vaše cesta může začít právě teď") }}
+{{ m.formular(["Informativní konzultace zdarma", "Akademie Jógy mysli", "Transformační energetické procesy", "Meditace do uší", "Retreaty", "Online kurz"], "Vaše cesta může začít právě teď") }}
 {% endblock %}

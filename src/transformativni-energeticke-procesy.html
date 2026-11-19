@@ -1,62 +1,42 @@
-{% extends "_v8.html" %}
-{% import "_m8.html" as m with context %}
+{% extends "_v9.html" %}
+{% import "_m9.html" as m with context %}
 {% set titulek = "Transformační energetické procesy – Praha | Radana Makariusová" %}
 {% set popis = "Transformační energetické procesy: jemná práce s energií v celém těle, uvolnění bloků a nové vhledy. 90 minut, 120 minut, komplexní proces i celodenní workshop. Dárkový voucher." %}
 {% set cesta = "transformativni-energeticke-procesy/" %}
 {% set p = data.procesy %}
-{% block telo %}pod{% endblock %}
+{% block head %}{{ faq_ld([data.faq[1]]) }}{% endblock %}
 {% block obsah %}
 
-{% set ceny = [
-  {"href": "#cenik", "nazev": "Proces 90 minut", "cena": "1 999 Kč"},
-  {"href": "#cenik", "nazev": "Proces 120 minut", "cena": "2 499 Kč"},
-  {"href": "#cenik", "nazev": "Komplexní proces 3–4 hodiny", "cena": "3 900 Kč"},
-  {"href": "#cenik", "nazev": "Celodenní workshop", "cena": "9 900 Kč"}
-] %}
-{% call m.hlava("Energetické procesy", "Unikátní transformační energetická péče. V průběhu procesu dochází k aktivaci energie, která uzdravuje, přináší úlevu a nové vhledy, odstraňuje tlak, únavu i stres.", "obraz-procesy.jpg", "Transformační energetické procesy · Praha", ceny, "Oranžovozlatý energetický obraz Radany Makariusové") %}
-<div class="akce">
-  <a class="tl" href="#formular">Objednat se</a>
-  <a class="odkaz" href="{{ p.voucher }}" target="_blank" rel="noopener">Dárkový voucher {{ m.ven() }}</a>
-</div>
+{% call m.hlava("Energetické procesy", "Jemná práce s energií v celém těle. Přináší úlevu, uvolnění a nové vhledy.", "o-spolupraci", "Transformativní procesy · Praha") %}
+<div class="akce"><a class="tl" href="#formular">Objednat se</a><a class="tl tl-obrys" href="{{ p.voucher }}" target="_blank" rel="noopener">Dárkový voucher</a></div>
 {% endcall %}
 
-<section class="sekce">
+<section class="sekce" aria-labelledby="jak-h">
   <div class="wrap dvoj">
-    <figure class="foto foto-siroka-v">{{ img("proces-dotek.jpg", "Radana Makariusová při energetickém procesu", "(max-width: 860px) 92vw, 600px", eager=False) }}</figure>
-    <div class="text">
+    <div class="dvoj-text">
       <p class="kicker">Jak proces probíhá</p>
-      <h2 class="h2">Dochází k&nbsp;jemné práci s&nbsp;energií v&nbsp;celém těle</h2>
+      <h2 class="h2" id="jak-h">{{ "Ležíte v teple pod dekou a relaxujete"|nbsp }}</h2>
+      <p class="perex">{{ "Během procesu nebo po něm často přichází jasné uvědomění a pocit hlubokého uvolnění."|nbsp }}</p>
       <ul class="body">{% for b in p.body %}<li>{{ b }}</li>{% endfor %}</ul>
-      <p class="perex">{{ "Během procesu nebo po něm může přicházet jasné uvědomění, nové vhledy, tzv. aha-momenty, či pocit hlubokého uvolnění. Naše energie se propojí a provede svoji práci."|nbsp }}</p>
-      <p>{{ "Proces probíhá na lehátku, jste v pohodlném oblečení v teple pod dekou a relaxujete."|nbsp }}</p>
     </div>
-  </div>
-</section>
-
-<section class="sekce pisek" aria-labelledby="prostory-h">
-  <div class="wrap">
-    {{ m.nadpis("Prostory", "", "Klidná místnost v Praze, kde se potkáváme na procesech i konzultacích Akademie.", "prostory-h") }}
     <div class="dve-foto">
-      <figure class="foto">{{ img("prostor.jpg", "Prostor pro energetické procesy a konzultace Jógy mysli", "(max-width: 860px) 92vw, 600px", eager=False) }}</figure>
-      <figure class="foto">{{ img("proces-lehatko.jpg", "Energetický proces: klientka leží na lehátku pod dekou, Radana pracuje s energií", "(max-width: 860px) 92vw, 600px", eager=False) }}</figure>
+      <figure class="foto">{{ img("proces-dotek.jpg", "Radana Makariusová při energetickém procesu", "(max-width: 900px) 44vw, 300px", eager=False) }}</figure>
+      <figure class="foto">{{ img("prostor.jpg", "Klidná místnost v Praze pro procesy a konzultace", "(max-width: 900px) 44vw, 300px", eager=False) }}</figure>
     </div>
   </div>
 </section>
 
-<section class="sekce" id="cenik" aria-labelledby="cenik-h">
-  <div class="wrap dvoj dvoj-nahore">
-    <div class="text">
+<section class="sekce sekce-bila" id="cenik" aria-labelledby="cenik-h">
+  <div class="wrap dvoj" style="align-items:start">
+    <div class="dvoj-text">
       <p class="kicker">Ceník</p>
       <h2 class="h2" id="cenik-h">Jednorázově i&nbsp;pravidelně</h2>
-      <p class="perex">{{ "Procesu se můžete zúčastnit jednorázově, ale je možné docházet i pravidelně. V takovém případě zaznamenáte v delším časovém horizontu pro sebe zásadní přínos."|nbsp }}</p>
-      <div class="akce">
-        <a class="tl" href="#formular">Objednat se</a>
-        <a class="odkaz" href="{{ p.voucher }}" target="_blank" rel="noopener">Koupit jako dárkový voucher {{ m.ven() }}</a>
-      </div>
+      <p class="perex">{{ "Přijít můžete jednou, nebo docházet pravidelně – pak je přínos nejvýraznější."|nbsp }}</p>
+      <div class="akce"><a class="tl" href="#formular">Objednat se</a><a class="tl tl-okr" href="{{ p.voucher }}" target="_blank" rel="noopener">Dárkový voucher</a></div>
     </div>
     <ul class="cenik">
       {% for c in p.cenik %}
-      <li{% if c[3] %} class="top"{% endif %}><div><h3>{{ c[0] }}{% if c[3] %} <em>nejoblíbenější</em>{% endif %}</h3><p>{{ c[1]|nbsp }}</p></div><strong>{{ c[2] }} Kč</strong></li>
+      <li{% if c[3] %} class="top"{% endif %}><div><h3>{{ c[0] }}</h3><p>{{ c[1]|nbsp }}</p></div><strong>{{ c[2] }} Kč</strong></li>
       {% endfor %}
     </ul>
   </div>
@@ -65,4 +45,3 @@
 {{ m.formular(["Proces 90 minut", "Proces 120 minut", "Komplexní proces (3–4 hodiny)", "Celodenní workshop", "Dárkový voucher", "Informativní konzultace zdarma"], "Objednat se na proces", "Odeslat") }}
 {{ m.faq([data.faq[1]], "Otázky k procesům") }}
 {% endblock %}
-{% block head %}{{ faq_ld([data.faq[1]]) }}{% endblock %}

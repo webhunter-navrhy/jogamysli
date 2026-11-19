@@ -1,14 +1,13 @@
-{% extends "_v8.html" %}
-{% import "_m8.html" as m with context %}
+{% extends "_v9.html" %}
+{% import "_m9.html" as m with context %}
 {% set titulek = "Nejčastější otázky – Jóga mysli | Radana Makariusová" %}
 {% set popis = "Odpovědi na časté otázky k Akademii Jógy mysli, energetickým procesům, audiomeditacím, retreatům a online kurzu." %}
 {% set cesta = "nejcastejsi-otazky/" %}
 {% block head %}{{ faq_ld(data.faq) }}{% endblock %}
-{% block telo %}pod{% endblock %}
 {% block obsah %}
-{% call m.hlava_text("Nejčastější otázky", "Jóga mysli", "Odpovědi k Akademii, energetickým procesům, meditacím, retreatům i online kurzu.") %}
-<ul class="rejstrik">{% for s in data.faq %}<li><a href="#{{ s.href }}">{{ s.tema }}</a></li>{% endfor %}</ul>
+{% call m.hlava("Nejčastější otázky", "Akademie, procesy, meditace, retreaty i online kurz.", "", "Jóga mysli") %}
+<ul class="temata">{% for s in data.faq %}<li><a href="#{{ s.href }}">{{ s.tema }}</a></li>{% endfor %}</ul>
 {% endcall %}
-{{ m.faq(data.faq, "Odpovědi") }}
-{{ m.formular(["Informativní konzultace zdarma", "Akademie Jógy mysli", "Transformační energetické procesy", "Audiomeditace", "Retreaty", "Online kurz"], "Nenašli jste odpověď?") }}
+{{ m.faq(data.faq, "Odpovědi", odkaz=False) }}
+{{ m.formular(["Informativní konzultace zdarma", "Akademie Jógy mysli", "Transformační energetické procesy", "Meditace do uší", "Retreaty", "Online kurz"], "Nenašli jste odpověď?") }}
 {% endblock %}
